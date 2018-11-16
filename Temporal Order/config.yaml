@@ -1,0 +1,12 @@
+TIME: 1000 # How much time second sound (both sounds, in fact) will be presented [in ms]
+RTIME: 5000 # Maximal response time [in ms]
+MAX_REVS: 9 # No of reversals in adaptive alg.
+START_SOA: 100 #[in ms]
+STEP_UP: 10 # [in ms]
+STEP_DOWN: 10 # [in ms]
+VOLUME: .05 # Sound volume, range [0.0, 1.0]
+LOW_FREQ: 700.0 # low sine freq [in Hz]
+HIGH_FREQ: 800.0 # high sine freq [in Hz]
+# DANGER ZONE. Modify only when you have a strong reason.
+WSF: 32768 # WAVE Scaling factor, 16-bit PCM WAVE format operate with values in range [-32768, 32767] (int16)
+SAMPLING_RATE: 44100 # sampling rate, must be integer [in Hz]
