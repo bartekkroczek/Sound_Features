@@ -1,0 +1,25 @@
+VER: Freq # Volume or freq
+TRAINING: [{'soa': 100, 'reps': 6}, {'soa': 80, 'reps': 2}, {'soa': 40, 'reps': 2}]
+# List describing training.
+# In example above it will be four levels of training (because of 4 items in list, may be less, may be more)
+# First training bloc   k contains 8 trials, (reps = 8) of soa equal to 60 etc...
+TRAIN_SOUND_TIME: 500 # Sound presentation time in training [in ms]
+FONT_COLOR: grey
+FONT_SIZE: 20
+LANG: pl_PL # en_US and pl_PL supported, feel free to translate for your language (with respect to GNU gettext convention)
+BREAK: 300 # break time between trials [in ms]
+TIME: 500 # Second sound presentation time [in ms]
+FEEDB_TIME: 1000 # Feedback label presentation time [in ms]
+RTIME: 4000 # Maximal response time [in ms]
+MAX_REVS: 2 # No of reversals in adaptive alg.
+START_SOA: 50 #[in ms]
+STEP_UP: 5 # [in ms]
+STEP_DOWN: 5 # [in ms]
+VOLUME: .5 # Sound volume, range [0.0, 1.0]
+STANDARD_FREQ: 600.0 # low sine freq [in Hz]
+FIRST_SOUND_KEY: left # keyboard key associate with low freq response
+SECOND_SOUND_KEY: right # keyboard key associate with high freq response
+LEARNING: 0 # How many iterations of stims in learning phase.
+# DANGER ZONE. Modify only when you have a strong reason.
+WSF: 32768 # WAVE Scaling factor, 16-bit PCM WAVE format operate with values in range [-32768, 32767] (int16)
+SAMPLING_RATE: 44100 # sampling rate, must be integer [in Hz]

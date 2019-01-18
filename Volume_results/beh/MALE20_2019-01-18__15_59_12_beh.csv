@@ -1,0 +1,8 @@
+PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat
+MALE20,1,Volume,0,left,1,40,-,-,-,0.9341519409790635
+MALE20,1,Volume,0,left,0,40,-,-,-,0.7891994200181216
+MALE20,1,Volume,0,right,1,40,-,-,-,0.8284438620321453
+MALE20,1,Volume,0,right,1,40,-,-,-,0.7628089060308412
+MALE20,1,Volume,0,right,0,40,-,-,-,0.7890430280240253
+MALE20,1,Volume,0,left,1,40,-,-,-,1.4511181939160451
+MALE20,1,Volume,0,right,0,40,-,-,-,1.0567527109524235

@@ -1,3 +1,4 @@
+import warnings
 from .AbstractAdaptive import AbstractAdaptive
 
 
@@ -41,17 +42,17 @@ class NUpNDown(AbstractAdaptive):
     def __iter__(self):
         return self
 
-    def next(self):
+    def __next__(self):
         # Set_corr wasn't used after last iteration. That's quite bad.
         if not self.set_corr_flag:
-            raise Exception(" class.set_corr() must be used at least once "
-                            "in any iteration!")
+            raise Exception(" class.set_corr() must be used at least once in any iteration!")
         self.set_corr_flag = False
 
         # check if it's time to stop alg.
-        if self.revs_count <= self.max_revs:
+        if self.revs_count < self.max_revs:
             return self.curr_val
         else:
+            # pass
             raise StopIteration()
 
     def set_corr(self, corr):
@@ -98,6 +99,10 @@ class NUpNDown(AbstractAdaptive):
             # clear counters after jump
             self.no_incorr_in_a_row = 0
             self.no_corr_in_a_row = 0
+
+        if self.curr_val < 0: # vals smaller than 0 are not allowed
+            warnings.warn("SOA less than 0 after calculation. Set to 0.", UserWarning)
+            self.curr_val = 0
 
     def get_jump_status(self):
         return self.last_jump_dir, self.switch_in_last_trail_flag, self.revs_count

@@ -1,0 +1,114 @@
+7.2385 	WARNING 	t of last frame was 1.28ms (=1/784)
+7.2498 	WARNING 	t of last frame was 2.09ms (=1/479)
+7.2512 	WARNING 	t of last frame was 0.82ms (=1/1225)
+7.3934 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='grey', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=array([ 128.,  128.,  128.]), text='Freq: Answer Label', units='pix', win=Window(...), wrapWidth=500)
+7.4182 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='grey', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=array([ 128.,  128.,  128.]), text=str(...), units='pix', win=Window(...), wrapWidth=500)
+7.4307 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='grey', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 128.,  128.,  128.]), text='Poprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+7.4429 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='grey', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 128.,  128.,  128.]), text='Niepoprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+7.4558 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='grey', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 128.,  128.,  128.]), text='Nie udzieliłeś/aś odpowiedzi', units='pix', win=Window(...), wrapWidth=500)
+7.4821 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='Freq: before training', units='pix', win=Window(...), wrapWidth=1000)
+8.2141 	DATA 	Keypress: return
+8.2163 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 1050.0
+8.2255 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+11.4804 	DATA 	Keypress: left
+12.5668 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 1050.0
+12.5741 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+15.4755 	DATA 	Keypress: right
+16.5617 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 150.0
+16.5689 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+22.3958 	DATA 	Keypress: left
+23.4809 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 150.0
+23.4906 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+29.1754 	DATA 	Keypress: left
+30.2613 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 1050.0
+30.2694 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+32.3521 	DATA 	Keypress: q
+32.3522 	EXP 	Global key event: safe_quit. Calling <function safe_quit at 0x7f75cbb32840>.
+32.3623 	EXP 	window1: mouseVisible = True
+32.3628 	EXP 	window1: mouseVisible = True
+7.2341 	WARNING 	t of last frame was 1.25ms (=1/800)
+7.2467 	WARNING 	t of last frame was 2.08ms (=1/481)
+7.3755 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='grey', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=array([ 128.,  128.,  128.]), text='Freq: Answer Label', units='pix', win=Window(...), wrapWidth=500)
+7.4019 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='grey', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=array([ 128.,  128.,  128.]), text=str(...), units='pix', win=Window(...), wrapWidth=500)
+7.4142 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='grey', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 128.,  128.,  128.]), text='Poprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+7.4303 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='grey', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 128.,  128.,  128.]), text='Niepoprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+7.5044 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='grey', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 128.,  128.,  128.]), text='Nie udzieliłeś/aś odpowiedzi', units='pix', win=Window(...), wrapWidth=500)
+7.5251 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='Freq: before training', units='pix', win=Window(...), wrapWidth=1000)
+9.0490 	DATA 	Keypress: space
+9.0520 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 550.0
+9.0550 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+10.7148 	DATA 	Keypress: left
+12.0195 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+12.0247 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+13.8382 	DATA 	Keypress: right
+15.1424 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 550.0
+15.1443 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+16.7841 	DATA 	Keypress: left
+18.0897 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 550.0
+18.0917 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+19.6826 	DATA 	Keypress: right
+20.9883 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+20.9906 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+22.5986 	DATA 	Keypress: left
+23.9035 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+23.9054 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+25.6407 	DATA 	Keypress: left
+26.9460 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 550.0
+26.9480 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+28.3568 	DATA 	Keypress: right
+29.6623 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+29.6646 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+32.5962 	DATA 	Keypress: right
+33.9032 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+33.9052 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+35.5624 	DATA 	Keypress: right
+36.8699 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+36.8722 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+38.4659 	DATA 	Keypress: right
+39.7732 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+39.7751 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+41.2043 	DATA 	Keypress: left
+42.5118 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+42.5136 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+44.3659 	DATA 	Keypress: left
+45.6743 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 550.0
+45.6766 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+47.2871 	DATA 	Keypress: left
+48.5949 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+48.5969 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+50.9110 	DATA 	Keypress: left
+52.2178 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+52.2198 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+55.6291 	DATA 	Keypress: right
+56.9365 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+56.9389 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+58.5256 	DATA 	Keypress: right
+59.8364 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+59.8387 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+61.8152 	DATA 	Keypress: right
+63.1230 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+63.1251 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+65.1704 	DATA 	Keypress: left
+66.4779 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 650.0
+66.4802 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+68.0552 	DATA 	Keypress: left
+69.3627 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 550.0
+69.3647 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+70.9718 	DATA 	Keypress: left
+72.2792 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 680.0
+72.2812 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+74.0779 	DATA 	Keypress: right
+75.3860 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 680.0
+75.3886 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+76.7431 	DATA 	Keypress: left
+78.0509 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 640.0
+78.0528 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+80.1390 	DATA 	Keypress: left
+81.4472 	INFO 	STANDARD FREQ: 600.0 COMPARISON FREQ: 560.0
+81.4497 	INFO 	STANDARD VOLUME: 0.5 COMPARISON VOLUME: 0.5
+83.1053 	DATA 	Keypress: left
+84.4197 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='Freq: before experiment', units='pix', win=Window(...), wrapWidth=1000)
+91.2761 	DATA 	Keypress: q
+91.2762 	EXP 	Global key event: safe_quit. Calling <function safe_quit at 0x7fefa1ccb840>.
+91.2840 	EXP 	window1: mouseVisible = True
+91.2847 	EXP 	window1: mouseVisible = True
