@@ -372,11 +372,12 @@ for idx, soa in enumerate(experiment, idx):
         rev_count_val = revs_count
     else:
         rev_count_val = '-'
-
+   
     RESULTS.append([PART_ID, idx, conf.VER, 1, key, int(corr), soa, reversal, level, rev_count_val, rt])
     if idx == conf.MAX_TRIALS:
         break
     core.wait(conf.BREAK / 1000.0)
+   
 
 # %% == Clear experiment
 msg = {'Volume': _('Volume: end'), 'Freq': _('Freq: end')}[conf.VER]

@@ -90,6 +90,7 @@ def cmp_vol(soa: int, sound: mixer.Sound, ans_lbs: List[visual.TextStim], feedba
         first_volume, second_volume = conf.VOLUME + soa, conf.VOLUME
     # == Phase 1: Stimuli presentation
     sound.set_volume(first_volume)
+    time.sleep(t)
     sound.play()
     time.sleep(t)
     sound.stop()
@@ -187,6 +188,7 @@ def cmp_freq(soa: int, standard: mixer.Sound, ans_lbs: List[visual.TextStim], fe
         first_sound, second_sound = comparison, standard
     logging.info('STANDARD VOLUME: {} COMPARISON VOLUME: {}'.format(standard.get_volume(), comparison.get_volume()))
     # == Phase 1: Stimuli presentation
+    time.sleep(t)
     first_sound.play()
     time.sleep(t)
     first_sound.stop()
