@@ -11,6 +11,7 @@ BREAK: 300 # break time between trials [in ms]
 TIME: 500 # Second sound presentation time [in ms]
 FEEDB_TIME: 1000 # Feedback label presentation time [in ms]
 RTIME: 4000 # Maximal response time [in ms]
+MAX_TRIALS: 50 # max no of trials
 MAX_REVS: 2 # No of reversals in adaptive alg.
 START_SOA: 10 #[in ms]
 STEP_UP: 5 # [in ms]

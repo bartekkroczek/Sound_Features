@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-01-09 11:05+0100\n"
-"PO-Revision-Date: 2019-01-09 12:07+0100\n"
+"POT-Creation-Date: 2019-01-21 12:39+0100\n"
+"PO-Revision-Date: 2019-01-21 12:52+0100\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,242 +17,90 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Language: pl_PL\n"
 
-#: main.py:418
-msgid "Classic: Answer Label"
-msgstr "Który dźwięk pierwszy?"
+#: main.py:308
+msgid "Freq: Answer Label"
+msgstr "Który wyższy?"
 
-#: main.py:419
-msgid "Reverse: Answer Label"
-msgstr "Który dźwięk na końcu?"
+#: main.py:308
+msgid "Volume: Answer Label"
+msgstr "Który głośniejszy?"
 
-#: main.py:420
-msgid "Duration: Answer Label"
-msgstr "Który dźwięk trwał dłużej?"
+#: main.py:311
+msgid "Freq: Up arrow"
+msgstr "→ (Drugi wyższy)"
 
-#: main.py:421
-msgid "Duration_2_results: Answer Label"
-msgstr "Która przerwa trwała dłużej?"
+#: main.py:311
+msgid "Volume: Up arrow"
+msgstr "→ (Drugi głośniejszy)"
 
-#: main.py:425 main.py:426
-msgid "Temporal order: Up arrow"
-msgstr "↑ (Wysoki)"
+#: main.py:312
+msgid "Freq: Down arrow"
+msgstr "← (Pierwszy wyższy)"
 
-#: main.py:427 main.py:428
-msgid "Duration: Up arrow"
-msgstr "→ (Drugi)"
+#: main.py:312
+msgid "Volume: Down arrow"
+msgstr "← (Pierwszy głośniejszy)"
 
-#: main.py:429 main.py:430
-msgid "Temporal order: Down arrow"
-msgstr "↓ (Niski)"
-
-#: main.py:431 main.py:432
-msgid "Duration: Down arrow"
-msgstr "← (Pierwszy)"
-
-#: main.py:438
+#: main.py:318
 msgid "Corr ans"
 msgstr "Poprawna odpowiedź"
 
-#: main.py:442
+#: main.py:322
 msgid "Incorr ans"
-msgstr "Niepoprawna odpowiedź"
+msgstr "Odpowiedź niepoprawna."
 
-#: main.py:446
+#: main.py:326
 msgid "No ans"
 msgstr "Nie udzieliłeś/aś odpowiedzi"
 
-#: main.py:451
-msgid "Classic: hello, before learning"
+#: main.py:349
+msgid "Freq: before training"
 msgstr ""
-"Na początek załóż proszę na głowę słuchawki znajdujące się obok Ciebie.\n"
+"W tym zadaniu będziesz decydował, który z dwóch po kolei puszczanych dźwięków był WYŻSZY (czyli bardziej \"piskliwy\").\n"
 "\n"
-"W tym zadaniu pojawiać się będą dwa różne dźwięki, jeden nieco wyższy (czyli piskliwy), a drugi nieco niższy.\n"
+"Po kolei usłyszysz dwa dźwięki.\n"
+"Jeśli to pierwszy z nich był wyższy od drugiego przyciśnij lewą strzałkę.\n"
+"Jeśli to drugi był wyższy od pierwszego przyciśnij prawą strzałkę.\n"
 "\n"
-"Za każdym razem będzie tak, że któryś z tych dwóch dźwięków,\n"
-"losowo niższy lub wyższy, pojawi się jako pierwszy, \n"
-"a następnie, po krótkiej chwili, dołączy do niego drugi dźwięk, \n"
-"tak że przez chwilę oba będą odtwarzane równocześnie.\n"
-"\n"
-"Twoim zadaniem jest odpowiedzieć, który dźwięk, wyższy czy niższy, \n"
-"pojawił się jako pierwszy.\n"
-"\n"
-"Na początek zapoznasz się z oboma dźwiękami:\n"
-"Przyciśnij SPACJĘ"
+"Przejdź spacją do treningu"
 
-#: main.py:452
-msgid "Reverse: hello, before learning"
+#: main.py:349
+msgid "Volume: before training"
 msgstr ""
-"Na początek załóż proszę na głowę słuchawki znajdujące się obok Ciebie.\n"
+"W tym zadaniu będziesz decydował, który z dwóch po kolei puszczanych dźwięków był GŁOŚNIEJSZY\n"
 "\n"
-"To zadanie będzie bardzo podobne do poprzedniego.\n"
-"W zadaniu tym będą pojawiać te same dwa dźwięki co poprzednio,\n"
-"czyli dźwięk wyższy i niższy. \n"
+"Po kolei usłyszysz dwa dźwięki.\n"
+"Jeśli to pierwszy z nich był GŁOŚNIEJSZY od drugiego przyciśnij lewą strzałkę.\n"
+"Jeśli to drugi był GŁOŚNIEJSZY od pierwszego przyciśnij prawą strzałkę.\n"
 "\n"
-"Różnica będzie taka, że:\n"
-"najpierw oba dźwięki będą odtwarzane równocześnie.\n"
-"Następnie, po krótkiej chwili, jeden z nich, losowo wyższy lub niższy, umilknie, \n"
-"a drugi dźwięk będzie odtwarzany sam jeszcze przez ułamek sekundy.\n"
-"\n"
-"Twoim zadaniem jest więc odpowiedzieć, który dźwięk,\n"
-"wyższy czy niższy, był grany sam na końcu.\n"
-"\n"
-"Jeśli to wyższy dźwięk będzie grany na końcu, przyciśnij górną strzałkę na klawiaturze: ↑\n"
-", a jeśli niższy, przyciśnij dolną strzałkę: ↓\n"
-"\n"
-"UWAGA. Masz 4 sekundy na udzielenie odpowiedzi, liczy się jedynie Twoja poprawność, \n"
-"szybkość odpowiedzi nie ma żadnego znaczenia.\n"
-"\n"
-"Przyciśnij SPACJĘ by przypomnieć sobie dźwięki."
+"Przejdź spacją do treningu"
 
-#: main.py:453
-msgid "Duration: hello, before learning"
+#: main.py:359
+msgid "Freq: before experiment"
 msgstr ""
-"W tym zadaniu będziesz decydował, który z dwóch po kolei prezentowanych dźwięków był prezentowany przez DŁUŻSZY czas.\n"
+"Ukończyłeś trening.\n"
 "\n"
-"ZAWSZE jeden z dźwięków, losowo pierwszy lub drugi w kolejności, \n"
-"będzie prezentowany nieco dłużej. Na początku różnica ta będzie stosunkowo\n"
-"łatwa do zauważenia. W dalszej części zadanie stanie się trudniejsze.\n"
+"Pamiętaj Twoim zadaniem jest zdecydować, który dźwięk był WYŻSZY\n"
 "\n"
-"Dokładnie zadanie będzie wyglądać następująco:\n"
-"Po kolei pojawią się dwa dźwięki.\n"
-"Następnie naciśnij LEWĄ strzałkę na klawiaturze jeśli to PIERWSZY z dźwięków trwał DŁUŻEJ\n"
-"lub PRAWĄ strzałkę jeśli to DRUGI z dźwięków trwał DŁUŻEJ.\n"
-"\n"
-"Liczy się jedynie Twoja poprawność.\n"
-"Szybkość odpowiedzi nie ma znaczenia,\n"
-"masz 4 sekundy na udzielenie odpowiedzi.\n"
-"\n"
-"Nacisnij SPACJĘ by przejść do TRENINGU."
+"Przyciśnij spację by rozpocząć"
 
-#: main.py:454
-msgid "Duration_2_results: hello, before learning"
+#: main.py:359
+msgid "Volume: before experiment"
 msgstr ""
-"Przed Tobą podobne zadanie do poprzedniego.\n"
+"Ukończyłeś trening.\n"
 "\n"
-"Tym razem pojawiać się będą 3 dźwięki po kolei.\n"
-"Każdy z dźwięków będzie puszczany przez taki sam czas.\n"
+"Pamiętaj Twoim zadaniem jest zdecydować, który dźwięk był GŁOŚNIEJSZY\n"
 "\n"
-"Teraz Twoim zadaniem jest odpowiedzieć:\n"
-"czy PRZERWA POMIĘDZY pierwszym a drugim dźwiękiem była dłuższa \n"
-"od przerwy pomiędzy drugim a trzecim dźwiękiem, czy na odwrót.\n"
-"\n"
-"Naciśnij LEWĄ strzałkę jeśli to PIERWSZA z PRZERW pomiędzy dźwiękami trwała DŁUŻEJ\n"
-"lub prawą strzałkę jeśli to DRUGA z PRZERW pomiędzy dźwiękami trwała DŁUŻEJ.\n"
-"\n"
-"Nacisnij SPACJĘ by przejść do TRENINGU."
+"Przyciśnij spację by rozpocząć"
 
-#: main.py:457
-msgid "LOW FREQUENCY"
-msgstr "Niski "
-
-#: main.py:458
-msgid "HIGH FREQUENCY"
-msgstr "Wysoki"
-
-#: main.py:471
-msgid "Classic: before training"
+#: main.py:380
+msgid "Freq: end"
 msgstr ""
-"Teraz nastąpi trening zadania.\n"
-"Dźwięki będą puszczane szybko, więc musisz się skoncentrować.\n"
-"\n"
-"Pamiętaj:\n"
-"Zawsze będzie tak że, któryś z dwóch dźwięków pojawi się jako pierwszy\n"
-"i będzie on odtwarzany sam przez ułamek sekundy. Następnie dołączy do niego drugi dźwięk.\n"
-"\n"
-"Twoim zadaniem jest odpowiedzieć, który dźwięk, wyższy czy niższy, \n"
-"pojawił się jako pierwszy.\n"
-"\n"
-"Jeśli wyższy dźwięk będzie pierwszy przyciśnij górną strzałkę na klawiaturze: ↑\n"
-", a jeśli niższy, przyciśnij dolną strzałkę: ↓\n"
-"\n"
-"UWAGA. Masz 4 sekundy na udzielenie odpowiedzi, liczy się jedynie Twoja poprawność, \n"
-"szybkość odpowiedzi nie ma żadnego znaczenia.\n"
-"\n"
-"Przyciśnij SPACJĘ by przejść do treningu."
-
-#: main.py:472
-msgid "Reverse: before training"
-msgstr ""
-"Teraz nastąpi trening zadania.\n"
-"\n"
-"Przyciśnij SPACJĘ by przejść do treningu."
-
-#: main.py:473
-msgid "Duration: before training"
-msgstr ""
-
-#: main.py:474
-msgid "Duration_2_results: before training"
-msgstr ""
-
-#: main.py:484
-msgid "Classic: before experiment"
-msgstr ""
-"Brawo, ukończyłeś trening. Jeśli masz wątpliwości czy poprawnie wykonywałeś zadanie, \n"
-"nie krępuj się i zadaj pytanie osobie prowadzącej.\n"
-"\n"
-"Pamiętaj:\n"
-"Twoim zadaniem jest odpowiedzieć, który dźwięk, wyższy czy niższy, \n"
-"pojawił się jako pierwszy.\n"
-"\n"
-"Jeśli wyższy dźwięk będzie pierwszy przyciśnij górną strzałkę na klawiaturze: ↑\n"
-", a jeśli niższy, przyciśnij dolną strzałkę: ↓\n"
-"\n"
-"Zadanie będzie trudniejsze niż w treningu więc skoncentruj się.\n"
-"Przejdź SPACJĄ do zadania."
-
-#: main.py:485
-msgid "Reverse: before experiment"
-msgstr ""
-"Brawo, ukończyłeś trening. Jeśli masz wątpliwości czy poprawnie wykonywałeś zadanie, \n"
-"nie krępuj się i zadaj pytanie osobie prowadzącej.\n"
-"Pamiętaj: Twoim zadaniem jest  odpowiedzieć, który dźwięk,\n"
-"wyższy czy niższy, był grany sam na końcu.\n"
-"\n"
-"Jeśli to wyższy dźwięk będzie grany na końcu, przyciśnij górną strzałkę na klawiaturze: ↑\n"
-", a jeśli niższy, przyciśnij dolną strzałkę: ↓\n"
-"\n"
-"Zadanie będzie trudniejsze niż w treningu więc skoncentruj się.\n"
-"Przejdź SPACJĄ do zadania."
-
-#: main.py:486
-msgid "Duration: before experiment"
-msgstr ""
-"﻿Brawo, ukończyłeś/aś trening.\n"
-"\n"
-"Pamiętaj, Twoim zadaniem jest zdecydować, który z dźwięków był wyświetlany przez DŁUŻSZY czas.\n"
-"\n"
-"Nacisnij SPACJĘ by  rozpocząć zadanie."
-
-#: main.py:487
-msgid "Duration_2_results: before experiment"
-msgstr ""
-"﻿Brawo, ukończyłeś/aś trening\n"
-"\n"
-"Pamiętaj, Twoim zadaniem jest zdecydować, która z przerw pomiędzy dźwiękami trwała DŁUŻEJ.\n"
-"\n"
-"Nacisnij SPACJĘ by rozpocząć zadanie."
-
-#: main.py:511
-msgid "Classic: end"
-msgstr ""
-"Koniec zadania.\n"
+"Koniec zadania\n"
 "Przyciśnij spację"
 
-#: main.py:512
-msgid "Reverse: end"
+#: main.py:380
+msgid "Volume: end"
 msgstr ""
-"Koniec zadania.\n"
-"Przyciśnij spację"
-
-#: main.py:513
-msgid "Duration:end"
-msgstr ""
-"Koniec zadania.\n"
-"Przyciśnij spację"
-
-#: main.py:514
-msgid "Duration_2_results:end"
-msgstr ""
-"Koniec zadania.\n"
+"Koniec zadania\n"
 "Przyciśnij spację"

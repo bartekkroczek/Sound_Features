@@ -135,8 +135,8 @@ def cmp_vol(soa: int, sound: mixer.Sound, ans_lbs: List[visual.TextStim], feedba
             feedback_label = corr_feedback_label
         else:
             feedback_label = incorr_feedback_label
-    print("STANDARD FIRST: {} STANDARD LAUDER: {} CORR:{} KEY:{} FIRST VOLUME: {} SECOND VOLUME: {}".format(
-        standard_first, standard_lauder, corr, key[0], first_volume, second_volume))
+    # print("STANDARD FIRST: {} STANDARD LAUDER: {} CORR:{} KEY:{} FIRST VOLUME: {} SECOND VOLUME: {}".format(
+    #     standard_first, standard_lauder, corr, key[0], first_volume, second_volume))
     if timeout:  # No reaction
         key = 'noans'
         rt = -1.0
@@ -234,7 +234,7 @@ def cmp_freq(soa: int, standard: mixer.Sound, ans_lbs: List[visual.TextStim], fe
     # print("STANDARD FIRST: {} STANDARD FREQ HIGHER: {}".format(standard_first, standard_freq_higher), end=' ')
     # print('KEY: {} CORR: {}'.format(key[0], corr))
     if timeout:  # No reaction
-        key = 'noans'
+        key = ['noans']
         rt = -1.0
         feedback_label = noans_feedback_label
         corr = -1
@@ -311,7 +311,7 @@ answer_label = visual.TextStim(win, pos=(0, -2 * conf.FONT_SIZE), text=answer_la
 up_arrow = {'Volume': _('Volume: Up arrow'), 'Freq': _("Freq: Up arrow")}[conf.VER]
 down_arrow = {'Volume': _('Volume: Down arrow'), 'Freq': _("Freq: Down arrow")}[conf.VER]
 answer2_label = down_arrow + ' ' * 2 * conf.FONT_SIZE + up_arrow
-answer2_label = visual.TextStim(win, pos=(0, -4 * conf.FONT_SIZE), text=answer2_label, font='Arial',
+answer2_label = visual.TextStim(win, pos=(0, -4 * conf.FONT_SIZE), text=answer2_label, font='Arial', wrapWidth=1000,
                                 color=conf.FONT_COLOR, height=conf.FONT_SIZE)
 answer_labels = [answer_label, answer2_label]
 
@@ -374,6 +374,8 @@ for idx, soa in enumerate(experiment, idx):
         rev_count_val = '-'
 
     RESULTS.append([PART_ID, idx, conf.VER, 1, key, int(corr), soa, reversal, level, rev_count_val, rt])
+    if idx == conf.MAX_TRIALS:
+        break
     core.wait(conf.BREAK / 1000.0)
 
 # %% == Clear experiment

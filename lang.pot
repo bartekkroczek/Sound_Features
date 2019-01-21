@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-01-09 11:05+0100\n"
+"POT-Creation-Date: 2019-01-21 12:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,118 +16,62 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 "X-Generator: Poedit 2.0.6\n"
 
-#: main.py:418
-msgid "Classic: Answer Label"
+#: main.py:308
+msgid "Freq: Answer Label"
 msgstr ""
 
-#: main.py:419
-msgid "Reverse: Answer Label"
+#: main.py:308
+msgid "Volume: Answer Label"
 msgstr ""
 
-#: main.py:420
-msgid "Duration: Answer Label"
+#: main.py:311
+msgid "Freq: Up arrow"
 msgstr ""
 
-#: main.py:421
-msgid "Duration_2_results: Answer Label"
+#: main.py:311
+msgid "Volume: Up arrow"
 msgstr ""
 
-#: main.py:425 main.py:426
-msgid "Temporal order: Up arrow"
+#: main.py:312
+msgid "Freq: Down arrow"
 msgstr ""
 
-#: main.py:427 main.py:428
-msgid "Duration: Up arrow"
+#: main.py:312
+msgid "Volume: Down arrow"
 msgstr ""
 
-#: main.py:429 main.py:430
-msgid "Temporal order: Down arrow"
-msgstr ""
-
-#: main.py:431 main.py:432
-msgid "Duration: Down arrow"
-msgstr ""
-
-#: main.py:438
+#: main.py:318
 msgid "Corr ans"
 msgstr ""
 
-#: main.py:442
+#: main.py:322
 msgid "Incorr ans"
 msgstr ""
 
-#: main.py:446
+#: main.py:326
 msgid "No ans"
 msgstr ""
 
-#: main.py:451
-msgid "Classic: hello, before learning"
+#: main.py:349
+msgid "Freq: before training"
 msgstr ""
 
-#: main.py:452
-msgid "Reverse: hello, before learning"
+#: main.py:349
+msgid "Volume: before training"
 msgstr ""
 
-#: main.py:453
-msgid "Duration: hello, before learning"
+#: main.py:359
+msgid "Freq: before experiment"
 msgstr ""
 
-#: main.py:454
-msgid "Duration_2_results: hello, before learning"
+#: main.py:359
+msgid "Volume: before experiment"
 msgstr ""
 
-#: main.py:457
-msgid "LOW FREQUENCY"
+#: main.py:380
+msgid "Freq: end"
 msgstr ""
 
-#: main.py:458
-msgid "HIGH FREQUENCY"
-msgstr ""
-
-#: main.py:471
-msgid "Classic: before training"
-msgstr ""
-
-#: main.py:472
-msgid "Reverse: before training"
-msgstr ""
-
-#: main.py:473
-msgid "Duration: before training"
-msgstr ""
-
-#: main.py:474
-msgid "Duration_2_results: before training"
-msgstr ""
-
-#: main.py:484
-msgid "Classic: before experiment"
-msgstr ""
-
-#: main.py:485
-msgid "Reverse: before experiment"
-msgstr ""
-
-#: main.py:486
-msgid "Duration: before experiment"
-msgstr ""
-
-#: main.py:487
-msgid "Duration_2_results: before experiment"
-msgstr ""
-
-#: main.py:511
-msgid "Classic: end"
-msgstr ""
-
-#: main.py:512
-msgid "Reverse: end"
-msgstr ""
-
-#: main.py:513
-msgid "Duration:end"
-msgstr ""
-
-#: main.py:514
-msgid "Duration_2_results:end"
+#: main.py:380
+msgid "Volume: end"
 msgstr ""
