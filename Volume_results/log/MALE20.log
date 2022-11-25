@@ -427,3 +427,412 @@
 15.7071 	EXP 	Global key event: safe_quit. Calling <function safe_quit at 0x7fac5aadc840>.
 15.7156 	EXP 	window1: mouseVisible = True
 15.7163 	EXP 	window1: mouseVisible = True
+3.8042 	WARNING 	User requested fullscreen with size [3286 1080], but screen is actually [1920, 1080]. Using actual size
+4.3983 	WARNING 	t of last frame was 2.00ms (=1/499)
+4.4007 	WARNING 	t of last frame was 2.37ms (=1/422)
+4.4028 	WARNING 	t of last frame was 0.78ms (=1/1274)
+4.4094 	WARNING 	t of last frame was 1.91ms (=1/523)
+4.4166 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+4.7480 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=UNKNOWN, text='Który głośniejszy?', units='pix', win=Window(...), wrapWidth=500)
+4.7819 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+4.8091 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Poprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+4.8420 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Odpowiedź niepoprawna.', units='pix', win=Window(...), wrapWidth=500)
+4.8641 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Nie udzieliłeś/aś odpowiedzi', units='pix', win=Window(...), wrapWidth=500)
+4.9413 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+12.7567 	DATA 	Keypress: space
+13.7601 	INFO 	FIRST SOUND VOL: 0.8984375
+14.5607 	INFO 	SECOND SOUND VOL: 0.5
+16.0364 	DATA 	Keypress: left
+18.3454 	INFO 	FIRST SOUND VOL: 0.09375
+19.1459 	INFO 	SECOND SOUND VOL: 0.5
+19.4284 	DATA 	Keypress: right
+21.7353 	INFO 	FIRST SOUND VOL: 0.6953125
+22.5358 	INFO 	SECOND SOUND VOL: 0.5
+23.0124 	DATA 	Keypress: left
+25.3194 	INFO 	FIRST SOUND VOL: 0.5
+26.1199 	INFO 	SECOND SOUND VOL: 0.296875
+26.4205 	DATA 	Keypress: left
+28.7279 	INFO 	FIRST SOUND VOL: 0.5
+29.5284 	INFO 	SECOND SOUND VOL: 0.3984375
+29.7965 	DATA 	Keypress: left
+32.1042 	INFO 	FIRST SOUND VOL: 0.59375
+32.9046 	INFO 	SECOND SOUND VOL: 0.5
+33.9724 	DATA 	Keypress: right
+35.2944 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+37.7486 	DATA 	Keypress: space
+38.7544 	INFO 	FIRST SOUND VOL: 0.3984375
+39.5548 	INFO 	SECOND SOUND VOL: 0.5
+39.7645 	DATA 	Keypress: right
+41.0783 	INFO 	FIRST SOUND VOL: 0.59375
+41.8765 	DATA 	Keypress: left
+41.8798 	INFO 	SECOND SOUND VOL: 0.5
+43.1936 	INFO 	FIRST SOUND VOL: 0.5
+43.9941 	INFO 	SECOND SOUND VOL: 0.3984375
+44.0845 	DATA 	Keypress: left
+45.3988 	INFO 	FIRST SOUND VOL: 0.4453125
+46.1993 	INFO 	SECOND SOUND VOL: 0.5
+46.8525 	DATA 	Keypress: right
+48.1668 	INFO 	FIRST SOUND VOL: 0.4453125
+48.9673 	INFO 	SECOND SOUND VOL: 0.5
+48.9966 	DATA 	Keypress: right
+50.3108 	INFO 	FIRST SOUND VOL: 0.546875
+51.1113 	INFO 	SECOND SOUND VOL: 0.5
+51.7326 	DATA 	Keypress: right
+53.0419 	INFO 	FIRST SOUND VOL: 0.3984375
+53.8424 	INFO 	SECOND SOUND VOL: 0.5
+54.0846 	DATA 	Keypress: right
+55.3987 	INFO 	FIRST SOUND VOL: 0.5
+56.1992 	INFO 	SECOND SOUND VOL: 0.3984375
+56.6126 	DATA 	Keypress: left
+57.9264 	INFO 	FIRST SOUND VOL: 0.3984375
+58.7268 	INFO 	SECOND SOUND VOL: 0.5
+58.8686 	DATA 	Keypress: right
+59.1858 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Koniec zadania\nPrzyciśnij spację', units='pix', win=Window(...), wrapWidth=1000)
+61.8927 	DATA 	Keypress: space
+61.9109 	EXP 	window1: mouseVisible = True
+61.9123 	EXP 	window1: mouseVisible = True
+3.5885 	WARNING 	User requested fullscreen with size [3286 1080], but screen is actually [1920, 1080]. Using actual size
+3.8525 	WARNING 	t of last frame was 1.84ms (=1/544)
+3.8630 	WARNING 	t of last frame was 3.81ms (=1/262)
+3.8732 	WARNING 	t of last frame was 0.97ms (=1/1027)
+3.8742 	WARNING 	t of last frame was 1.00ms (=1/995)
+3.8764 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+4.0174 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=UNKNOWN, text='Który głośniejszy?', units='pix', win=Window(...), wrapWidth=500)
+4.0374 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+4.0485 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Poprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+4.0558 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Odpowiedź niepoprawna.', units='pix', win=Window(...), wrapWidth=500)
+4.0634 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Nie udzieliłeś/aś odpowiedzi', units='pix', win=Window(...), wrapWidth=500)
+4.0720 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='pix', win=Window(...), wrapWidth=500)
+4.1078 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+4.1115 	EXP 	unnamed TextStim: autoDraw = True
+7.7723 	DATA 	Keypress: space
+8.7764 	INFO 	FIRST SOUND VOL: 0.09375
+9.5769 	INFO 	SECOND SOUND VOL: 0.5
+10.7960 	DATA 	Keypress: left
+13.1055 	INFO 	FIRST SOUND VOL: 0.5
+13.9061 	INFO 	SECOND SOUND VOL: 0.8984375
+15.0839 	DATA 	Keypress: left
+17.3914 	INFO 	FIRST SOUND VOL: 0.296875
+18.1917 	INFO 	SECOND SOUND VOL: 0.5
+19.9159 	DATA 	Keypress: f5
+20.4599 	DATA 	Keypress: f6
+20.7959 	DATA 	Keypress: f7
+22.1918 	DATA 	No keypress (maxWait exceeded)
+23.1963 	DATA 	Keypress: f7
+23.1964 	DATA 	Keypress: f7
+24.4996 	INFO 	FIRST SOUND VOL: 0.5
+24.8003 	DATA 	Keypress: f7
+24.8004 	DATA 	Keypress: f7
+24.8005 	DATA 	Keypress: f7
+24.8006 	DATA 	Keypress: f7
+24.8007 	DATA 	Keypress: f7
+25.1959 	DATA 	Keypress: escape
+25.3001 	INFO 	SECOND SOUND VOL: 0.296875
+25.5801 	DATA 	Keypress: right
+27.8899 	INFO 	FIRST SOUND VOL: 0.59375
+28.1906 	DATA 	Keypress: right
+28.3961 	DATA 	Keypress: right
+28.3976 	INFO 	SECOND SOUND VOL: 0.5
+30.7067 	INFO 	FIRST SOUND VOL: 0.5
+31.4841 	DATA 	Keypress: right
+31.4860 	INFO 	SECOND SOUND VOL: 0.59375
+32.8018 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+36.1881 	DATA 	Keypress: f7
+37.4841 	DATA 	Keypress: escape
+37.8521 	DATA 	Keypress: escape
+38.2202 	DATA 	Keypress: space
+39.2263 	INFO 	FIRST SOUND VOL: 0.5
+39.5271 	DATA 	Keypress: right
+39.5273 	DATA 	Keypress: right
+39.6601 	DATA 	Keypress: right
+39.6638 	INFO 	SECOND SOUND VOL: 0.59375
+39.8361 	DATA 	Keypress: right
+40.9787 	INFO 	FIRST SOUND VOL: 0.5
+41.2794 	DATA 	Keypress: right
+41.2795 	DATA 	Keypress: right
+41.2796 	DATA 	Keypress: right
+41.2797 	DATA 	Keypress: right
+41.2798 	DATA 	Keypress: right
+41.2798 	DATA 	Keypress: right
+41.2799 	DATA 	Keypress: right
+41.4041 	DATA 	Keypress: right
+41.4078 	INFO 	SECOND SOUND VOL: 0.3984375
+41.5641 	DATA 	Keypress: right
+42.7222 	INFO 	FIRST SOUND VOL: 0.5
+43.0230 	DATA 	Keypress: right
+43.0232 	DATA 	Keypress: right
+43.0233 	DATA 	Keypress: right
+43.0235 	DATA 	Keypress: right
+43.0236 	DATA 	Keypress: right
+43.0237 	DATA 	Keypress: right
+43.1161 	DATA 	Keypress: right
+43.1198 	INFO 	SECOND SOUND VOL: 0.6484375
+43.2761 	DATA 	Keypress: right
+44.4344 	INFO 	FIRST SOUND VOL: 0.34375
+44.7351 	DATA 	Keypress: right
+44.7354 	DATA 	Keypress: right
+44.7355 	DATA 	Keypress: right
+44.7356 	DATA 	Keypress: right
+44.7358 	DATA 	Keypress: right
+44.7359 	DATA 	Keypress: right
+44.7360 	DATA 	Keypress: right
+44.8761 	DATA 	Keypress: right
+44.8797 	INFO 	SECOND SOUND VOL: 0.5
+45.0360 	DATA 	Keypress: right
+46.1962 	INFO 	FIRST SOUND VOL: 0.34375
+46.4971 	DATA 	Keypress: right
+46.4972 	DATA 	Keypress: right
+46.4973 	DATA 	Keypress: right
+46.4975 	DATA 	Keypress: right
+46.4976 	DATA 	Keypress: right
+46.4977 	DATA 	Keypress: right
+46.4978 	DATA 	Keypress: right
+46.5722 	DATA 	Keypress: right
+46.5755 	INFO 	SECOND SOUND VOL: 0.5
+46.7482 	DATA 	Keypress: right
+47.8912 	INFO 	FIRST SOUND VOL: 0.59375
+48.1918 	DATA 	Keypress: right
+48.1919 	DATA 	Keypress: right
+48.1920 	DATA 	Keypress: right
+48.1921 	DATA 	Keypress: right
+48.1922 	DATA 	Keypress: right
+48.1922 	DATA 	Keypress: right
+48.1923 	DATA 	Keypress: right
+48.3483 	DATA 	Keypress: right
+48.3520 	INFO 	SECOND SOUND VOL: 0.5
+48.5562 	DATA 	Keypress: right
+48.6713 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Koniec zadania\nPrzyciśnij spację', units='pix', win=Window(...), wrapWidth=1000)
+48.7642 	DATA 	Keypress: right
+48.9722 	DATA 	Keypress: right
+49.3083 	DATA 	Keypress: right
+50.0443 	DATA 	Keypress: space
+50.0648 	EXP 	window1: mouseVisible = True
+50.0673 	EXP 	window1: mouseVisible = True
+3.5438 	WARNING 	User requested fullscreen with size [3286 1080], but screen is actually [1920, 1080]. Using actual size
+3.8410 	WARNING 	t of last frame was 1.73ms (=1/579)
+3.8420 	WARNING 	t of last frame was 1.04ms (=1/962)
+3.8485 	WARNING 	t of last frame was 1.72ms (=1/580)
+3.8494 	WARNING 	t of last frame was 0.89ms (=1/1128)
+3.8511 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+3.9657 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=UNKNOWN, text='Który głośniejszy?', units='pix', win=Window(...), wrapWidth=500)
+3.9786 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+3.9874 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Poprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+3.9961 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Odpowiedź niepoprawna.', units='pix', win=Window(...), wrapWidth=500)
+4.0057 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Nie udzieliłeś/aś odpowiedzi', units='pix', win=Window(...), wrapWidth=500)
+4.0156 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0. , 0.5]), rgb=UNKNOWN, text='+', units='pix', win=Window(...), wrapWidth=500)
+4.0580 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+4.0606 	EXP 	unnamed TextStim: autoDraw = True
+5.5690 	DATA 	Keypress: space
+6.5727 	INFO 	FIRST SOUND VOL: 0.8984375
+7.3732 	INFO 	SECOND SOUND VOL: 0.5
+7.6808 	DATA 	Keypress: space
+8.4489 	DATA 	Keypress: left
+10.7589 	INFO 	FIRST SOUND VOL: 0.8984375
+11.0597 	DATA 	Keypress: f6
+11.5594 	INFO 	SECOND SOUND VOL: 0.5
+11.7288 	DATA 	Keypress: right
+12.7364 	DATA 	Keypress: space
+14.0395 	INFO 	FIRST SOUND VOL: 0.5
+14.3403 	DATA 	Keypress: right
+14.3405 	DATA 	Keypress: right
+14.3407 	DATA 	Keypress: right
+14.3408 	DATA 	Keypress: right
+14.3409 	DATA 	Keypress: right
+14.3528 	DATA 	Keypress: right
+14.3545 	INFO 	SECOND SOUND VOL: 0.296875
+15.3600 	DATA 	Keypress: right
+15.3602 	DATA 	Keypress: right
+15.3603 	DATA 	Keypress: right
+15.3604 	DATA 	Keypress: right
+15.4623 	DATA 	Keypress: right
+15.5849 	DATA 	Keypress: right
+16.6639 	INFO 	FIRST SOUND VOL: 0.296875
+16.9643 	DATA 	Keypress: right
+16.9644 	DATA 	Keypress: right
+16.9645 	DATA 	Keypress: right
+16.9647 	DATA 	Keypress: right
+16.9648 	DATA 	Keypress: right
+16.9649 	DATA 	Keypress: right
+16.9650 	DATA 	Keypress: right
+17.0729 	DATA 	Keypress: right
+17.0745 	INFO 	SECOND SOUND VOL: 0.5
+18.0820 	DATA 	Keypress: right
+18.0822 	DATA 	Keypress: right
+18.0824 	DATA 	Keypress: right
+18.0826 	DATA 	Keypress: right
+18.2570 	DATA 	Keypress: right
+19.3857 	INFO 	FIRST SOUND VOL: 0.3984375
+19.6865 	DATA 	Keypress: right
+19.6866 	DATA 	Keypress: right
+19.6867 	DATA 	Keypress: right
+19.6868 	DATA 	Keypress: right
+19.6869 	DATA 	Keypress: right
+19.6870 	DATA 	Keypress: right
+19.6871 	DATA 	Keypress: right
+19.8089 	DATA 	Keypress: right
+19.8105 	INFO 	SECOND SOUND VOL: 0.5
+20.8164 	DATA 	Keypress: right
+20.8166 	DATA 	Keypress: right
+20.8166 	DATA 	Keypress: right
+20.8167 	DATA 	Keypress: right
+20.9184 	DATA 	Keypress: right
+21.0729 	DATA 	Keypress: right
+22.1201 	INFO 	FIRST SOUND VOL: 0.5
+22.4209 	DATA 	Keypress: right
+22.4211 	DATA 	Keypress: right
+22.4212 	DATA 	Keypress: right
+22.4213 	DATA 	Keypress: right
+22.4214 	DATA 	Keypress: right
+22.4215 	DATA 	Keypress: right
+22.4489 	DATA 	Keypress: right
+22.4506 	INFO 	SECOND SOUND VOL: 0.59375
+23.4567 	DATA 	Keypress: right
+23.4568 	DATA 	Keypress: right
+23.4569 	DATA 	Keypress: right
+23.4571 	DATA 	Keypress: right
+23.5584 	DATA 	Keypress: right
+23.7450 	DATA 	Keypress: right
+23.7667 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+23.9529 	DATA 	Keypress: right
+27.3929 	DATA 	Keypress: f10
+27.6969 	DATA 	Keypress: f9
+28.0489 	DATA 	Keypress: f8
+28.3050 	DATA 	Keypress: f7
+29.3930 	DATA 	Keypress: q
+29.3930 	EXP 	Global key event: safe_quit. Calling <function safe_quit at 0x7fb9637c7d30>.
+29.4026 	EXP 	window1: mouseVisible = True
+29.4928 	EXP 	window1: mouseVisible = True
+3.5433 	WARNING 	User requested fullscreen with size [3286 1080], but screen is actually [1920, 1080]. Using actual size
+3.7515 	WARNING 	t of last frame was 2.97ms (=1/336)
+3.7634 	WARNING 	t of last frame was 3.47ms (=1/288)
+3.7682 	WARNING 	t of last frame was 1.86ms (=1/536)
+3.7723 	WARNING 	t of last frame was 1.19ms (=1/840)
+3.7811 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+3.8626 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=UNKNOWN, text='Który głośniejszy?', units='pix', win=Window(...), wrapWidth=500)
+3.8706 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+3.8759 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Poprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+3.8805 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Odpowiedź niepoprawna.', units='pix', win=Window(...), wrapWidth=500)
+3.8867 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Nie udzieliłeś/aś odpowiedzi', units='pix', win=Window(...), wrapWidth=500)
+3.8945 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0., 15.]), rgb=UNKNOWN, text='+', units='pix', win=Window(...), wrapWidth=500)
+3.9286 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+3.9314 	EXP 	unnamed TextStim: autoDraw = True
+5.3995 	DATA 	Keypress: space
+6.4033 	INFO 	FIRST SOUND VOL: 0.5
+7.1752 	DATA 	Keypress: right
+7.1765 	INFO 	SECOND SOUND VOL: 0.8984375
+8.1814 	DATA 	Keypress: right
+9.4849 	INFO 	FIRST SOUND VOL: 0.5
+10.2152 	DATA 	Keypress: right
+10.2168 	INFO 	SECOND SOUND VOL: 0.8984375
+12.5254 	INFO 	FIRST SOUND VOL: 0.5
+13.3259 	INFO 	SECOND SOUND VOL: 0.296875
+13.4151 	DATA 	Keypress: right
+15.7254 	INFO 	FIRST SOUND VOL: 0.5
+16.4392 	DATA 	Keypress: right
+16.4408 	INFO 	SECOND SOUND VOL: 0.296875
+18.7491 	INFO 	FIRST SOUND VOL: 0.5
+19.5497 	INFO 	SECOND SOUND VOL: 0.3984375
+20.3753 	DATA 	Keypress: right
+22.6856 	INFO 	FIRST SOUND VOL: 0.5
+23.4862 	INFO 	SECOND SOUND VOL: 0.3984375
+23.6553 	DATA 	Keypress: right
+24.9721 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+30.8553 	DATA 	Keypress: q
+30.8554 	EXP 	Global key event: safe_quit. Calling <function safe_quit at 0x7faa77663d30>.
+30.8646 	EXP 	window1: mouseVisible = True
+30.9569 	EXP 	window1: mouseVisible = True
+10.0054 	WARNING 	User requested fullscreen with size [3286 1080], but screen is actually [1920, 1080]. Using actual size
+10.2042 	WARNING 	t of last frame was 2.05ms (=1/487)
+10.2097 	WARNING 	t of last frame was 3.45ms (=1/289)
+10.2117 	WARNING 	t of last frame was 1.98ms (=1/506)
+10.2229 	WARNING 	t of last frame was 1.39ms (=1/718)
+10.2244 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+10.3138 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=UNKNOWN, text='Który głośniejszy?', units='pix', win=Window(...), wrapWidth=500)
+10.3221 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+10.3270 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Poprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+10.3315 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Odpowiedź niepoprawna.', units='pix', win=Window(...), wrapWidth=500)
+10.3376 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Nie udzieliłeś/aś odpowiedzi', units='pix', win=Window(...), wrapWidth=500)
+10.3453 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0., 15.]), rgb=UNKNOWN, text='+', units='pix', win=Window(...), wrapWidth=500)
+10.3771 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+10.3797 	EXP 	unnamed TextStim: autoDraw = True
+104.4989 	DATA 	Keypress: space
+105.5051 	INFO 	FIRST SOUND VOL: 0.5
+106.3056 	INFO 	SECOND SOUND VOL: 0.09375
+106.3865 	DATA 	Keypress: escape
+106.7065 	DATA 	Keypress: f6
+108.1945 	DATA 	Keypress: left
+109.2106 	DATA 	Keypress: left
+109.2107 	DATA 	Keypress: left
+109.2108 	DATA 	Keypress: left
+109.3147 	DATA 	Keypress: left
+109.4266 	DATA 	Keypress: left
+110.5163 	INFO 	FIRST SOUND VOL: 0.09375
+110.8170 	DATA 	Keypress: left
+110.8171 	DATA 	Keypress: left
+110.8173 	DATA 	Keypress: left
+110.8174 	DATA 	Keypress: q
+110.8174 	EXP 	Global key event: safe_quit. Calling <function safe_quit at 0x7f35a9a62d30>.
+110.8322 	EXP 	window1: mouseVisible = True
+110.9270 	EXP 	window1: mouseVisible = True
+3.5786 	WARNING 	User requested fullscreen with size [3286 1080], but screen is actually [1920, 1080]. Using actual size
+3.7726 	WARNING 	t of last frame was 3.51ms (=1/284)
+3.7735 	WARNING 	t of last frame was 0.88ms (=1/1140)
+3.7768 	WARNING 	t of last frame was 0.87ms (=1/1150)
+3.7792 	WARNING 	t of last frame was 0.85ms (=1/1182)
+3.7812 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+3.8776 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=UNKNOWN, text='Który głośniejszy?', units='pix', win=Window(...), wrapWidth=500)
+3.8864 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+3.8915 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Poprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+3.8961 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Odpowiedź niepoprawna.', units='pix', win=Window(...), wrapWidth=500)
+3.9023 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Nie udzieliłeś/aś odpowiedzi', units='pix', win=Window(...), wrapWidth=500)
+3.9102 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0., 15.]), rgb=UNKNOWN, text='+', units='pix', win=Window(...), wrapWidth=500)
+3.9425 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+3.9453 	EXP 	unnamed TextStim: autoDraw = True
+4.9448 	DATA 	Keypress: space
+5.9501 	INFO 	FIRST SOUND VOL: 0.09375
+6.2510 	DATA 	Keypress: q
+6.2511 	EXP 	Global key event: safe_quit. Calling <function safe_quit at 0x7f8e5ea99d30>.
+6.2612 	EXP 	window1: mouseVisible = True
+6.3482 	EXP 	window1: mouseVisible = True
+3.7011 	WARNING 	User requested fullscreen with size [3286 1080], but screen is actually [1920, 1080]. Using actual size
+3.9391 	WARNING 	t of last frame was 2.24ms (=1/445)
+3.9434 	WARNING 	t of last frame was 2.86ms (=1/349)
+3.9467 	WARNING 	t of last frame was 3.25ms (=1/307)
+3.9616 	WARNING 	t of last frame was 3.92ms (=1/255)
+3.9779 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+4.0635 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=UNKNOWN, text='Który głośniejszy?', units='pix', win=Window(...), wrapWidth=500)
+4.0722 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+4.0776 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Poprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+4.0826 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Odpowiedź niepoprawna.', units='pix', win=Window(...), wrapWidth=500)
+4.0890 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Nie udzieliłeś/aś odpowiedzi', units='pix', win=Window(...), wrapWidth=500)
+4.0971 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0., 15.]), rgb=UNKNOWN, text='+', units='pix', win=Window(...), wrapWidth=500)
+4.1321 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+4.1354 	EXP 	unnamed TextStim: autoDraw = True
+4.9972 	DATA 	Keypress: space
+5.0110 	EXP 	window1: mouseVisible = True
+5.0119 	EXP 	window1: mouseVisible = True
+3.5780 	WARNING 	User requested fullscreen with size [3286 1080], but screen is actually [1920, 1080]. Using actual size
+3.7838 	WARNING 	t of last frame was 1.90ms (=1/525)
+3.7933 	WARNING 	t of last frame was 4.92ms (=1/203)
+3.8098 	WARNING 	t of last frame was 4.89ms (=1/204)
+3.9450 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=UNKNOWN, text='Który głośniejszy?', units='pix', win=Window(...), wrapWidth=500)
+3.9577 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+3.9650 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Poprawna odpowiedź', units='pix', win=Window(...), wrapWidth=500)
+3.9718 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Odpowiedź niepoprawna.', units='pix', win=Window(...), wrapWidth=500)
+3.9793 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Nie udzieliłeś/aś odpowiedzi', units='pix', win=Window(...), wrapWidth=500)
+3.9913 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0., 15.]), rgb=UNKNOWN, text='+', units='pix', win=Window(...), wrapWidth=500)
+4.0446 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+4.0475 	EXP 	unnamed TextStim: autoDraw = True
+5.1386 	DATA 	Keypress: space
+7.4445 	INFO 	FIRST SOUND VOL: 0.8984375
+8.2450 	INFO 	SECOND SOUND VOL: 0.5
+9.1704 	DATA 	Keypress: left
+12.7824 	INFO 	FIRST SOUND VOL: 0.8984375
+13.5829 	INFO 	SECOND SOUND VOL: 0.5
+15.1864 	DATA 	Keypress: right
+18.7988 	INFO 	FIRST SOUND VOL: 0.5
+19.5993 	INFO 	SECOND SOUND VOL: 0.296875
+20.4984 	DATA 	Keypress: q
+20.4985 	EXP 	Global key event: safe_quit. Calling <function safe_quit at 0x7f7b1e181d30>.
+20.5066 	EXP 	window1: mouseVisible = True
+20.6024 	EXP 	window1: mouseVisible = True

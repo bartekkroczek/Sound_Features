@@ -9,8 +9,10 @@ import random
 import shutil
 import time
 
+import parallel
 from os.path import join
-from typing import List, Tuple
+from typing import List, Tuple, Union, Any
+from enum import Enum
 
 import yaml
 from psychopy import visual, event, logging, gui, core
@@ -24,19 +26,15 @@ from misc.screen_misc import get_frame_rate, get_screen_res
 global PART_ID, RES_DIR  # Used in case of error on @atexit, that's why it must be global
 
 
-class TriggerTypes(object):
+class TriggerTypes(Enum):
     STIM_1_START = 'stim_1_start'
     STIM_1_END = 'stim_1_end'
     STIM_2_START = "stim_2_start"
     STIM_2_END = 'stim_2_end'
     ANSWERED = 'answered'
 
-    @classmethod
-    def vals(cls):
-        return [value for name, value in vars(cls).items() if name.isupper()]
 
-
-TRIGGERS = TriggerHandler(TriggerTypes.vals(), trigger_params=['corr', 'key'])
+TRIGGERS = TriggerHandler(trigger_types=[e.value for e in TriggerTypes], trigger_params=['corr', 'key'])
 
 RESULTS = [['PART_ID', 'Trial', 'Proc_version', 'Exp', 'Key', 'Corr', 'SOA', 'Reversal', 'Level', 'Rev_count', 'Lat']]
 
@@ -67,6 +65,7 @@ def safe_quit() -> None:
         raise Exception('No PART_ID in  globals(). Nothing to close.')
     fname = PART_ID + "_" + time.strftime("%Y-%m-%d_%H_%M_%S", time.gmtime()) + '_beh.csv'
     tname = PART_ID + "_" + time.strftime("%Y-%m-%d_%H_%M_%S", time.gmtime()) + '_triggermap.csv'
+    print(f"RES_DIR:{RES_DIR} , fname: {fname}")
     with open(join(RES_DIR, 'beh', fname), 'w') as beh_file:
         beh_writer = csv.writer(beh_file)
         beh_writer.writerows(RESULTS)
@@ -215,7 +214,6 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     soa: float = soa / 100.0
     soa: float = random.choice([-soa, soa])
     trig_time: float = 0.04
-    timeout: bool = True
     corr: bool = False
     timer: core.CountdownTimer = core.CountdownTimer()
     response_clock: core.Clock = core.Clock()
@@ -232,7 +230,8 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     noans_feedback_label = visual.TextStim(win, text=noans_feedback_label, font='Arial', color=conf.FONT_COLOR,
                                            height=conf.FONT_SIZE)
     standard_first = random.choice([True, False])
-    standard_higher = soa < 0  # in freq or in loudness
+    standard_higher = soa < 0
+    print(f"{trial_type} {TrialType.CMP_VOL}, {trial_type == TrialType.CMP_VOL}")
     if trial_type == TrialType.CMP_VOL:
         if standard_first:
             first_volume, second_volume = conf.VOLUME, conf.VOLUME + soa
@@ -242,7 +241,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         second_sound.set_volume(second_volume)
     elif trial_type == TrialType.CMP_FREQ:
         standard_freq = conf.STANDARD_FREQ
-        comparison_freq = standard_freq + soa
+        comparison_freq = standard_freq + soa if standard_higher else standard_freq - soa
         comparison = get_sine_wave(freq=comparison_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
                                    wsf=conf.WSF)
         wavfile.write('comparison.wav', conf.SAMPLING_RATE, comparison)
@@ -273,17 +272,18 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
 
     # == Phase 2: Stimuli presentation
     first_sound.play()  # start sound
-    TRIGGERS.send_trigger(TriggerTypes.STIM_1_START)
+    TRIGGERS.send_trigger(TriggerTypes.STIM_1_START.value)
     time.sleep(t - TRIGGERS.trigger_time)  # there's a delay during send_trig function, so must be subtracted here
     first_sound.stop()  # stop sound
-    TRIGGERS.send_trigger(TriggerTypes.STIM_1_END)
+    TRIGGERS.send_trigger(TriggerTypes.STIM_1_END.value)
     time.sleep(conf.BREAK / 1000.0)
+
     event.clearEvents()
 
     # make trigger, start of a sound and response timer in sync through win.flip()
     win.callOnFlip(second_sound.play)
     win.callOnFlip(response_clock.reset)
-    win.callOnFlip(TRIGGERS.send_trigger, TriggerTypes.STIM_2_START, with_delay=False)
+    win.callOnFlip(TRIGGERS.send_trigger, TriggerTypes.STIM_2_START.value, with_delay=False)
     timer.reset(t=t)  # reverse timer from TIME to 0.
     win.flip()  # sound played, clock reset, trig sent
     time.sleep(trig_time)  # nobody will react as fast, so procedure can be frozen for a while
@@ -292,21 +292,23 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         key = event.getKeys(keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])
         if key:
             rt = response_clock.getTime()
-            TRIGGERS.send_trigger(TriggerTypes.ANSWERED)
-            timeout = False
+            print('ans1')
+            TRIGGERS.send_trigger(TriggerTypes.ANSWERED.value)
             win.flip()
             break
     second_sound.stop()
-    TRIGGERS.send_trigger(TriggerTypes.STIM_2_END)
+    TRIGGERS.send_trigger(TriggerTypes.STIM_2_END.value)
 
     # Phase 3: No reaction while stimuli presented
+    timeout: bool = True
 
     if not key:  # no reaction when sound was played, wait some more.
         key = event.waitKeys(maxWait=conf.RTIME / 1000.0, keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])
-        if key:  # check if any reaction, if no - timeout
-            rt = response_clock.getTime()
-            timeout = False
-            TRIGGERS.send_trigger(TriggerTypes.ANSWERED)
+
+    if key:  # check if any reaction, if no - timeout
+        rt = response_clock.getTime()
+        timeout = False
+        TRIGGERS.send_trigger(TriggerTypes.ANSWERED.value)
 
     # Phase 4: Timeout handling
     win.flip()  # remove labels from screen
@@ -332,6 +334,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         rt = -1.0
         feedback_label = noans_feedback_label
         corr = False
+    TRIGGERS.print_trigger_list()
     if timeout:
         TRIGGERS.add_info_to_last_trigger(dict(corr=corr, key=key[0]), how_many=4)
     else:

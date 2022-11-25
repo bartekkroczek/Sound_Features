@@ -215,7 +215,6 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     soa: float = soa / 100.0
     soa: float = random.choice([-soa, soa])
     trig_time: float = 0.04
-    timeout: bool = True
     corr: bool = False
     timer: core.CountdownTimer = core.CountdownTimer()
     response_clock: core.Clock = core.Clock()
@@ -232,7 +231,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     noans_feedback_label = visual.TextStim(win, text=noans_feedback_label, font='Arial', color=conf.FONT_COLOR,
                                            height=conf.FONT_SIZE)
     standard_first = random.choice([True, False])
-    standard_higher = soa < 0  # in freq or in loudness
+    standard_higher = soa < 0
     if trial_type == TrialType.CMP_VOL:
         if standard_first:
             first_volume, second_volume = conf.VOLUME, conf.VOLUME + soa
@@ -242,7 +241,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         second_sound.set_volume(second_volume)
     elif trial_type == TrialType.CMP_FREQ:
         standard_freq = conf.STANDARD_FREQ
-        comparison_freq = standard_freq + soa
+        comparison_freq = standard_freq + soa if standard_higher else standard_freq - soa
         comparison = get_sine_wave(freq=comparison_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
                                    wsf=conf.WSF)
         wavfile.write('comparison.wav', conf.SAMPLING_RATE, comparison)
@@ -293,13 +292,13 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         if key:
             rt = response_clock.getTime()
             TRIGGERS.send_trigger(TriggerTypes.ANSWERED)
-            timeout = False
             win.flip()
             break
     second_sound.stop()
     TRIGGERS.send_trigger(TriggerTypes.STIM_2_END)
 
     # Phase 3: No reaction while stimuli presented
+    timeout: bool = True
 
     if not key:  # no reaction when sound was played, wait some more.
         key = event.waitKeys(maxWait=conf.RTIME / 1000.0, keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])

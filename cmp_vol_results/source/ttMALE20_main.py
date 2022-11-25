@@ -9,8 +9,9 @@ import random
 import shutil
 import time
 
+import parallel
 from os.path import join
-from typing import List, Tuple
+from typing import List, Tuple, Union, Any
 
 import yaml
 from psychopy import visual, event, logging, gui, core
@@ -18,27 +19,23 @@ from pygame import mixer, quit
 from scipy.io import wavfile
 
 from Adaptives.NUpNDown import NUpNDown
-from misc.helpers import Dict2Obj, show_info, get_sine_wave, get_white_noise, TriggerHandler
+from misc.helpers import Dict2Obj, show_info, get_sine_wave, get_white_noise
 from misc.screen_misc import get_frame_rate, get_screen_res
 
 global PART_ID, RES_DIR  # Used in case of error on @atexit, that's why it must be global
 
 
 class TriggerTypes(object):
-    STIM_1_START = 'stim_1_start'
-    STIM_1_END = 'stim_1_end'
-    STIM_2_START = "stim_2_start"
-    STIM_2_END = 'stim_2_end'
-    ANSWERED = 'answered'
+    CLEAR = 0x00
+    STIM_1_START = 0x01
+    STIM_1_END = 0x02
+    STIM_2_START = 0x04
+    STIM_2_END = 0x08
+    ANSWERED = 0x20
 
-    @classmethod
-    def vals(cls):
-        return [value for name, value in vars(cls).items() if name.isupper()]
-
-
-TRIGGERS = TriggerHandler(TriggerTypes.vals(), trigger_params=['corr', 'key'])
 
 RESULTS = [['PART_ID', 'Trial', 'Proc_version', 'Exp', 'Key', 'Corr', 'SOA', 'Reversal', 'Level', 'Rev_count', 'Lat']]
+RES_DIR = ''
 
 
 def check_exit(key='f7'):
@@ -66,14 +63,29 @@ def safe_quit() -> None:
     if 'PART_ID' not in globals():  # Nothing initialised yet, so just turn stuff off.
         raise Exception('No PART_ID in  globals(). Nothing to close.')
     fname = PART_ID + "_" + time.strftime("%Y-%m-%d_%H_%M_%S", time.gmtime()) + '_beh.csv'
-    tname = PART_ID + "_" + time.strftime("%Y-%m-%d_%H_%M_%S", time.gmtime()) + '_triggermap.csv'
+    print(f"RES_DIR:{RES_DIR} , fname: {fname}")
     with open(join(RES_DIR, 'beh', fname), 'w') as beh_file:
         beh_writer = csv.writer(beh_file)
         beh_writer.writerows(RESULTS)
-    TRIGGERS.save_to_file(join(RES_DIR, 'triggermaps', tname))
     logging.flush()
     core.quit()
     quit()
+
+
+def send_trig(msg: int, trig_time: float = 0.04) -> None:
+    global PORT
+    """
+    Send trigger to EEG
+    Args:
+        msg: Trigger code to send.
+        trig_time: Delay between start and stop of a trigger.
+
+    Returns:
+        Nothing.
+    """
+    PORT.setData(msg)
+    time.sleep(trig_time)
+    PORT.setData(TriggerTypes.CLEAR)
 
 
 class TrialType(object):
@@ -82,7 +94,7 @@ class TrialType(object):
 
 
 def main():
-    global RES_DIR, PART_ID
+    global RES_DIR
     # %% === Dialog popup ===
     info = {'PART_ID': '', 'Sex': ["MALE", "FEMALE"], 'AGE': '20'}
     dictDlg = gui.DlgFromDict(dictionary=info, title="Psychophysical Force experiment. Sounds version.")
@@ -93,7 +105,7 @@ def main():
     conf = yaml.load(open('config.yaml', 'r'), Loader=yaml.SafeLoader)
     conf = Dict2Obj(**conf)
     if conf.USE_EEG:
-        TRIGGERS.connect_to_eeg()
+        PORT = parallel.Parallel()
     # %% == I18N
     try:
         localedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'locale')
@@ -215,7 +227,6 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     soa: float = soa / 100.0
     soa: float = random.choice([-soa, soa])
     trig_time: float = 0.04
-    timeout: bool = True
     corr: bool = False
     timer: core.CountdownTimer = core.CountdownTimer()
     response_clock: core.Clock = core.Clock()
@@ -232,7 +243,8 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     noans_feedback_label = visual.TextStim(win, text=noans_feedback_label, font='Arial', color=conf.FONT_COLOR,
                                            height=conf.FONT_SIZE)
     standard_first = random.choice([True, False])
-    standard_higher = soa < 0  # in freq or in loudness
+    standard_higher = soa < 0
+    print(f"{trial_type} {TrialType.CMP_VOL}, {trial_type == TrialType.CMP_VOL}")
     if trial_type == TrialType.CMP_VOL:
         if standard_first:
             first_volume, second_volume = conf.VOLUME, conf.VOLUME + soa
@@ -242,7 +254,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         second_sound.set_volume(second_volume)
     elif trial_type == TrialType.CMP_FREQ:
         standard_freq = conf.STANDARD_FREQ
-        comparison_freq = standard_freq + soa
+        comparison_freq = standard_freq + soa if standard_higher else standard_freq - soa
         comparison = get_sine_wave(freq=comparison_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
                                    wsf=conf.WSF)
         wavfile.write('comparison.wav', conf.SAMPLING_RATE, comparison)
@@ -259,9 +271,9 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     logging.info(f'TrialType: {trial_type}')
     logging.info(f'Standard stimuli is f{"first" if standard_first else "second"} and '
                  f'{"higher" if standard_higher else "lower"} ')
-    # print(f"FIRST VOL: {first_volume}, SEC VOL: {second_volume}")
-    # print(f"conf vol: {conf.VOLUME}, soa: {soa}")
-    # print(f"FIRST VOL: {first_sound.get_volume()} SEC VOL: {second_sound.get_volume()}")
+    print(f"FIRST VOL: {first_volume}, SEC VOL: {second_volume}")
+    print(f"conf vol: {conf.VOLUME}, soa: {soa}")
+    print(f"FIRST VOL: {first_sound.get_volume()} SEC VOL: {second_sound.get_volume()}")
     for label in ans_lbs:
         label.draw()
     # == Phase 1: White noise
@@ -272,43 +284,51 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     time.sleep(conf.BREAK / 1000.0)
 
     # == Phase 2: Stimuli presentation
-    first_sound.play()  # start sound
-    TRIGGERS.send_trigger(TriggerTypes.STIM_1_START)
-    time.sleep(t - TRIGGERS.trigger_time)  # there's a delay during send_trig function, so must be subtracted here
-    first_sound.stop()  # stop sound
-    TRIGGERS.send_trigger(TriggerTypes.STIM_1_END)
+    if conf.USE_EEG:
+        first_sound.play()  # start sound
+        send_trig(TriggerTypes.STIM_1_START, trig_time)
+        time.sleep(t - trig_time)  # there's a delay during send_trig function, so must be subtracted here
+        first_sound.stop()  # stop sound
+        send_trig(TriggerTypes.STIM_1_END)
+    else:
+        first_sound.play()
+        time.sleep(t)
+        first_sound.stop()
     time.sleep(conf.BREAK / 1000.0)
+
     event.clearEvents()
 
     # make trigger, start of a sound and response timer in sync through win.flip()
     win.callOnFlip(second_sound.play)
     win.callOnFlip(response_clock.reset)
-    win.callOnFlip(TRIGGERS.send_trigger, TriggerTypes.STIM_2_START, with_delay=False)
+    if conf.USE_EEG:
+        win.callOnFlip(PORT.setData, TriggerTypes.STIM_2_START)
     timer.reset(t=t)  # reverse timer from TIME to 0.
     win.flip()  # sound played, clock reset, trig sent
     time.sleep(trig_time)  # nobody will react as fast, so procedure can be frozen for a while
-    TRIGGERS.send_clear()
+    if conf.USE_EEG:
+        PORT.setData(TriggerTypes.CLEAR)
     while timer.getTime() > 0:  # Handling responses when sounds still playing
         key = event.getKeys(keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])
         if key:
             rt = response_clock.getTime()
-            TRIGGERS.send_trigger(TriggerTypes.ANSWERED)
-            timeout = False
+            if conf.USE_EEG:
+                send_trig(TriggerTypes.ANSWERED)
             win.flip()
             break
     second_sound.stop()
-    TRIGGERS.send_trigger(TriggerTypes.STIM_2_END)
+    if conf.USE_EEG:
+        send_trig(TriggerTypes.STIM_2_END)
 
     # Phase 3: No reaction while stimuli presented
-
     if not key:  # no reaction when sound was played, wait some more.
         key = event.waitKeys(maxWait=conf.RTIME / 1000.0, keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])
-        if key:  # check if any reaction, if no - timeout
-            rt = response_clock.getTime()
-            timeout = False
-            TRIGGERS.send_trigger(TriggerTypes.ANSWERED)
+        rt = response_clock.getTime()
+        if conf.USE_EEG:
+            send_trig(TriggerTypes.ANSWERED)
 
     # Phase 4: Timeout handling
+    timeout = (len(key) == 0) if key else True  # Still no reaction => Timeout
     win.flip()  # remove labels from screen
 
     if not timeout:
@@ -332,10 +352,6 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         rt = -1.0
         feedback_label = noans_feedback_label
         corr = False
-    if timeout:
-        TRIGGERS.add_info_to_last_trigger(dict(corr=corr, key=key[0]), how_many=4)
-    else:
-        TRIGGERS.add_info_to_last_trigger(dict(corr=corr, key=key[0]), how_many=5)
 
     if feedback:
         feedback_label.draw()

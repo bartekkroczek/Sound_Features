@@ -19,7 +19,7 @@ from pygame import mixer, quit
 from scipy.io import wavfile
 
 from Adaptives.NUpNDown import NUpNDown
-from misc.helpers import Dict2Obj, show_info, get_sine_wave
+from misc.helpers import Dict2Obj, show_info, get_sine_wave, get_white_noise
 from misc.screen_misc import get_frame_rate, get_screen_res
 
 global PART_ID, RES_DIR  # Used in case of error on @atexit, that's why it must be global
@@ -27,7 +27,7 @@ global PART_ID, RES_DIR  # Used in case of error on @atexit, that's why it must 
 RESULTS = [['PART_ID', 'Trial', 'Proc_version', 'Exp', 'Key', 'Corr', 'SOA', 'Reversal', 'Level', 'Rev_count', 'Lat']]
 
 
-@atexit.register  # decorator, func will be called ALWAYS when experiment will be closed, even with error.
+@atexit.register  # decorator, func will ALWAYS be called when experiment will be closed, even with error.
 def safe_quit() -> None:
     """
     Save beh results, logs, safety ends all frameworks.
@@ -63,7 +63,8 @@ def present_learning_sample(win: visual, label: visual.TextStim, sample: List[mi
     core.wait(conf.BREAK / 1000.0)
 
 
-def cmp_vol(soa: int, sound: mixer.Sound, ans_lbs: List[visual.TextStim], feedback: bool) -> [float, bool, str]:
+def cmp_vol(soa: int, sound: mixer.Sound, fix_sound: mixer.Sound, ans_lbs: List[visual.TextStim], feedback: bool) -> [
+    float, bool, str]:
     """
     Single trial presented for participant.
 
@@ -88,8 +89,16 @@ def cmp_vol(soa: int, sound: mixer.Sound, ans_lbs: List[visual.TextStim], feedba
         first_volume, second_volume = conf.VOLUME, conf.VOLUME + soa
     else:
         first_volume, second_volume = conf.VOLUME + soa, conf.VOLUME
+    # == Phase 0: White noise
+    fix_sound.set_volume(conf.VOLUME)
+    time.sleep(t)
+    fix_sound.play()
+    time.sleep(t)
+    fix_sound.stop()
+    time.sleep(conf.BREAK / 1000.0)
     # == Phase 1: Stimuli presentation
     sound.set_volume(first_volume)
+    time.sleep(t)
     sound.play()
     time.sleep(t)
     sound.stop()
@@ -187,6 +196,7 @@ def cmp_freq(soa: int, standard: mixer.Sound, ans_lbs: List[visual.TextStim], fe
         first_sound, second_sound = comparison, standard
     logging.info('STANDARD VOLUME: {} COMPARISON VOLUME: {}'.format(standard.get_volume(), comparison.get_volume()))
     # == Phase 1: Stimuli presentation
+    time.sleep(t)
     first_sound.play()
     time.sleep(t)
     first_sound.stop()
@@ -258,7 +268,7 @@ if not dictDlg.OK:
     raise Exception('Dialog popup exception')
 
 # %% == Load config ==
-conf = yaml.load(open('config.yaml', 'r'))
+conf = yaml.load(open('config.yaml', 'r'), Loader=yaml.SafeLoader)
 conf = Dict2Obj(**conf)
 
 # %% == I18N
@@ -298,10 +308,13 @@ shutil.copy2('main.py', join(RES_DIR, 'source', PART_ID + '_main.py'))
 # %% == Sounds preparation
 standard = get_sine_wave(freq=conf.STANDARD_FREQ, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
                          wsf=conf.WSF)
-
 wavfile.write('standard.wav', conf.SAMPLING_RATE, standard)
 
+white_noise = get_white_noise(conf.WHITE_NOISE_LOUDNESS, conf.SAMPLING_RATE, wave_length=5 * conf.TIME, wsf=conf.WSF)
+wavfile.write('white_noise.wav', conf.SAMPLING_RATE, white_noise)
+
 standard = mixer.Sound('standard.wav')
+white_noise = mixer.Sound('white_noise.wav')
 mixer.set_num_channels(2)
 
 # %% == Labels preparation ==
@@ -326,7 +339,8 @@ incorr_feedback_label = visual.TextStim(win, text=incorr_feedback_label, font='A
 noans_feedback_label = _('No ans')
 noans_feedback_label = visual.TextStim(win, text=noans_feedback_label, font='Arial', color=conf.FONT_COLOR,
                                        height=conf.FONT_SIZE)
-
+fix_cross = visual.TextStim(win, text='+', color='red', pos=(0, 15))
+fix_cross.setAutoDraw(True)
 # %% == Learning phase ==
 # msg = {'Volume': _('Volume: hello, before learning'),'Freq': _('Freq: hello, before learning')}[conf.VER]
 # show_info(win=win, msg=msg)
@@ -351,7 +365,7 @@ show_info(win=win, msg=msg)
 
 for idx, level in enumerate(training, 1):
     for soa in level:
-        rt, corr, key = trial(soa, standard, ans_lbs=answer_labels, feedback=True)
+        rt, corr, key = trial(soa, standard, white_noise, ans_lbs=answer_labels, feedback=True)
         RESULTS.append([PART_ID, idx, conf.VER, 0, key, int(corr), soa, '-', '-', '-', rt])
         core.wait(conf.BREAK / 1000.0)
 
@@ -363,7 +377,7 @@ experiment = NUpNDown(start_val=conf.START_SOA, max_revs=conf.MAX_REVS, step_up=
 
 old_rev_count_val = -1
 for idx, soa in enumerate(experiment, idx):
-    rt, corr, key = trial(soa, standard, ans_lbs=answer_labels, feedback=False)
+    rt, corr, key = trial(soa, standard, white_noise, ans_lbs=answer_labels, feedback=False)
     experiment.set_corr(bool(corr))
     level, reversal, revs_count = map(int, experiment.get_jump_status())
 
@@ -372,12 +386,11 @@ for idx, soa in enumerate(experiment, idx):
         rev_count_val = revs_count
     else:
         rev_count_val = '-'
-   
+
     RESULTS.append([PART_ID, idx, conf.VER, 1, key, int(corr), soa, reversal, level, rev_count_val, rt])
     if idx == conf.MAX_TRIALS:
         break
     core.wait(conf.BREAK / 1000.0)
-   
 
 # %% == Clear experiment
 msg = {'Volume': _('Volume: end'), 'Freq': _('Freq: end')}[conf.VER]

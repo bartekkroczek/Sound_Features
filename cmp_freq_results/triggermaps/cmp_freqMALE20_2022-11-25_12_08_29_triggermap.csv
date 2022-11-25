@@ -1,0 +1,11 @@
+trigger_no,trigger_type,corr,key
+1,stim_1_start,False,right
+2,stim_1_end,False,right
+3,stim_2_start,False,right
+4,stim_2_end,False,right
+5,answered,False,right
+6,stim_1_start,UNKNOWN,UNKNOWN
+7,stim_1_end,UNKNOWN,UNKNOWN
+8,stim_2_start,UNKNOWN,UNKNOWN
+9,stim_2_end,UNKNOWN,UNKNOWN
+10,answered,UNKNOWN,UNKNOWN

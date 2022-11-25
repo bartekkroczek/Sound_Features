@@ -232,7 +232,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     noans_feedback_label = visual.TextStim(win, text=noans_feedback_label, font='Arial', color=conf.FONT_COLOR,
                                            height=conf.FONT_SIZE)
     standard_first = random.choice([True, False])
-    standard_higher = soa < 0  # in freq or in loudness
+    standard_higher = soa < 0
     if trial_type == TrialType.CMP_VOL:
         if standard_first:
             first_volume, second_volume = conf.VOLUME, conf.VOLUME + soa
@@ -242,7 +242,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         second_sound.set_volume(second_volume)
     elif trial_type == TrialType.CMP_FREQ:
         standard_freq = conf.STANDARD_FREQ
-        comparison_freq = standard_freq + soa
+        comparison_freq = standard_freq + soa if standard_higher else standard_freq - soa
         comparison = get_sine_wave(freq=comparison_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
                                    wsf=conf.WSF)
         wavfile.write('comparison.wav', conf.SAMPLING_RATE, comparison)

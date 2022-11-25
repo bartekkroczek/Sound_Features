@@ -1,0 +1,16 @@
+trigger_no,trigger_type,corr,key
+1,stim_1_start,False,left
+2,stim_1_end,False,left
+3,stim_2_start,False,left
+4,stim_2_end,False,left
+5,answered,False,left
+6,stim_1_start,True,right
+7,stim_1_end,True,right
+8,stim_2_start,True,right
+9,stim_2_end,True,right
+10,answered,True,right
+11,stim_1_start,True,right
+12,stim_1_end,True,right
+13,stim_2_start,True,right
+14,stim_2_end,True,right
+15,answered,True,right

@@ -1,5 +1,5 @@
-VER: cmp_vol # Volume or cmp_vol or cmp_freq
-TRAINING: [{'soa': 40, 'reps': 6}, {'soa': 20, 'reps': 2}, {'soa': 10, 'reps': 2}]
+VER: cmp_freq # Volume or cmp_vol or cmp_freq
+TRAINING: [{'soa': 8000, 'reps': 6}, {'soa': 20, 'reps': 2}, {'soa': 10, 'reps': 2}]
 # List describing training.
 # In example above it will be four levels of training (because of 4 items in list, may be less, may be more)
 # First training bloc   k contains 8 trials, (reps = 8) of soa equal to 60 etc...

@@ -1,0 +1,4 @@
+PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat
+voolMALE20,1,cmp_vol,train,right,0,4000,-,-,-,1.3273708820343018
+voolMALE20,1,cmp_vol,train,right,1,4000,-,-,-,0.928865909576416
+voolMALE20,2,cmp_vol,train,right,0,2000,-,-,-,0.7394499778747559

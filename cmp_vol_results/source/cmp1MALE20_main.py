@@ -232,7 +232,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     noans_feedback_label = visual.TextStim(win, text=noans_feedback_label, font='Arial', color=conf.FONT_COLOR,
                                            height=conf.FONT_SIZE)
     standard_first = random.choice([True, False])
-    standard_higher = soa < 0  # in freq or in loudness
+    standard_higher = soa > 0  # in freq or in loudness
     if trial_type == TrialType.CMP_VOL:
         if standard_first:
             first_volume, second_volume = conf.VOLUME, conf.VOLUME + soa

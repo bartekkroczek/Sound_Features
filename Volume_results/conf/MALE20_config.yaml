@@ -1,5 +1,5 @@
 VER: Volume # Volume or freq
-TRAINING: [{'soa': 40, 'reps': 20}, {'soa': 20, 'reps': 2}, {'soa': 10, 'reps': 2}]
+TRAINING: [{'soa': 40, 'reps': 2}, {'soa': 20, 'reps': 2}, {'soa': 10, 'reps': 2}]
 # List describing training.
 # In example above it will be four levels of training (because of 4 items in list, may be less, may be more)
 # First training bloc   k contains 8 trials, (reps = 8) of soa equal to 60 etc...
@@ -21,6 +21,7 @@ STANDARD_FREQ: 440.0 # low sine freq [in Hz]
 FIRST_SOUND_KEY: left # keyboard key associate with low freq response
 SECOND_SOUND_KEY: right # keyboard key associate with high freq response
 LEARNING: 0 # How many iterations of stims in learning phase.
+WHITE_NOISE_LOUDNESS: 0 # Loudness factor for white noise
 # DANGER ZONE. Modify only when you have a strong reason.
 WSF: 32768 # WAVE Scaling factor, 16-bit PCM WAVE format operate with values in range [-32768, 32767] (int16)
 SAMPLING_RATE: 44100 # sampling rate, must be integer [in Hz]
