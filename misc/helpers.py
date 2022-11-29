@@ -76,6 +76,7 @@ class TriggerHandler(object):
 
     def connect_to_eeg(self):
         if self.PORT is None:
+            self.dummy_mode = False
             self.PORT = parallel.Parallel()
             self._logger("Connected to EEG (in connect_to_eeg())")
         else:
