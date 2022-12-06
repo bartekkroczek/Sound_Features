@@ -1,13 +1,12 @@
-import copy
-
-import numpy as np
-import parallel
-from psychopy import event, visual
+import os
+# import parallel
+import time
 from datetime import datetime
 from typing import Dict, List
+
+import numpy as np
+from psychopy import event, visual
 from pygame import mixer
-import time
-import os
 
 
 class bcolors:
@@ -67,6 +66,7 @@ class TriggerHandler(object):
         self._triggers = list()
         self._clear_trigger = 0x00
         self._trigger_counter: int = 1
+        self._pos_marker: int = -1
         self._trigger_limit: int = 60
         self._logger(f"Trigger limit set to: {self._trigger_limit}")
 
@@ -119,22 +119,34 @@ class TriggerHandler(object):
         if self._trigger_counter > self._trigger_limit:
             self._trigger_counter = 1
         self._triggers.append(curr_trigger)
+        if self._pos_marker >= 0:
+            self._pos_marker += 1
 
     def send_clear(self):
         if not self.dummy_mode:
             self.PORT.setData(self._clear_trigger)
             self._logger('Clear send to EEG (manually by user).')
 
+    def set_curr_trial_start(self):
+        self._pos_marker = 0
+
     def add_info_to_last_trigger(self, info: Dict[(str, str)], how_many: int = 1) -> None:
         """
         Some trigger info can't be added when trigger is sent, that's why it's possible to add info post factum.
         Args:
             info: Info to add to the last trigger, like correctness.
-            how_many: How many of last triggers must be populated.
+            how_many: How many of last triggers must be populated, if -1, add until last marker.
 
         Returns:
             Nothing.
         """
+        if how_many == -1 and self._pos_marker == -1:
+            msg = f"Cannot add info to curr trial cause no trial was started."
+            self._logger(msg, level=_LoggingLevels.WARNING)
+            raise AttributeError("No marker set.")
+        if how_many == -1:
+            how_many = self._pos_marker
+            self._pos_marker = -1
         if len(self._triggers) < how_many:
             self._logger("There's no prev trigger to add info to.", level=_LoggingLevels.CRITICAL)
             raise AttributeError("There's no prev trigger to add info to.")

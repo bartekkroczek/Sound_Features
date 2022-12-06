@@ -332,10 +332,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         rt = -1.0
         feedback_label = noans_feedback_label
         corr = False
-    if timeout:
-        TRIGGERS.add_info_to_last_trigger(dict(corr=corr, key=key[0]), how_many=4)
-    else:
-        TRIGGERS.add_info_to_last_trigger(dict(corr=corr, key=key[0]), how_many=5)
+    TRIGGERS.add_info_to_last_trigger(dict(corr=corr, key=key[0]), how_many=-1)
 
     if feedback:
         feedback_label.draw()
