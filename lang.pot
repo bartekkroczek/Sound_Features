@@ -16,6 +16,10 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 "X-Generator: Poedit 2.0.6\n"
 
+#: main.py:145
+msgid "Freq: hello, before learning"
+msgstr ""
+
 #: main.py:308
 msgid "Freq: Answer Label"
 msgstr ""

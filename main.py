@@ -8,7 +8,6 @@ import os
 import random
 import shutil
 import time
-
 from os.path import join
 from typing import List, Tuple
 
@@ -18,8 +17,9 @@ from pygame import mixer, quit
 from scipy.io import wavfile
 
 from Adaptives.NUpNDown import NUpNDown
-from misc.helpers import Dict2Obj, show_info, get_sine_wave, get_white_noise, TriggerHandler
-from misc.screen_misc import get_frame_rate, get_screen_res
+from misc.audio import Dict2Obj, show_info, get_sine_wave, get_white_noise, present_learning_sample
+from procedures_misc.screen_misc import get_frame_rate, get_screen_res
+from procedures_misc.triggers import TriggerHandler
 
 global PART_ID, RES_DIR  # Used in case of error on @atexit, that's why it must be global
 
@@ -141,18 +141,14 @@ def main():
     fix_cross = visual.TextStim(win, text='+', color='red', pos=(0, 15))
     fix_cross.setAutoDraw(True)
     # %% == Learning phase ==
-    # msg = {'Volume': _('Volume: hello, before learning'),'Freq': _('Freq: hello, before learning')}[conf.VER]
-    # show_info(win=win, msg=msg)
-    #
-    # sounds_presentation = [(_('LOW FREQUENCY'), low_freq)] * conf.LEARNING + [
-    #     (_('HIGH FREQUENCY'), high_freq)] * conf.LEARNING
-    # random.shuffle(sounds_presentation)
-    #
-    # label = visual.TextStim(win, color=conf.FONT_COLOR, height=conf.FONT_SIZE, wrapWidth=conf.SCREEN_RES['width'])
-    #
-    # for sample in sounds_presentation:
-    #     break
-    #     present_learning_sample(win, label, sample)
+    if conf.VER == 'cmp_freq':
+        msg = {'cmp_vol': _('Volume: hello, before learning'), 'cmp_freq': _('Freq: hello, before learning')}[conf.VER]
+        show_info(win=win, msg=msg)
+
+        for soa in conf.LEARNING_SOAS:
+            present_learning_sample(win, soa, conf.STANDARD_FREQ, conf=conf)
+            check_exit()
+
     # %% === Training ===
     training = list()
     for train_desc in conf.TRAINING:  # Training trials preparation
@@ -212,7 +208,6 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     global _
     key: list = list()
     t: float = conf.TIME / 1000.0
-    soa: float = soa / 100.0
     soa: float = random.choice([-soa, soa])
     trig_time: float = 0.04
     timeout: bool = True
@@ -243,6 +238,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     elif trial_type == TrialType.CMP_FREQ:
         standard_freq = conf.STANDARD_FREQ
         comparison_freq = standard_freq + soa
+        print(f'Stadard freq: {standard_freq}, Comparsion_freq: {comparison_freq}')
         comparison = get_sine_wave(freq=comparison_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
                                    wsf=conf.WSF)
         wavfile.write('comparison.wav', conf.SAMPLING_RATE, comparison)

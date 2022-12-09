@@ -1,8 +1,0 @@
-PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat
-MALE20,1,cmp_vol,train,left,0,40,-,-,-,0.6223850250244141
-MALE20,1,cmp_vol,train,right,0,40,-,-,-,0.44853687286376953
-MALE20,1,cmp_vol,train,left,0,40,-,-,-,0.9513850212097168
-MALE20,1,cmp_vol,train,right,0,40,-,-,-,0.817659854888916
-MALE20,1,cmp_vol,train,right,0,40,-,-,-,0.8977541923522949
-MALE20,1,cmp_vol,train,right,0,40,-,-,-,1.2972209453582764
-MALE20,2,cmp_vol,train,noans,0,20,-,-,-,-1.0

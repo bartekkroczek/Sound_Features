@@ -1,0 +1,27 @@
+trigger_no,trigger_type,corr,key
+1,stim_1_start,True,left
+2,stim_1_end,True,left
+3,stim_2_start,True,left
+4,stim_2_end,True,left
+5,answered,True,left
+6,stim_1_start,True,left
+7,stim_1_end,True,left
+8,stim_2_start,True,left
+9,stim_2_end,True,left
+10,answered,True,left
+# 0:00:00         | info     | TriggerHandler constructed with params: dummy_mode=True,trigger_time=0.02
+# 0:00:00         | info     | Possible triggerTypes registered: ['stim_1_start', 'stim_1_end', 'stim_2_start', 'stim_2_end', 'answered']
+# 0:00:00         | info     | Dummy mode: True
+# 0:00:00         | info     | Trigger time: 0.02
+# 0:00:00         | info     | Params registered: ['trigger_no', 'trigger_type', 'corr', 'key']
+# 0:00:00         | info     | Trigger limit set to: 60
+# 0:00:08.164546  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:00:08.664915  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:00:08.987587  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:00:09.485432  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:00:10.390525  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:00:12.590330  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:00:13.091127  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:00:13.414846  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:00:13.912179  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:00:14.242524  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True

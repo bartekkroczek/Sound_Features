@@ -1,4 +1,0 @@
-PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat
-cmp1MALE20,1,cmp_vol,train,right,0,4000,-,-,-,0.715846061706543
-cmp1MALE20,1,cmp_vol,train,left,0,4000,-,-,-,0.6734709739685059
-cmp1MALE20,2,cmp_vol,train,right,1,2000,-,-,-,0.7051751613616943

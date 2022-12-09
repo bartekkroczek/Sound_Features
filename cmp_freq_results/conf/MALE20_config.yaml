@@ -1,5 +1,5 @@
 VER: cmp_freq # Volume or cmp_vol or cmp_freq
-TRAINING: [{'soa': 8000, 'reps': 6}, {'soa': 20, 'reps': 2}, {'soa': 10, 'reps': 2}]
+TRAINING: [ { 'soa': 40, 'reps': 6 }, { 'soa': 20, 'reps': 2 }, { 'soa': 10, 'reps': 2 } ]
 # List describing training.
 # In example above it will be four levels of training (because of 4 items in list, may be less, may be more)
 # First training bloc   k contains 8 trials, (reps = 8) of soa equal to 60 etc...
@@ -13,14 +13,14 @@ FEEDB_TIME: 1000 # Feedback label presentation time [in ms]
 RTIME: 4000 # Maximal response time [in ms]
 MAX_TRIALS: 50 # max no of trials
 MAX_REVS: 2 # No of reversals in adaptive alg.
-START_SOA: 10
+START_SOA: 200
 STEP_UP: 5
 STEP_DOWN: 5
 VOLUME: .5 # Sound volume, range [0.0, 1.0]
 STANDARD_FREQ: 440.0 # low sine freq [in Hz]
 FIRST_SOUND_KEY: left # keyboard key associate with low freq response
 SECOND_SOUND_KEY: right # keyboard key associate with high freq response
-LEARNING: 0 # How many iterations of a stimuli in the learning phase.
+LEARNING_SOAS: [ 300, 300, 100, 100, 100, 50, 50, 20, 20 ] # How many iterations of a stimuli in the learning phase.
 WHITE_NOISE_LOUDNESS: 0 # Loudness factor for a white noise
 USE_EEG: FALSE
 # DANGER ZONE. Modify only when you have a strong reason.
