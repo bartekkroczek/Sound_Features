@@ -209,7 +209,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     key: list = list()
     t: float = conf.TIME / 1000.0
     soa: float = random.choice([-soa, soa])
-    trig_time: float = 0.04
+    trig_time: float = TRIGGERS.get_trigger_time()
     timeout: bool = True
     corr: bool = False
     timer: core.CountdownTimer = core.CountdownTimer()
