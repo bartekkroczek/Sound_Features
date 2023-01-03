@@ -1622,3 +1622,29 @@
 644.8859 	DATA 	Keypress: left
 644.9120 	CRITICAL 	Experiment finished by user! f7 pressed.
 646.1176 	EXP 	window1: mouseVisible = True
+8.4753 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=UNKNOWN, text='Który wyższy?', units='pix', win=Window(...), wrapWidth=500)
+8.4920 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+8.4974 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0., 15.]), rgb=UNKNOWN, text='+', units='pix', win=Window(...), wrapWidth=500)
+8.5292 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+8.5376 	EXP 	unnamed TextStim: autoDraw = True
+10.1681 	DATA 	Keypress: space
+10.1788 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Hello World', units='pix', win=Window(...), wrapWidth=1920)
+10.1911 	EXP 	unnamed TextStim: height = 20.0
+10.1911 	EXP 	unnamed TextStim: height = 20.0
+10.1911 	EXP 	unnamed TextStim: text = 'PARA NR 1.'
+12.7329 	EXP 	unnamed TextStim: height = 20.0
+12.7329 	EXP 	unnamed TextStim: height = 20.0
+12.7329 	EXP 	unnamed TextStim: text = 'Pierwszy dzwięk  był wyższy.'
+16.7380 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Hello World', units='pix', win=Window(...), wrapWidth=1920)
+16.7456 	EXP 	unnamed TextStim: height = 20.0
+16.7456 	EXP 	unnamed TextStim: height = 20.0
+16.7456 	EXP 	unnamed TextStim: text = 'PARA NR 2.'
+19.2879 	EXP 	unnamed TextStim: height = 20.0
+19.2879 	EXP 	unnamed TextStim: height = 20.0
+19.2879 	EXP 	unnamed TextStim: text = 'Pierwszy dzwięk  był wyższy.'
+23.0883 	DATA 	Keypress: f7
+23.0888 	DATA 	Keypress: lshift
+23.0890 	DATA 	Keypress: q
+23.0890 	EXP 	Global key event: safe_quit. Calling <function safe_quit at 0x00000296B6F8F9D0>.
+23.2889 	CRITICAL 	Experiment finished by user! f7 pressed.
+24.4992 	EXP 	window1: mouseVisible = True

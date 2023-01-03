@@ -17,7 +17,7 @@ from pygame import mixer, quit
 from scipy.io import wavfile
 
 from Adaptives.NUpNDown import NUpNDown
-from misc.audio import Dict2Obj, show_info, get_sine_wave, get_white_noise, present_learning_sample
+from misc.audio import Dict2Obj, show_info, get_sine_wave, get_white_noise
 from procedures_misc.screen_misc import get_frame_rate, get_screen_res
 from procedures_misc.triggers import TriggerHandler
 
@@ -79,6 +79,63 @@ def safe_quit() -> None:
 class TrialType(object):
     CMP_FREQ = 'cmp_freq'
     CMP_VOL = 'cmp_vol'
+
+
+def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: float, audio_separator: mixer.Sound,
+                            conf: Dict2Obj) -> None:
+    """
+   Simple func for playing sound with relevant label. Useful for learning.
+    Args:
+        audio_separator:
+        idx:
+        conf:
+        standard_freq:
+        soa:
+        win: Current experiment window.
+
+    Returns:
+        Nothing.
+    """
+
+    if soa < 0:
+        raise ValueError('Learning phase soa must be positive.')
+    label = visual.TextStim(win, color=conf.FONT_COLOR, height=conf.FONT_SIZE, wrapWidth=conf.SCREEN_RES['width'])
+    msg = f"PARA NR {idx}."
+    label.setText(msg)
+    label.draw()
+    win.flip()
+
+    soa = random.choice([-soa, soa])
+    freqs = [standard_freq, standard_freq + soa]
+    random.shuffle(freqs)
+    first_sound_freq, sec_sound_freq = freqs
+    msg = "Pierwszy dzwi\u0119k był wy\u017Cszy." if first_sound_freq > sec_sound_freq else "Pierwszy dzwi\u0119k był ni\u017Cszy."
+
+    first_sound = get_sine_wave(freq=first_sound_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
+                                wsf=conf.WSF)
+    wavfile.write('learning_first_sound.wav', conf.SAMPLING_RATE, first_sound)
+    first_sound = mixer.Sound('learning_first_sound.wav')
+    sec_sound = get_sine_wave(freq=sec_sound_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
+                              wsf=conf.WSF)
+    wavfile.write('learning_sec_sound.wav', conf.SAMPLING_RATE, sec_sound)
+    sec_sound = mixer.Sound('learning_sec_sound.wav')
+
+    core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
+    audio_separator.play()
+    core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
+    audio_separator.stop()
+    core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
+    first_sound.play()
+    core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
+    first_sound.stop()
+    core.wait(2 * conf.TRAIN_SOUND_TIME / 1000.0)
+    sec_sound.play()
+    core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
+    sec_sound.stop()
+    label.setText(msg)
+    label.draw()
+    win.flip()
+    core.wait(2)
 
 
 def main():
@@ -145,8 +202,8 @@ def main():
         msg = {'cmp_vol': _('Volume: hello, before learning'), 'cmp_freq': _('Freq: hello, before learning')}[conf.VER]
         show_info(win=win, msg=msg)
 
-        for soa in conf.LEARNING_SOAS:
-            present_learning_sample(win, soa, conf.STANDARD_FREQ, conf=conf)
+        for idx, soa in enumerate(conf.LEARNING_SOAS, start=1):
+            present_learning_sample(win, idx, soa, conf.STANDARD_FREQ, white_noise, conf=conf)
             check_exit()
 
     # %% === Training ===
