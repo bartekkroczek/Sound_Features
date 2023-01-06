@@ -16,8 +16,36 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 "X-Generator: Poedit 2.0.6\n"
 
+#: main.py 104
+msgid "pair_no"
+msgstr ""
+
+#: main.py 113
+msgid "First tone higher"
+msgstr ""
+
+#: main.py 113
+msgid "First tone lower"
+msgstr ""
+
 #: main.py:145
 msgid "Freq: hello, before learning"
+msgstr ""
+
+#: main.py:145
+msgid "Dur: hello, before learning"
+msgstr ""
+
+#: main.py:208
+msgid "Volume: hello, after learning"
+msgstr ""
+
+#: main.py:208
+msgid "Freq: hello, after learning"
+msgstr ""
+
+#: main.py:208
+msgid "Dur: hello, after learning"
 msgstr ""
 
 #: main.py:308
@@ -28,6 +56,10 @@ msgstr ""
 msgid "Volume: Answer Label"
 msgstr ""
 
+#: main.py 308
+msgid "Dur: Answer Label"
+msgstr ""
+
 #: main.py:311
 msgid "Freq: Up arrow"
 msgstr ""
@@ -36,12 +68,20 @@ msgstr ""
 msgid "Volume: Up arrow"
 msgstr ""
 
+#: main.py:311
+msgid "Dur: Up arrow"
+msgstr ""
+
 #: main.py:312
 msgid "Freq: Down arrow"
 msgstr ""
 
 #: main.py:312
 msgid "Volume: Down arrow"
+msgstr ""
+
+#: main.py:312
+msgid "Dur: Down arrow"
 msgstr ""
 
 #: main.py:318
@@ -61,11 +101,19 @@ msgid "Freq: before training"
 msgstr ""
 
 #: main.py:349
+msgid "Dur: before training"
+msgstr ""
+
+#: main.py:349
 msgid "Volume: before training"
 msgstr ""
 
 #: main.py:359
 msgid "Freq: before experiment"
+msgstr ""
+
+#: main.py:359
+msgid "Dur: before experiment"
 msgstr ""
 
 #: main.py:359
@@ -78,4 +126,8 @@ msgstr ""
 
 #: main.py:380
 msgid "Volume: end"
+msgstr ""
+
+#: main.py:380
+msgid "Dur: end"
 msgstr ""

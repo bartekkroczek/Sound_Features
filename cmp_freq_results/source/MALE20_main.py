@@ -9,15 +9,15 @@ import random
 import shutil
 import time
 from os.path import join
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 
 import yaml
 from psychopy import visual, event, logging, gui, core
 from pygame import mixer, quit
 from scipy.io import wavfile
 
-from Adaptives.NUpNDown import NUpNDown
-from misc.audio import Dict2Obj, show_info, get_sine_wave, get_white_noise
+from Adaptives.NUpNDownMinIters import NUpNDownMinIters
+from misc.audio import Dict2Obj, get_sine_wave, get_white_noise
 from procedures_misc.screen_misc import get_frame_rate, get_screen_res
 from procedures_misc.triggers import TriggerHandler
 
@@ -55,6 +55,31 @@ def abort_with_error(err):
     raise Exception(err)
 
 
+def show_info(win: visual, msg: str, insert: Dict[str, str] = {}, font_name: str = 'arial', font_color: str = 'white',
+              font_size: int = 20, font_max_width: int = 1000) -> None:
+    """
+    Clear way to show info messages on screen.
+    :param win: psychopy.Window object, main experiment.
+    :param msg: Message string to show.
+    :param insert: Additional (usually generated in runtime) message, replaced '<--insert-->' in loaded file.
+    :param font_name:
+    :param font_color:
+    :param font_size:
+    :param font_max_width:
+    :return: None.
+    """
+    if insert:
+        for key, value in insert.items():
+            msg.replace(key, value)
+    msg = visual.TextStim(win, font=font_name, color=font_color, text=msg, height=font_size, wrapWidth=font_max_width)
+    msg.draw()
+    win.flip()
+    key = event.waitKeys(keyList=['return', 'space', 'f7'])
+    if key[0] == 'f7':
+        abort_with_error('Experiment finished by user! {} pressed.'.format(key))
+    win.flip()
+
+
 @atexit.register  # decorator, func will ALWAYS be called when experiment will be closed, even with error.
 def safe_quit() -> None:
     """
@@ -79,6 +104,7 @@ def safe_quit() -> None:
 class TrialType(object):
     CMP_FREQ = 'cmp_freq'
     CMP_VOL = 'cmp_vol'
+    CMP_DUR = 'cmp_dur'
 
 
 def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: float, audio_separator: mixer.Sound,
@@ -86,11 +112,11 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
     """
    Simple func for playing sound with relevant label. Useful for learning.
     Args:
-        audio_separator:
-        idx:
+        audio_separator: Sound to separate relevant tones, white noise preferably.
+        idx: No of a curr trial.
         conf:
-        standard_freq:
-        soa:
+        standard_freq: Frequency of one of a sounds
+        soa: Difference between sounds.
         win: Current experiment window.
 
     Returns:
@@ -100,17 +126,15 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
     if soa < 0:
         raise ValueError('Learning phase soa must be positive.')
     label = visual.TextStim(win, color=conf.FONT_COLOR, height=conf.FONT_SIZE, wrapWidth=conf.SCREEN_RES['width'])
-    msg = f"PARA NR {idx}."
+    msg = f"{_('pair_no')}: {idx}."
     label.setText(msg)
     label.draw()
     win.flip()
-
     soa = random.choice([-soa, soa])
     freqs = [standard_freq, standard_freq + soa]
     random.shuffle(freqs)
     first_sound_freq, sec_sound_freq = freqs
-    msg = "Pierwszy dzwi\u0119k  był wy\u017Cszy." if first_sound_freq > sec_sound_freq else "Pierwszy dzwi\u0119k był ni\u017Cszy."
-
+    msg = _("First tone higher") if first_sound_freq > sec_sound_freq else _("First tone lower")
     first_sound = get_sine_wave(freq=first_sound_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
                                 wsf=conf.WSF)
     wavfile.write('learning_first_sound.wav', conf.SAMPLING_RATE, first_sound)
@@ -119,19 +143,26 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
                               wsf=conf.WSF)
     wavfile.write('learning_sec_sound.wav', conf.SAMPLING_RATE, sec_sound)
     sec_sound = mixer.Sound('learning_sec_sound.wav')
-
+    core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
+    audio_separator.play()
+    core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
+    audio_separator.stop()
+    check_exit()
     core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
     first_sound.play()
     core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
     first_sound.stop()
     core.wait(2 * conf.TRAIN_SOUND_TIME / 1000.0)
     sec_sound.play()
+    check_exit()
     core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
     sec_sound.stop()
+    core.wait(conf.TRAIN_SOUND_TIME / 2000.0)
     label.setText(msg)
     label.draw()
     win.flip()
-    core.wait(4)
+    check_exit()
+    core.wait(3)
 
 
 def main():
@@ -202,6 +233,9 @@ def main():
             present_learning_sample(win, idx, soa, conf.STANDARD_FREQ, white_noise, conf=conf)
             check_exit()
 
+        msg = {'cmp_vol': _('Volume: hello, after learning'), 'cmp_freq': _('Freq: hello, after learning')}[conf.VER]
+        show_info(win=win, msg=msg)
+
     # %% === Training ===
     training = list()
     for train_desc in conf.TRAINING:  # Training trials preparation
@@ -213,11 +247,12 @@ def main():
             rt, corr, key = run_trial(win, conf.VER, soa, conf, white_noise, answer_labels, feedback=True)
             RESULTS.append([PART_ID, idx, conf.VER, 'train', key, int(corr), soa, '-', '-', '-', rt])
             core.wait(conf.BREAK / 1000.0)
+            core.wait(random.choice(range(*conf.JITTER_RANGE)) / 1000.0)  # jitter
     # %% == Experiment ==
     msg = {'cmp_vol': _('Volume: before experiment'), 'cmp_freq': _('Freq: before experiment')}[conf.VER]
     show_info(win=win, msg=msg)
-    experiment = NUpNDown(start_val=conf.START_SOA, max_revs=conf.MAX_REVS, step_up=conf.STEP_UP,
-                          step_down=conf.STEP_DOWN)
+    experiment = NUpNDownMinIters(start_val=conf.START_SOA, max_revs=conf.MAX_REVS, step_up=conf.STEP_UP,
+                                  step_down=conf.STEP_DOWN, min_iters=conf.MIN_TRIALS)
     old_rev_count_val = -1
     for idx, soa in enumerate(experiment, idx):
         rt, corr, key = run_trial(win, conf.VER, soa, conf, white_noise, answer_labels, feedback=False)
@@ -234,6 +269,7 @@ def main():
         if idx == conf.MAX_TRIALS:
             break
         core.wait(conf.BREAK / 1000.0)
+        core.wait(random.choice(range(*conf.JITTER_RANGE)) / 1000.0)  # jitter
     # %% == Clear experiment
     msg = {'cmp_vol': _('Volume: end'), 'cmp_freq': _('Freq: end')}[conf.VER]
     show_info(win, msg=msg)
@@ -318,7 +354,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     fix_sound.play()
     time.sleep(t)
     fix_sound.stop()
-    time.sleep(conf.BREAK / 1000.0)
+    time.sleep(2 * conf.BREAK / 1000.0)
 
     # == Phase 2: Stimuli presentation
     first_sound.play()  # start sound
@@ -337,6 +373,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     win.flip()  # sound played, clock reset, trig sent
     time.sleep(trig_time)  # nobody will react as fast, so procedure can be frozen for a while
     TRIGGERS.send_clear()
+    check_exit()
     while timer.getTime() > 0:  # Handling responses when sounds still playing
         key = event.getKeys(keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])
         if key:
@@ -349,7 +386,6 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     TRIGGERS.send_trigger(TriggerTypes.STIM_2_END)
 
     # Phase 3: No reaction while stimuli presented
-
     if not key:  # no reaction when sound was played, wait some more.
         key = event.waitKeys(maxWait=conf.RTIME / 1000.0, keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])
         if key:  # check if any reaction, if no - timeout

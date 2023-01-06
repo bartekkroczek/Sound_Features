@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2019-01-21 12:39+0100\n"
-"PO-Revision-Date: 2023-01-02 17:47+0100\n"
+"PO-Revision-Date: 2023-01-04 18:00+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pl_PL\n"
@@ -18,11 +18,56 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 "X-Generator: Poedit 3.2.2\n"
 
+#: main.py 104
+msgid "pair_no"
+msgstr "Para nr"
+
+#: main.py 113
+msgid "First tone higher"
+msgstr "Pierwszy dźwięk był wyższy."
+
+#: main.py 113
+msgid "First tone lower"
+msgstr "Pierwszy dźwięk był niższy."
+
 #: main.py:145
 msgid "Freq: hello, before learning"
 msgstr ""
+"Twoim zadaniem będzie podjęcie decyzji, który z dwóch prezentowanych "
+"dźwięków jest WYŻSZY.\n"
 "Teraz zaprezentujemy Ci kilka przykładowych par dźwięków, dla których "
-"wskażemy prawidłową odpowiedź."
+"wskażemy prawidłową odpowiedź.\n"
+"Każda z par zostanie poprzedzona krótkim szumem. "
+
+#: main.py:145
+msgid "Dur: hello, before learning"
+msgstr ""
+"Twoim zadaniem będzie podjęcie decyzji, który z dwóch prezentowanych "
+"dźwięków trwa DŁUŻEJ.\n"
+"Teraz zaprezentujemy Ci kilka przykładowych par dźwięków, dla których "
+"wskażemy prawidłową odpowiedź.\n"
+"Każda z par zostanie poprzedzona krótkim szumem. "
+
+#: main.py:208
+msgid "Volume: hello, after learning"
+msgstr ""
+"Jeśli instrukcja jest dla Ciebie jasna, naciśnij spację, aby przejść do "
+"treningu. Jeśli instrukcja nie jest jasna,  poproś eksperymentatora o "
+"dodatkowe wyjaśnienia i powtórzenie fazy uczenia. "
+
+#: main.py:208
+msgid "Freq: hello, after learning"
+msgstr ""
+"Jeśli instrukcja jest dla Ciebie jasna, naciśnij spację, aby przejść do "
+"treningu. Jeśli instrukcja nie jest jasna,  poproś eksperymentatora o "
+"dodatkowe wyjaśnienia i powtórzenie fazy uczenia. "
+
+#: main.py:208
+msgid "Dur: hello, after learning"
+msgstr ""
+"Jeśli instrukcja jest dla Ciebie jasna, naciśnij spację, aby przejść do "
+"treningu. Jeśli instrukcja nie jest jasna,  poproś eksperymentatora o "
+"dodatkowe wyjaśnienia i powtórzenie fazy uczenia. "
 
 #: main.py:308
 msgid "Freq: Answer Label"
@@ -32,6 +77,10 @@ msgstr "Który wyższy?"
 msgid "Volume: Answer Label"
 msgstr "Który głośniejszy?"
 
+#: main.py 308
+msgid "Dur: Answer Label"
+msgstr "Który dłuższy?"
+
 #: main.py:311
 msgid "Freq: Up arrow"
 msgstr "→ (Drugi wyższy)"
@@ -39,6 +88,10 @@ msgstr "→ (Drugi wyższy)"
 #: main.py:311
 msgid "Volume: Up arrow"
 msgstr "→ (Drugi głośniejszy)"
+
+#: main.py:311
+msgid "Dur: Up arrow"
+msgstr "→ (Drugi dłuższy)"
 
 #: main.py:312
 msgid "Freq: Down arrow"
@@ -48,13 +101,17 @@ msgstr "← (Pierwszy wyższy)"
 msgid "Volume: Down arrow"
 msgstr "← (Pierwszy głośniejszy)"
 
+#: main.py:312
+msgid "Dur: Down arrow"
+msgstr "← (Pierwszy dłuższy)"
+
 #: main.py:318
 msgid "Corr ans"
 msgstr "Poprawna odpowiedź"
 
 #: main.py:322
 msgid "Incorr ans"
-msgstr "Odpowiedź niepoprawna."
+msgstr "Odpowiedź niepoprawna"
 
 #: main.py:326
 msgid "No ans"
@@ -63,54 +120,91 @@ msgstr "Nie udzieliłeś/aś odpowiedzi"
 #: main.py:349
 msgid "Freq: before training"
 msgstr ""
-"W tym zadaniu będziesz decydował, który z dwóch po kolei puszczanych "
-"dźwięków był WYŻSZY (czyli bardziej \"piskliwy\").\n"
+"W zadaniu będziesz słyszał pary dźwięków, które będą oddzielone szumem. Szum "
+"oznacza, że zaraz usłyszysz kolejną parę dźwięków.\n"
+"Twoim zadaniem będzie podjęcie decyzji, który z dwóch prezentowanych "
+"dźwięków jest WYŻSZY.\n"
 "\n"
-"Po kolei usłyszysz dwa dźwięki.\n"
-"Jeśli to pierwszy z nich był wyższy od drugiego przyciśnij lewą strzałkę.\n"
-"Jeśli to drugi był wyższy od pierwszego przyciśnij prawą strzałkę.\n"
+"Jeśli pierwszy dźwięk jest WYŻSZY, naciśnij LEWĄ strzałkę na klawiaturze.\n"
+"Jeśli drugi dźwięk jest WYŻSZY, naciśnij PRAWĄ strzałkę na klawiaturze.\n"
 "\n"
-"Przejdź spacją do treningu"
+"Przypisanie klawiszy do odpowiedzi będzie widoczne na ekranie. Po każdej "
+"próbie uzyskasz informację o poprawności odpowiedzi"
+
+#: main.py:349
+msgid "Dur: before training"
+msgstr ""
+"W zadaniu będziesz słyszał pary dźwięków, które będą oddzielone szumem. Szum "
+"oznacza, że zaraz usłyszysz kolejną parę dźwięków.\n"
+"Twoim zadaniem będzie podjęcie decyzji, który z dwóch prezentowanych "
+"dźwięków trwa DŁUŻEJ.\n"
+"\n"
+"Jeśli pierwszy dźwięk jest DŁUŻSZY, naciśnij LEWĄ strzałkę na klawiaturze.\n"
+"Jeśli drugi dźwięk jest DŁUŻSZY, naciśnij PRAWĄ strzałkę na klawiaturze.\n"
+"\n"
+"Przypisanie klawiszy do odpowiedzi będzie widoczne na ekranie. Po każdej "
+"próbie uzyskasz informację o poprawności odpowiedzi"
 
 #: main.py:349
 msgid "Volume: before training"
 msgstr ""
-"W tym zadaniu będziesz decydował, który z dwóch po kolei puszczanych "
-"dźwięków był GŁOŚNIEJSZY\n"
+"W zadaniu będziesz słyszał pary dźwięków, które będą oddzielone szumem. Szum "
+"oznacza, że zaraz usłyszysz kolejną parę dźwięków.\n"
+"Twoim zadaniem będzie podjęcie decyzji, który z dwóch prezentowanych "
+"dźwięków jest GŁOŚNIEJSZY.\n"
 "\n"
-"Po kolei usłyszysz dwa dźwięki.\n"
-"Jeśli to pierwszy z nich był GŁOŚNIEJSZY od drugiego przyciśnij lewą "
-"strzałkę.\n"
-"Jeśli to drugi był GŁOŚNIEJSZY od pierwszego przyciśnij prawą strzałkę.\n"
+"Jeśli pierwszy dźwięk jest GŁOŚNIEJSZY, naciśnij LEWĄ strzałkę na "
+"klawiaturze.\n"
+"Jeśli drugi dźwięk jest GŁOŚNIEJSZY, naciśnij PRAWĄ strzałkę na "
+"klawiaturze.\n"
 "\n"
-"Przejdź spacją do treningu"
+"Przypisanie klawiszy do odpowiedzi będzie widoczne na ekranie. Po każdej "
+"próbie uzyskasz informację o poprawności odpowiedzi"
 
 #: main.py:359
 msgid "Freq: before experiment"
 msgstr ""
-"Ukończyłeś trening.\n"
+"Koniec sesji treningowej. Teraz rozpocznie się główne zadanie. Nie uzyskasz "
+"już informacji o poprawności swoich odpowiedzi. Staraj się udzielać "
+"odpowiedzi tak szybko i poprawnie, jak to możliwe.\n"
+"Przypisanie klawiszy do odpowiedzi będzie widoczne na ekranie.\n"
 "\n"
-"Pamiętaj Twoim zadaniem jest zdecydować, który dźwięk był WYŻSZY\n"
+"Aby rozpocząć główne zadanie, naciśnij spację."
+
+#: main.py:359
+msgid "Dur: before experiment"
+msgstr ""
+"Koniec sesji treningowej. Teraz rozpocznie się główne zadanie. Nie uzyskasz "
+"już informacji o poprawności swoich odpowiedzi. Staraj się udzielać "
+"odpowiedzi tak szybko i poprawnie, jak to możliwe.\n"
+"Przypisanie klawiszy do odpowiedzi będzie widoczne na ekranie.\n"
 "\n"
-"Przyciśnij spację by rozpocząć"
+"Aby rozpocząć główne zadanie, naciśnij spację."
 
 #: main.py:359
 msgid "Volume: before experiment"
 msgstr ""
-"Ukończyłeś trening.\n"
+"Koniec sesji treningowej. Teraz rozpocznie się główne zadanie. Nie uzyskasz "
+"już informacji o poprawności swoich odpowiedzi. Staraj się udzielać "
+"odpowiedzi tak szybko i poprawnie, jak to możliwe.\n"
+"Przypisanie klawiszy do odpowiedzi będzie widoczne na ekranie.\n"
 "\n"
-"Pamiętaj Twoim zadaniem jest zdecydować, który dźwięk był GŁOŚNIEJSZY\n"
-"\n"
-"Przyciśnij spację by rozpocząć"
+"Aby rozpocząć główne zadanie, naciśnij spację."
 
 #: main.py:380
 msgid "Freq: end"
 msgstr ""
 "Koniec zadania\n"
-"Przyciśnij spację"
+"Poczekaj na przyjście badacza. "
 
 #: main.py:380
 msgid "Volume: end"
 msgstr ""
 "Koniec zadania\n"
-"Przyciśnij spację"
+"Poczekaj na przyjście badacza. "
+
+#: main.py:380
+msgid "Dur: end"
+msgstr ""
+"Koniec zadania\n"
+"Poczekaj na przyjście badacza. "
