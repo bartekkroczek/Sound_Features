@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from __future__ import annotations
 
 import atexit
 import csv
@@ -15,6 +14,7 @@ import yaml
 from psychopy import visual, event, logging, gui, core
 from pygame import mixer, quit
 from scipy.io import wavfile
+from tkinter import messagebox
 
 from Adaptives.NUpNDownMinIters import NUpNDownMinIters
 from misc.audio import Dict2Obj, get_sine_wave, get_white_noise
@@ -168,13 +168,29 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
 def main():
     global RES_DIR, PART_ID
     # %% === Dialog popup ===
-    info = {'PART_ID': '', 'Sex': ["MALE", "FEMALE"], 'AGE': '20'}
-    dictDlg = gui.DlgFromDict(dictionary=info, title="Psychophysical Force experiment. Sounds version.")
+    info = {'PART_ID': '', 'Sex': ["MALE", "FEMALE"], 'AGE': '20', 'VERSION': ['cmp_freq', 'cmp_dur', 'cmp_vol']}
+    dictDlg = gui.DlgFromDict(dictionary=info, title="Study Y. Sound Procedures.")
     if not dictDlg.OK:
-        logging.critical('Dialog popup terminated')
         raise Exception('Dialog popup exception')
+    ver = info['VERSION']
+    RES_DIR = ver + '_results'
+    logging.LogFile(join(RES_DIR, 'log', PART_ID + '.log'), level=logging.INFO)  # errors logging
+    PART_ID = f"{info['PART_ID']}_{info['Sex']}_{info['AGE']}"
+    underscore_in_partid = "_" in info['PART_ID']
+    if underscore_in_partid:
+        msg = 'Underscore "_" is illegal as a participant name.'
+        logging.critical(msg)
+        messagebox.showerror(title="Error!", message=msg)
+        raise AttributeError('Participant name cannot have underscore in it.')
+    curr_id_already_used = info['PART_ID'] in [f.split('_')[0] for f in os.listdir(join(f'{ver}_results', 'beh'))]
+    if curr_id_already_used:
+        msg = f"Current id:{info['PART_ID']} already used, check if you choose right proc ver({ver})."
+        logging.critical(msg)
+        messagebox.showerror(title="Error!", message=msg)
+        raise AttributeError('Current id already used.')
+
     # %% == Load config ==
-    conf = yaml.load(open('config.yaml', 'r'), Loader=yaml.SafeLoader)
+    conf = yaml.load(open(f'{ver}_config.yaml', 'r'), Loader=yaml.SafeLoader)
     conf = Dict2Obj(**conf)
     if conf.USE_EEG:
         TRIGGERS.connect_to_eeg()
@@ -186,11 +202,9 @@ def main():
         lang.install()
     except OSError:
         msg = "Language {} not supported, add translation or change lang in config.".format(conf['LANG'])
-        # logging.critical(msg)
+        logging.critical(msg)
         raise OSError(msg)
     # %% == Procedure Init ==
-    PART_ID = info['PART_ID'] + info['Sex'] + info['AGE']
-    RES_DIR = conf['VER'] + '_results'
     mixer.pre_init(conf.SAMPLING_RATE, -16, 2, 512)
     mixer.init(conf.SAMPLING_RATE, -16, 2, 512)
     conf.SCREEN_RES = SCREEN_RES = get_screen_res()
@@ -200,9 +214,9 @@ def main():
     conf.FRAME_RATE = FRAME_RATE
     logging.info('FRAME RATE: {}'.format(FRAME_RATE))
     logging.info('SCREEN RES: {}'.format(SCREEN_RES.values()))
-    logging.LogFile(join(RES_DIR, 'log', PART_ID + '.log'), level=logging.INFO)  # errors logging
-    shutil.copy2('config.yaml', join(RES_DIR, 'conf', PART_ID + '_config.yaml'))
+    shutil.copy2(f'{ver}_config.yaml', join(RES_DIR, 'conf', f'{PART_ID}_{ver}_config.yaml'))
     shutil.copy2('main.py', join(RES_DIR, 'source', PART_ID + '_main.py'))
+
     # %% == Sounds preparation
     standard = get_sine_wave(freq=conf.STANDARD_FREQ, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
                              wsf=conf.WSF)
@@ -214,14 +228,13 @@ def main():
     mixer.set_num_channels(2)
     # %% == Labels preparation ==
     answer_label = {'cmp_vol': _('Volume: Answer Label'), 'cmp_freq': _('Freq: Answer Label'),
-                    'cmp_dur': _('Dur: Answer Label')}[
-        conf.VER]
+                    'cmp_dur': _('Dur: Answer Label')}[ver]
     answer_label = visual.TextStim(win, pos=(0, -2 * conf.FONT_SIZE), text=answer_label, font='Arial',
                                    color=conf.FONT_COLOR, height=conf.FONT_SIZE)
-    up_arrow = {'cmp_vol': _('Volume: Up arrow'), 'cmp_freq': _("Freq: Up arrow"), 'cmp_dur': _("Dur: Up arrow")}[
-        conf.VER]
+    up_arrow = {'cmp_vol': _('Volume: Up arrow'), 'cmp_freq': _("Freq: Up arrow"),
+                'cmp_dur': _("Dur: Up arrow")}[ver]
     down_arrow = {'cmp_vol': _('Volume: Down arrow'), 'cmp_freq': _("Freq: Down arrow"),
-                  'cmp_dur': _("Dur: Down arrow")}[conf.VER]
+                  'cmp_dur': _("Dur: Down arrow")}[ver]
     answer2_label = down_arrow + ' ' * 2 * conf.FONT_SIZE + up_arrow
     answer2_label = visual.TextStim(win, pos=(0, -4 * conf.FONT_SIZE), text=answer2_label, font='Arial', wrapWidth=1000,
                                     color=conf.FONT_COLOR, height=conf.FONT_SIZE)
@@ -229,7 +242,7 @@ def main():
     fix_cross = visual.TextStim(win, text='+', color='red', pos=(0, 15))
     fix_cross.setAutoDraw(True)
     # %% == Learning phase ==
-    if conf.VER == 'cmp_freq':
+    if ver == TrialType.CMP_FREQ:
         show_info(win=win, msg=_('Freq: hello, before learning'))
         for idx, soa in enumerate(conf.LEARNING_SOAS, start=1):
             present_learning_sample(win, idx, soa, conf.STANDARD_FREQ, white_noise, conf=conf)
@@ -241,23 +254,23 @@ def main():
     for train_desc in conf.TRAINING:  # Training trials preparation
         training.append([train_desc['soa']] * train_desc['reps'])
     msg = {'cmp_vol': _('Volume: before training'), 'cmp_freq': _('Freq: before training'),
-           'cmp_dur': _("Dur: before training")}[conf.VER]
+           'cmp_dur': _("Dur: before training")}[ver]
     show_info(win=win, msg=msg)
     for idx, level in enumerate(training, 1):
         for soa in level:
-            rt, corr, key = run_trial(win, conf.VER, soa, conf, white_noise, answer_labels, feedback=True)
-            RESULTS.append([PART_ID, idx, conf.VER, 'train', key, int(corr), soa, '-', '-', '-', rt])
+            rt, corr, key = run_trial(win, ver, soa, conf, white_noise, answer_labels, feedback=True)
+            RESULTS.append([PART_ID, idx, ver, 'train', key, int(corr), soa, '-', '-', '-', rt])
             core.wait(conf.BREAK / 1000.0)
             core.wait(random.choice(range(*conf.JITTER_RANGE)) / 1000.0)  # jitter
     # %% == Experiment ==
     msg = {'cmp_vol': _('Volume: before experiment'), 'cmp_freq': _('Freq: before experiment'),
-           'cmp_dur': _('Dur: before experiment')}[conf.VER]
+           'cmp_dur': _('Dur: before experiment')}[ver]
     show_info(win=win, msg=msg)
-    experiment = NUpNDownMinIters(start_val=conf.START_SOA, max_revs=conf.MAX_REVS, step_up=conf.STEP_UP,
-                                  step_down=conf.STEP_DOWN, min_iters=conf.MIN_TRIALS)
+    experiment = NUpNDownMinIters(n_up=conf.N_UP, n_down=conf.N_DOWN, start_val=conf.START_SOA, max_revs=conf.MAX_REVS,
+                                  step_up=conf.STEP_UP, step_down=conf.STEP_DOWN, min_iters=conf.MIN_TRIALS)
     old_rev_count_val = -1
     for idx, soa in enumerate(experiment, idx):
-        rt, corr, key = run_trial(win, conf.VER, soa, conf, white_noise, answer_labels, feedback=False)
+        rt, corr, key = run_trial(win, ver, soa, conf, white_noise, answer_labels, feedback=False)
         experiment.set_corr(bool(corr))
         level, reversal, revs_count = map(int, experiment.get_jump_status())
 
@@ -267,13 +280,13 @@ def main():
         else:
             rev_count_val = '-'
 
-        RESULTS.append([PART_ID, idx, conf.VER, 'exp', key, int(corr), soa, reversal, level, rev_count_val, rt])
+        RESULTS.append([PART_ID, idx, ver, 'exp', key, int(corr), soa, reversal, level, rev_count_val, rt])
         if idx == conf.MAX_TRIALS:
             break
         core.wait(conf.BREAK / 1000.0)
         core.wait(random.choice(range(*conf.JITTER_RANGE)) / 1000.0)  # jitter
     # %% == Clear experiment
-    msg = {'cmp_vol': _('Volume: end'), 'cmp_freq': _('Freq: end'), 'cmp_dur': _('Dur: end')}[conf.VER]
+    msg = {'cmp_vol': _('Volume: end'), 'cmp_freq': _('Freq: end'), 'cmp_dur': _('Dur: end')}[ver]
     show_info(win, msg=msg)
     win.close()
     core.quit()
@@ -281,7 +294,7 @@ def main():
 
 
 def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Obj, fix_sound: mixer.Sound,
-              ans_lbs: List[visual.TextStim], feedback: bool) -> Tuple[float, bool | int, str]:
+              ans_lbs: List[visual.TextStim], feedback: bool) -> Tuple[float, any, str]:
     """
         Single trial presented for participant.
     Args:
@@ -326,13 +339,18 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
             first_volume, second_volume = conf.VOLUME, conf.VOLUME + soa
         else:
             first_volume, second_volume = conf.VOLUME + soa, conf.VOLUME
-        print(f"first vol: {first_volume}, sec vol: {second_volume}", end='=>')
+        msg = f"first vol: {first_volume}, sec vol: {second_volume}"
+        first_volume, second_volume = first_volume / 100.0, second_volume / 100.0
+        logging.info(msg)
+        print(msg, end=' =>')
         first_sound.set_volume(first_volume)
         second_sound.set_volume(second_volume)
     elif trial_type == TrialType.CMP_FREQ:
         standard_freq = conf.STANDARD_FREQ
         comparison_freq = standard_freq + soa
-        print(f'Stadard freq: {standard_freq}, Comparsion_freq: {comparison_freq}')
+        msg = f'Stadard freq: {standard_freq}, Comparsion_freq: {comparison_freq}'
+        logging.info(msg)
+        print(msg, end='=>')
         comparison = get_sine_wave(freq=comparison_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
                                    wsf=conf.WSF)
         wavfile.write('comparison.wav', conf.SAMPLING_RATE, comparison)
@@ -350,14 +368,16 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         second_sound = mixer.Sound('standard.wav')
         t1 = conf.TIME / 1000.0
         t2 = (conf.TIME + soa) / 1000.0
+        msg = f"Time1: {t1}, Time2:{t2}"
+        logging.info(msg)
+        print(msg, end='=>')
     else:
-        raise NotImplementedError('Procedure works only with cmp_vol and cmp_freq.')
+        msg = f'Procedure works only with Volume, duration or frequency. Not with {trial_type}'
+        logging.critical(msg)
+        raise NotImplementedError(msg)
     logging.info(f'TrialType: {trial_type}')
-    logging.info(f'Standard stimuli is f{"first" if standard_first else "second"} and '
-                 f'{"higher" if standard_higher else "lower"} ')
-    # print(f"FIRST VOL: {first_volume}, SEC VOL: {second_volume}")
-    # print(f"conf vol: {conf.VOLUME}, soa: {soa}")
-    # print(f"FIRST VOL: {first_sound.get_volume()} SEC VOL: {second_sound.get_volume()}")
+    msg = f"Standard is f{'first' if standard_first else 'second'} and {'higher' if standard_higher else 'lower'}"
+    logging.info(msg)
     for label in ans_lbs:
         label.draw()
     # == Phase 1: White noise
@@ -379,11 +399,9 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     # make trigger, start of a sound and response timer in sync through win.flip()
     win.callOnFlip(second_sound.play)
     win.callOnFlip(response_clock.reset)
-    win.callOnFlip(TRIGGERS.send_trigger, TriggerTypes.STIM_2_START, with_delay=False)
+    win.callOnFlip(TRIGGERS.send_trigger, TriggerTypes.STIM_2_START)
     timer.reset(t=t2)  # reverse timer from TIME to 0.
     win.flip()  # sound played, clock reset, trig sent
-    time.sleep(trig_time)  # nobody will react as fast, so procedure can be frozen for a while
-    TRIGGERS.send_clear()
     check_exit()
     while timer.getTime() > 0:  # Handling responses when sounds still playing
         key = event.getKeys(keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])
@@ -421,8 +439,6 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
             feedback_label = corr_feedback_label
         else:
             feedback_label = incorr_feedback_label
-    # print("STANDARD FIRST: {} STANDARD LAUDER: {} CORR:{} KEY:{} FIRST VOLUME: {} SECOND VOLUME: {}".format(
-    #     standard_first, standard_lauder, corr, key[0], first_volume, second_volume))
     else:  # No reaction
         key = ['noans']
         rt = -1.0
@@ -442,7 +458,4 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
 
 if __name__ == '__main__':
     PART_ID = ''
-    event.globalKeys.clear()
-    event.globalKeys.add(key='q', func=safe_quit)  # 'q' terminate procedure in any time
-    SCREEN_RES = get_screen_res()
     main()

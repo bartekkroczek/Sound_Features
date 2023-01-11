@@ -1,0 +1,43 @@
+8.3777 	INFO 	Loaded monitor calibration from ['2023_01_06 17:44']
+8.5175 	WARNING 	User requested fullscreen with size [1920 1080], but screen is actually [1366, 768]. Using actual size
+10.8196 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1, -1, -1]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f3f4d15e208>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7f3f3fb30240>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1366,  768]), stencilBits=0, stereo=False, units='pix', useFBO=False, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+10.8198 	EXP 	window1: mouseVisible = True
+10.8209 	EXP 	window1: mouseVisible = False
+10.8210 	EXP 	window1: recordFrameIntervals = False
+11.0195 	EXP 	window1: recordFrameIntervals = True
+11.5380 	EXP 	window1: recordFrameIntervals = False
+11.5381 	INFO 	Detected framerate: 60 frames per sec.
+11.5381 	INFO 	FRAME RATE: 60
+11.5381 	INFO 	SCREEN RES: odict_values([1920, 1080])
+11.5823 	EXP 	window1: mouseVisible = True
+6.2168 	CRITICAL 	Current id:hh already used, check if you choose right proc ver(cmp_vol).
+7.2017 	INFO 	Loaded monitor calibration from ['2023_01_06 17:44']
+7.2274 	WARNING 	User requested fullscreen with size [1920 1080], but screen is actually [1366, 768]. Using actual size
+8.0503 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1, -1, -1]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f1ee932d278>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7f1edbd094e0>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1366,  768]), stencilBits=0, stereo=False, units='pix', useFBO=False, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+8.0505 	EXP 	window1: mouseVisible = True
+8.0512 	EXP 	window1: mouseVisible = False
+8.0513 	EXP 	window1: recordFrameIntervals = False
+8.2330 	EXP 	window1: recordFrameIntervals = True
+8.7498 	EXP 	window1: recordFrameIntervals = False
+8.7499 	INFO 	Detected framerate: 60 frames per sec.
+8.7499 	INFO 	FRAME RATE: 60
+8.7499 	INFO 	SCREEN RES: odict_values([1920, 1080])
+8.8241 	EXP 	window1: mouseVisible = True
+6.1002 	INFO 	Loaded monitor calibration from ['2023_01_06 17:44']
+6.1478 	WARNING 	User requested fullscreen with size [1920 1080], but screen is actually [1366, 768]. Using actual size
+6.9855 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1, -1, -1]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f0b5d1e8278>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7f0b4fbba4e0>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1366,  768]), stencilBits=0, stereo=False, units='pix', useFBO=False, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+6.9857 	EXP 	window1: mouseVisible = True
+6.9870 	EXP 	window1: mouseVisible = False
+6.9870 	EXP 	window1: recordFrameIntervals = False
+7.1509 	EXP 	window1: recordFrameIntervals = True
+7.6693 	EXP 	window1: recordFrameIntervals = False
+7.6694 	INFO 	Detected framerate: 60 frames per sec.
+7.6695 	INFO 	FRAME RATE: 60
+7.6695 	INFO 	SCREEN RES: odict_values([1920, 1080])
+7.8913 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=UNKNOWN, text='Który głośniejszy?', units='pix', win=Window(...), wrapWidth=500)
+7.9176 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+7.9238 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0., 15.]), rgb=UNKNOWN, text='+', units='pix', win=Window(...), wrapWidth=500)
+7.9789 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+8.0195 	EXP 	unnamed TextStim: autoDraw = True
+16557.5838 	DATA 	Keypress: lalt
+16566.9451 	EXP 	window1: mouseVisible = True

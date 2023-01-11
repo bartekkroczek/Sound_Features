@@ -1,0 +1,11 @@
+PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat
+gyuy_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,3.5119779109954834
+gyuy_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,1.562744140625
+gyuy_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,1.4339268207550049
+gyuy_MALE_20,1,cmp_freq,train,right,1,50,-,-,-,1.797658920288086
+gyuy_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,1.7166950702667236
+gyuy_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,2.3339569568634033
+gyuy_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,1.092721939086914
+gyuy_MALE_20,1,cmp_freq,train,right,1,50,-,-,-,2.3187711238861084
+gyuy_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,1.1300249099731445
+gyuy_MALE_20,1,cmp_freq,train,noans,0,50,-,-,-,-1.0

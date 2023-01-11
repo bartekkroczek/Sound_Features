@@ -1,0 +1,3 @@
+PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat
+MALE20,1,cmp_freq,train,left,0,40,-,-,-,1.4394069999980275
+MALE20,1,cmp_freq,train,left,0,40,-,-,-,1.6222989000089

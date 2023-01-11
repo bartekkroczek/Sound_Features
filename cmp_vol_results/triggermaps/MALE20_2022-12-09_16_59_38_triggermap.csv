@@ -1,0 +1,407 @@
+trigger_no,trigger_type,corr,key
+1,stim_1_start,True,right
+2,stim_1_end,True,right
+3,stim_2_start,True,right
+4,stim_2_end,True,right
+5,answered,True,right
+6,stim_1_start,True,right
+7,stim_1_end,True,right
+8,stim_2_start,True,right
+9,stim_2_end,True,right
+10,answered,True,right
+11,stim_1_start,True,left
+12,stim_1_end,True,left
+13,stim_2_start,True,left
+14,stim_2_end,True,left
+15,answered,True,left
+16,stim_1_start,True,left
+17,stim_1_end,True,left
+18,stim_2_start,True,left
+19,stim_2_end,True,left
+20,answered,True,left
+21,stim_1_start,True,right
+22,stim_1_end,True,right
+23,stim_2_start,True,right
+24,stim_2_end,True,right
+25,answered,True,right
+26,stim_1_start,True,left
+27,stim_1_end,True,left
+28,stim_2_start,True,left
+29,stim_2_end,True,left
+30,answered,True,left
+31,stim_1_start,True,left
+32,stim_1_end,True,left
+33,stim_2_start,True,left
+34,stim_2_end,True,left
+35,answered,True,left
+36,stim_1_start,True,left
+37,stim_1_end,True,left
+38,stim_2_start,True,left
+39,stim_2_end,True,left
+40,answered,True,left
+41,stim_1_start,True,left
+42,stim_1_end,True,left
+43,stim_2_start,True,left
+44,stim_2_end,True,left
+45,answered,True,left
+46,stim_1_start,True,right
+47,stim_1_end,True,right
+48,stim_2_start,True,right
+49,stim_2_end,True,right
+50,answered,True,right
+51,stim_1_start,True,right
+52,stim_1_end,True,right
+53,stim_2_start,True,right
+54,stim_2_end,True,right
+55,answered,True,right
+56,stim_1_start,True,right
+57,stim_1_end,True,right
+58,stim_2_start,True,right
+59,stim_2_end,True,right
+60,answered,True,right
+1,stim_1_start,True,left
+2,stim_1_end,True,left
+3,stim_2_start,True,left
+4,stim_2_end,True,left
+5,answered,True,left
+6,stim_1_start,True,left
+7,stim_1_end,True,left
+8,stim_2_start,True,left
+9,stim_2_end,True,left
+10,answered,True,left
+11,stim_1_start,True,left
+12,stim_1_end,True,left
+13,stim_2_start,True,left
+14,stim_2_end,True,left
+15,answered,True,left
+16,stim_1_start,True,right
+17,stim_1_end,True,right
+18,stim_2_start,True,right
+19,stim_2_end,True,right
+20,answered,True,right
+21,stim_1_start,True,left
+22,stim_1_end,True,left
+23,stim_2_start,True,left
+24,stim_2_end,True,left
+25,answered,True,left
+26,stim_1_start,True,right
+27,stim_1_end,True,right
+28,stim_2_start,True,right
+29,stim_2_end,True,right
+30,answered,True,right
+31,stim_1_start,True,right
+32,stim_1_end,True,right
+33,stim_2_start,True,right
+34,stim_2_end,True,right
+35,answered,True,right
+36,stim_1_start,True,left
+37,stim_1_end,True,left
+38,stim_2_start,True,left
+39,stim_2_end,True,left
+40,answered,True,left
+41,stim_1_start,True,left
+42,stim_1_end,True,left
+43,stim_2_start,True,left
+44,stim_2_end,True,left
+45,answered,True,left
+46,stim_1_start,True,left
+47,stim_1_end,True,left
+48,stim_2_start,True,left
+49,stim_2_end,True,left
+50,answered,True,left
+51,stim_1_start,True,right
+52,stim_1_end,True,right
+53,stim_2_start,True,right
+54,stim_2_end,True,right
+55,answered,True,right
+56,stim_1_start,True,left
+57,stim_1_end,True,left
+58,stim_2_start,True,left
+59,stim_2_end,True,left
+60,answered,True,left
+1,stim_1_start,True,right
+2,stim_1_end,True,right
+3,stim_2_start,True,right
+4,stim_2_end,True,right
+5,answered,True,right
+6,stim_1_start,True,left
+7,stim_1_end,True,left
+8,stim_2_start,True,left
+9,stim_2_end,True,left
+10,answered,True,left
+11,stim_1_start,True,right
+12,stim_1_end,True,right
+13,stim_2_start,True,right
+14,stim_2_end,True,right
+15,answered,True,right
+16,stim_1_start,True,left
+17,stim_1_end,True,left
+18,stim_2_start,True,left
+19,stim_2_end,True,left
+20,answered,True,left
+21,stim_1_start,True,left
+22,stim_1_end,True,left
+23,stim_2_start,True,left
+24,stim_2_end,True,left
+25,answered,True,left
+26,stim_1_start,True,right
+27,stim_1_end,True,right
+28,stim_2_start,True,right
+29,stim_2_end,True,right
+30,answered,True,right
+31,stim_1_start,True,left
+32,stim_1_end,True,left
+33,stim_2_start,True,left
+34,stim_2_end,True,left
+35,answered,True,left
+36,stim_1_start,True,left
+37,stim_1_end,True,left
+38,stim_2_start,True,left
+39,stim_2_end,True,left
+40,answered,True,left
+41,stim_1_start,True,left
+42,stim_1_end,True,left
+43,stim_2_start,True,left
+44,stim_2_end,True,left
+45,answered,True,left
+46,stim_1_start,True,right
+47,stim_1_end,True,right
+48,stim_2_start,True,right
+49,stim_2_end,True,right
+50,answered,True,right
+51,stim_1_start,True,left
+52,stim_1_end,True,left
+53,stim_2_start,True,left
+54,stim_2_end,True,left
+55,answered,True,left
+56,stim_1_start,True,left
+57,stim_1_end,True,left
+58,stim_2_start,True,left
+59,stim_2_end,True,left
+60,answered,True,left
+1,stim_1_start,True,left
+2,stim_1_end,True,left
+3,stim_2_start,True,left
+4,stim_2_end,True,left
+5,answered,True,left
+6,stim_1_start,True,left
+7,stim_1_end,True,left
+8,stim_2_start,True,left
+9,stim_2_end,True,left
+10,answered,True,left
+11,stim_1_start,True,left
+12,stim_1_end,True,left
+13,stim_2_start,True,left
+14,stim_2_end,True,left
+15,answered,True,left
+16,stim_1_start,False,left
+17,stim_1_end,False,left
+18,stim_2_start,False,left
+19,stim_2_end,False,left
+20,answered,False,left
+# 0:00:00         | info     | TriggerHandler constructed with params: dummy_mode=True,trigger_time=0.02
+# 0:00:00         | info     | Possible triggerTypes registered: ['stim_1_start', 'stim_1_end', 'stim_2_start', 'stim_2_end', 'answered']
+# 0:00:00         | info     | Dummy mode: True
+# 0:00:00         | info     | Trigger time: 0.02
+# 0:00:00         | info     | Params registered: ['trigger_no', 'trigger_type', 'corr', 'key']
+# 0:00:00         | info     | Trigger limit set to: 60
+# 0:00:52.050227  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:00:52.551155  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:00:52.873924  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:00:53.371473  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:00:54.103446  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:00:56.290841  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:00:56.791674  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:00:57.114711  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:00:57.612124  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:00:58.062600  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:00.242659  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:00.743596  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:01.066445  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:01.563784  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:01.872641  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:04.057435  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:04.557716  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:04.880148  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:05.377561  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:05.493938  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:07.676990  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:08.178311  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:08.501784  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:08.999839  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:09.472535  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:11.658510  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:12.158980  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:12.481761  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:12.979590  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:13.287648  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:15.476595  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:15.976898  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:16.299721  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:16.797700  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:17.271646  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:19.459157  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:19.959547  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:20.282354  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:20.780069  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:21.498509  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:23.692957  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:24.193337  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:24.516090  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:25.013456  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:25.614395  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:27.793601  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:28.294652  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:28.617389  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:29.115498  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:30.297569  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:34.010403  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:34.510736  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:34.834315  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:35.331944  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:36.214786  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:37.389989  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:37.891819  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:38.214622  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:38.712150  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:39.183940  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:40.375666  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:40.876279  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:41.199351  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:41.697598  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:42.789387  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:43.976854  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:44.477456  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:44.800638  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:45.297906  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:46.835611  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:48.029095  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:48.529942  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:48.852787  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:49.350597  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:50.495222  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:51.681031  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:52.182331  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:52.505513  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:53.003502  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:53.388181  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:54.576858  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:55.077263  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:55.399767  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:55.897025  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:56.939950  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:01:58.129304  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:58.630137  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:58.953182  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:01:59.450707  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:59.987705  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:01.178268  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:01.679374  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:02.002735  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:02.500114  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:02.872879  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:04.063484  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:04.564378  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:04.887071  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:05.384855  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:05.749713  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:06.927686  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:07.428989  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:07.751594  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:08.249453  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:08.706258  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:09.893355  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:10.394955  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:10.718319  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:11.215547  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:11.593559  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:12.781265  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:13.282064  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:13.605474  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:14.103008  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:15.174959  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:16.368163  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:16.868897  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:17.191906  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:17.688929  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:18.542352  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:19.727637  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:20.228030  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:20.550883  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:21.048996  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:22.179967  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:23.369138  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:23.870086  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:24.192995  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:24.690740  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:25.720234  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:26.896683  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:27.397395  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:27.719940  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:28.217458  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:28.803968  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:29.985938  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:30.486405  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:30.809002  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:31.305977  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:32.459847  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:33.649781  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:34.150543  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:34.473294  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:34.970993  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:35.449752  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:36.633029  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:37.133724  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:37.456471  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:37.954555  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:38.541371  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:39.733102  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:40.233816  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:40.557247  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:41.054629  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:42.440278  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:43.632322  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:44.133084  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:44.456416  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:44.954463  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:45.552357  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:46.732694  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:47.233694  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:47.556534  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:48.053804  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:48.824432  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:50.000512  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:50.501199  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:50.824429  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:51.322306  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:52.068014  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:53.249484  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:53.749898  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:54.072728  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:54.570415  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:55.259378  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:56.452455  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:56.953120  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:57.276061  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:02:57.773999  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:58.095259  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:02:59.284901  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:59.785945  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:03:00.109686  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:03:00.607007  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:03:01.283978  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:03:02.468398  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:03:02.969046  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:03:03.292111  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:03:03.790002  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:03:05.202309  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:03:06.386740  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:03:06.887436  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:03:07.210070  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:03:07.707982  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:03:08.001475  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:03:09.185561  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:03:09.686422  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:03:10.009652  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=False
+# 0:03:10.507574  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:03:12.773984  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True

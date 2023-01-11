@@ -1,0 +1,28 @@
+# List describing training.
+# In example above it will be four levels of training (because of 4 items in list, may be less, may be more)
+# First training block contains 8 trials, (reps = 8) of soa equal to 60 etc...
+TRAINING: [ { 'soa': 0.4, 'reps': 30 }, { 'soa': 0.2, 'reps': 2 }, { 'soa': 0.1, 'reps': 2 } ]
+BREAK: 600 # break time between trials [in ms]
+JITTER_RANGE: [ 400, 800 ]
+TRAIN_SOUND_TIME: 500 # Sound presentation time in training [in ms]
+MAX_TRIALS: 50 # max no of trials
+MIN_TRIALS: 10
+MAX_REVS: 2 # No of reversals in adaptive alg.
+START_SOA: 200
+STEP_UP: 5
+STEP_DOWN: 5
+VOLUME: .5 # Sound volume, range [0.0, 1.0]
+STANDARD_FREQ: 440.0 # low sine freq [in Hz]
+FONT_COLOR: grey
+FONT_SIZE: 20
+LANG: pl_PL # en_US and pl_PL supported, feel free to translate for your language (with respect to GNU gettext convention)
+TIME: 500 # Standard sound presentation time [in ms]
+FEEDB_TIME: 1000 # Feedback label presentation time [in ms]
+RTIME: 4000 # Maximal response time [in ms]
+FIRST_SOUND_KEY: left # keyboard key associate with low freq response
+SECOND_SOUND_KEY: right # keyboard key associate with high freq response
+WHITE_NOISE_LOUDNESS: 0 # Loudness factor for a white noise
+USE_EEG: FALSE
+# DANGER ZONE. Modify only when you have a strong reason.
+WSF: 32768 # WAVE Scaling factor, 16-bit PCM WAVE format operate with values in range [-32768, 32767] (int16)
+SAMPLING_RATE: 44100 # sampling rate, must be integer [in Hz]
