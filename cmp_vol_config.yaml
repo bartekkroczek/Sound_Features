@@ -1,14 +1,11 @@
-# List describing training.
-# In example above it will be four levels of training (because of 4 items in list, may be less, may be more)
-# First training block contains 8 trials, (reps = 8) of soa equal to 60 etc...
-TRAINING: [ { 'soa': 40, 'reps': 3 }, { 'soa': 20, 'reps': 2 }, { 'soa': 5, 'reps': 2 } ] # in % of loudness
+MAX_TRIALS: 50 # max no of trials EXPERIMENT: 300
+MIN_TRIALS: 10 # EXPERIMENT: 250
+MAX_REVS: 2 # No of reversals in adaptive alg. # EXPERIMENT 12
+TRAINING: [ { 'soa': 40, 'reps': 5 }, { 'soa': 20, 'reps': 5 }, { 'soa': 5, 'reps': 5 } ] # in % of loudness
 BREAK: 600 # break time between trials [in ms]
 JITTER_RANGE: [ 400, 800 ]
 TRAIN_SOUND_TIME: 500 # Sound presentation time in training [in ms]
-MAX_TRIALS: 50 # max no of trials
-MIN_TRIALS: 10
-MAX_REVS: 2 # No of reversals in adaptive alg.
-START_SOA: 200
+START_SOA: 20
 N_UP: 3
 N_DOWN: 1
 STEP_UP: 5

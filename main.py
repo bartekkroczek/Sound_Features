@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import wx
 import atexit
 import csv
 import gettext
@@ -14,7 +15,6 @@ import yaml
 from psychopy import visual, event, logging, gui, core
 from pygame import mixer, quit
 from scipy.io import wavfile
-from tkinter import messagebox
 
 from Adaptives.NUpNDownMinIters import NUpNDownMinIters
 from misc.audio import Dict2Obj, get_sine_wave, get_white_noise
@@ -38,7 +38,8 @@ class TriggerTypes(object):
 
 TRIGGERS = TriggerHandler(TriggerTypes.vals(), trigger_params=['corr', 'key'])
 
-RESULTS = [['PART_ID', 'Trial', 'Proc_version', 'Exp', 'Key', 'Corr', 'SOA', 'Reversal', 'Level', 'Rev_count', 'Lat']]
+RESULTS = [['PART_ID', 'Trial', 'Proc_version', 'Exp', 'Key', 'Corr', 'SOA', 'Reversal', 'Level', 'Rev_count', 'Lat',
+            'Standard_first', 'Standard_higher']]
 
 
 def check_exit(key='f7'):
@@ -126,10 +127,6 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
     if soa < 0:
         raise ValueError('Learning phase soa must be positive.')
     label = visual.TextStim(win, color=conf.FONT_COLOR, height=conf.FONT_SIZE, wrapWidth=conf.SCREEN_RES['width'])
-    msg = f"{_('pair_no')}: {idx}."
-    label.setText(msg)
-    label.draw()
-    win.flip()
     soa = random.choice([-soa, soa])
     freqs = [standard_freq, standard_freq + soa]
     random.shuffle(freqs)
@@ -143,12 +140,7 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
                               wsf=conf.WSF)
     wavfile.write('learning_sec_sound.wav', conf.SAMPLING_RATE, sec_sound)
     sec_sound = mixer.Sound('learning_sec_sound.wav')
-    core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
-    audio_separator.play()
-    core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
-    audio_separator.stop()
     check_exit()
-    core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
     first_sound.play()
     core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
     first_sound.stop()
@@ -156,13 +148,22 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
     sec_sound.play()
     check_exit()
     core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
+    check_exit()
     sec_sound.stop()
     core.wait(conf.TRAIN_SOUND_TIME / 2000.0)
+    check_exit()
     label.setText(msg)
     label.draw()
     win.flip()
+    core.wait(2 * conf.TRAIN_SOUND_TIME / 1000.0)
     check_exit()
-    core.wait(3)
+    audio_separator.play()
+    win.flip()
+    core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
+    check_exit()
+    audio_separator.stop()
+    check_exit()
+    core.wait(4 * conf.TRAIN_SOUND_TIME / 1000.0)
 
 
 def main():
@@ -174,8 +175,9 @@ def main():
         raise Exception('Dialog popup exception')
     ver = info['VERSION']
     RES_DIR = ver + '_results'
-    logging.LogFile(join(RES_DIR, 'log', PART_ID + '.log'), level=logging.INFO)  # errors logging
     PART_ID = f"{info['PART_ID']}_{info['Sex']}_{info['AGE']}"
+    fname = PART_ID + "_" + time.strftime("%Y-%m-%d_%H_%M_%S", time.gmtime()) + '.log'
+    logging.LogFile(join(RES_DIR, 'log', fname), level=logging.INFO)  # errors logging
     underscore_in_partid = "_" in info['PART_ID']
     if underscore_in_partid:
         msg = 'Underscore "_" is illegal as a participant name.'
@@ -194,6 +196,9 @@ def main():
     conf = Dict2Obj(**conf)
     if conf.USE_EEG:
         TRIGGERS.connect_to_eeg()
+    else
+        msg = "EEG DUMMY MODE! No triggers sent to EEG!"
+        messagebox.showerror(title="Error!", message=msg)
     # %% == I18N
     try:
         localedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'locale')
@@ -244,6 +249,7 @@ def main():
     # %% == Learning phase ==
     if ver == TrialType.CMP_FREQ:
         show_info(win=win, msg=_('Freq: hello, before learning'))
+        core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
         for idx, soa in enumerate(conf.LEARNING_SOAS, start=1):
             present_learning_sample(win, idx, soa, conf.STANDARD_FREQ, white_noise, conf=conf)
             check_exit()
@@ -256,12 +262,18 @@ def main():
     msg = {'cmp_vol': _('Volume: before training'), 'cmp_freq': _('Freq: before training'),
            'cmp_dur': _("Dur: before training")}[ver]
     show_info(win=win, msg=msg)
+    for lab in answer_labels:
+        lab.setAutoDraw(True)
+    win.flip()
     for idx, level in enumerate(training, 1):
         for soa in level:
-            rt, corr, key = run_trial(win, ver, soa, conf, white_noise, answer_labels, feedback=True)
-            RESULTS.append([PART_ID, idx, ver, 'train', key, int(corr), soa, '-', '-', '-', rt])
+            rt, corr, key, sf, sh = run_trial(win, ver, soa, conf, white_noise, answer_labels, feedback=True)
+            RESULTS.append([PART_ID, idx, ver, 'train', key, int(corr), soa, '-', '-', '-', rt, sf, sh])
             core.wait(conf.BREAK / 1000.0)
             core.wait(random.choice(range(*conf.JITTER_RANGE)) / 1000.0)  # jitter
+    for lab in answer_labels:
+        lab.setAutoDraw(False)
+    win.flip()
     # %% == Experiment ==
     msg = {'cmp_vol': _('Volume: before experiment'), 'cmp_freq': _('Freq: before experiment'),
            'cmp_dur': _('Dur: before experiment')}[ver]
@@ -269,8 +281,11 @@ def main():
     experiment = NUpNDownMinIters(n_up=conf.N_UP, n_down=conf.N_DOWN, start_val=conf.START_SOA, max_revs=conf.MAX_REVS,
                                   step_up=conf.STEP_UP, step_down=conf.STEP_DOWN, min_iters=conf.MIN_TRIALS)
     old_rev_count_val = -1
+    for lab in answer_labels:
+        lab.setAutoDraw(True)
+    win.flip()
     for idx, soa in enumerate(experiment, idx):
-        rt, corr, key = run_trial(win, ver, soa, conf, white_noise, answer_labels, feedback=False)
+        rt, corr, key, sf, sh = run_trial(win, ver, soa, conf, white_noise, answer_labels, feedback=False)
         experiment.set_corr(bool(corr))
         level, reversal, revs_count = map(int, experiment.get_jump_status())
 
@@ -280,13 +295,16 @@ def main():
         else:
             rev_count_val = '-'
 
-        RESULTS.append([PART_ID, idx, ver, 'exp', key, int(corr), soa, reversal, level, rev_count_val, rt])
+        RESULTS.append([PART_ID, idx, ver, 'exp', key, int(corr), soa, reversal, level, rev_count_val, rt, sf, sh])
         if idx == conf.MAX_TRIALS:
             break
         core.wait(conf.BREAK / 1000.0)
         core.wait(random.choice(range(*conf.JITTER_RANGE)) / 1000.0)  # jitter
     # %% == Clear experiment
     msg = {'cmp_vol': _('Volume: end'), 'cmp_freq': _('Freq: end'), 'cmp_dur': _('Dur: end')}[ver]
+    for lab in answer_labels:
+        lab.setAutoDraw(False)
+    win.flip()
     show_info(win, msg=msg)
     win.close()
     core.quit()
@@ -378,8 +396,6 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     logging.info(f'TrialType: {trial_type}')
     msg = f"Standard is f{'first' if standard_first else 'second'} and {'higher' if standard_higher else 'lower'}"
     logging.info(msg)
-    for label in ans_lbs:
-        label.draw()
     # == Phase 1: White noise
     fix_sound.set_volume(conf.VOLUME)  # set to default vol for exp
     fix_sound.play()
@@ -423,7 +439,6 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
             TRIGGERS.send_trigger(TriggerTypes.ANSWERED)
 
     # Phase 4: Timeout handling
-    win.flip()  # remove labels from screen
 
     if not timeout:
         if standard_first and standard_higher:
@@ -453,7 +468,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
 
     win.flip()
     check_exit()
-    return rt, corr, key[0]
+    return rt, corr, key[0], standard_first, standard_higher
 
 
 if __name__ == '__main__':

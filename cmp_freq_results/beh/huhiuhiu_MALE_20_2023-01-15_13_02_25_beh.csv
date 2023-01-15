@@ -1,0 +1,8 @@
+PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat
+huhiuhiu_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,1.2269620895385742
+huhiuhiu_MALE_20,1,cmp_freq,train,left,0,50,-,-,-,1.3726518154144287
+huhiuhiu_MALE_20,1,cmp_freq,train,left,0,50,-,-,-,1.0944859981536865
+huhiuhiu_MALE_20,2,cmp_freq,train,right,1,20,-,-,-,1.1814420223236084
+huhiuhiu_MALE_20,2,cmp_freq,train,left,1,20,-,-,-,1.4362168312072754
+huhiuhiu_MALE_20,3,cmp_freq,train,left,0,10,-,-,-,1.1041369438171387
+huhiuhiu_MALE_20,3,cmp_freq,train,left,0,10,-,-,-,3.6133201122283936

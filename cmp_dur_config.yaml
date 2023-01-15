@@ -1,8 +1,7 @@
-VER: cmp_vol # Volume or cmp_vol or cmp_freq
-TRAINING: [ { 'soa': 300, 'reps': 3 }, { 'soa': 180, 'reps': 3 }, { 'soa': 90, 'reps': 3 } ] # in ms
-# List describing training.
-# In example above it will be four levels of training (because of 4 items in list, may be less, may be more)
-# First training bloc   k contains 8 trials, (reps = 8) of soa equal to 60 etc...
+MAX_TRIALS: 50 # max no of trials EXPERIMENT: 300
+MIN_TRIALS: 10 # EXPERIMENT: 250
+MAX_REVS: 2 # No of reversals in adaptive alg. # EXPERIMENT 12
+TRAINING: [ { 'soa': 300, 'reps': 5 }, { 'soa': 180, 'reps': 5 }, { 'soa': 90, 'reps': 5 } ] # in ms
 TRAIN_SOUND_TIME: 500 # Sound presentation time in training [in ms]
 FONT_COLOR: grey
 FONT_SIZE: 20
@@ -12,9 +11,6 @@ JITTER_RANGE: [ 400, 800 ]
 TIME: 500 # Standard sound presentation time [in ms]
 FEEDB_TIME: 1000 # Feedback label presentation time [in ms]
 RTIME: 4000 # Maximal response time [in ms]
-MAX_TRIALS: 50 # max no of trials
-MIN_TRIALS: 10
-MAX_REVS: 2 # No of reversals in adaptive alg.
 START_SOA: 180
 N_UP: 3
 N_DOWN: 1
