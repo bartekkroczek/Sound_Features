@@ -36,6 +36,10 @@ msgstr ""
 msgid "Dur: hello, before learning"
 msgstr ""
 
+#: main.py:166
+msgid "Learning: Next"
+msgstr ""
+
 #: main.py:208
 msgid "Volume: hello, after learning"
 msgstr ""
