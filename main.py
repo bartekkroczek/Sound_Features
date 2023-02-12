@@ -17,7 +17,7 @@ from pygame import mixer, quit
 from scipy.io import wavfile
 
 from Adaptives.NUpNDownMinIters import NUpNDownMinIters
-from misc.audio import Dict2Obj, get_sine_wave, get_white_noise
+from misc.audio import Dict2Obj
 from procedures_misc.screen_misc import get_frame_rate, get_screen_res
 from procedures_misc.triggers import TriggerHandler
 
@@ -103,9 +103,9 @@ def safe_quit() -> None:
 
 
 class TrialType(object):
+    CMP_DUR = 'cmp_dur'
     CMP_FREQ = 'cmp_freq'
     CMP_VOL = 'cmp_vol'
-    CMP_DUR = 'cmp_dur'
 
 
 def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: float, audio_separator: mixer.Sound,
@@ -132,14 +132,8 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
     random.shuffle(freqs)
     first_sound_freq, sec_sound_freq = freqs
     msg = _("First tone higher") if first_sound_freq > sec_sound_freq else _("First tone lower")
-    first_sound = get_sine_wave(freq=first_sound_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
-                                wsf=conf.WSF)
-    wavfile.write('learning_first_sound.wav', conf.SAMPLING_RATE, first_sound)
-    first_sound = mixer.Sound('learning_first_sound.wav')
-    sec_sound = get_sine_wave(freq=sec_sound_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
-                              wsf=conf.WSF)
-    wavfile.write('learning_sec_sound.wav', conf.SAMPLING_RATE, sec_sound)
-    sec_sound = mixer.Sound('learning_sec_sound.wav')
+    first_sound = mixer.Sound(join('audio_stims', f'{first_sound_freq}.wav'))
+    sec_sound = mixer.Sound(join('audio_stims', f'{sec_sound_freq}.wav'))
     check_exit()
     audio_separator.play()
     win.flip()
@@ -176,7 +170,7 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
 def main():
     global RES_DIR, PART_ID
     # %% === Dialog popup ===
-    info = {'PART_ID': '', 'Sex': ["MALE", "FEMALE"], 'AGE': '20', 'VERSION': ['cmp_freq', 'cmp_dur', 'cmp_vol']}
+    info = {'PART_ID': '', 'Sex': ["MALE", "FEMALE"], 'AGE': '20', 'VERSION': ['cmp_dur', 'cmp_freq']}
     dictDlg = gui.DlgFromDict(dictionary=info, title="Study Y. Sound Procedures.")
     if not dictDlg.OK:
         raise Exception('Dialog popup exception')
@@ -234,12 +228,6 @@ def main():
     shutil.copy2('main.py', join(RES_DIR, 'source', PART_ID + '_main.py'))
 
     # %% == Sounds preparation
-    standard = get_sine_wave(freq=conf.STANDARD_FREQ, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
-                             wsf=conf.WSF)
-    wavfile.write('standard.wav', conf.SAMPLING_RATE, standard)
-    white_noise = get_white_noise(conf.WHITE_NOISE_LOUDNESS, conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
-                                  wsf=conf.WSF)
-    wavfile.write('white_noise.wav', conf.SAMPLING_RATE, white_noise)
     white_noise = mixer.Sound('white_noise.wav')
     mixer.set_num_channels(2)
     # %% == Labels preparation ==
@@ -349,8 +337,8 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     corr: bool = False
     timer: core.CountdownTimer = core.CountdownTimer()
     response_clock: core.Clock = core.Clock()
-    first_sound: mixer.Sound = mixer.Sound("standard.wav")
-    second_sound: mixer.Sound = mixer.Sound("standard.wav")
+    first_sound: mixer.Sound = mixer.Sound(join("audio_stims", f"{conf.STANDARD_FREQ}.wav"))
+    second_sound: mixer.Sound = mixer.Sound(join("audio_stims", f"{conf.STANDARD_FREQ}.wav"))
     TRIGGERS.set_curr_trial_start()
     corr_feedback_label = _('Corr ans')
     corr_feedback_label = visual.TextStim(win, text=corr_feedback_label, font='Arial', color=conf.FONT_COLOR,
@@ -380,11 +368,8 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         msg = f'Stadard freq: {standard_freq}, Comparsion_freq: {comparison_freq}'
         logging.info(msg)
         print(msg, end='=>')
-        comparison = get_sine_wave(freq=comparison_freq, sampling_rate=conf.SAMPLING_RATE, wave_length=5 * conf.TIME,
-                                   wsf=conf.WSF)
-        wavfile.write('comparison.wav', conf.SAMPLING_RATE, comparison)
-        standard = mixer.Sound('standard.wav')
-        comparison = mixer.Sound('comparison.wav')
+        standard = mixer.Sound(join("audio_stims", f'{standard_freq}.wav'))
+        comparison = mixer.Sound(join("audio_stims", f'{comparison_freq}.wav'))
         standard.set_volume(conf.VOLUME)
         comparison.set_volume(conf.VOLUME)
         if standard_first:
@@ -393,8 +378,8 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
             first_sound, second_sound = comparison, standard
     elif trial_type == TrialType.CMP_DUR:
         standard_first = True  # first sound is always this same
-        first_sound = mixer.Sound('standard.wav')
-        second_sound = mixer.Sound('standard.wav')
+        first_sound = mixer.Sound(join("audio_stims", f'{conf.STANDARD_FREQ}.wav'))
+        second_sound = mixer.Sound(join("audio_stims", f'{conf.STANDARD_FREQ}.wav'))
         t1 = conf.TIME / 1000.0
         t2 = (conf.TIME + soa) / 1000.0
         msg = f"Time1: {t1}, Time2:{t2}"

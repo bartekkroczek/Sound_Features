@@ -20,7 +20,7 @@ def get_sine_wave(freq: int, sampling_rate: int, wave_length: int, wsf: int = 32
     Helper function for sound generation, create sine wave function with given freq.
     :param freq: sine wave frequency
     :param sampling_rate:
-    :param wave_length: how long sine wave should take
+    :param wave_length: how long sine wave should take
     :param wsf: WAVE Scaling factor, 16-bit PCM WAVE format operate with values in range [-32768, 32767]
     :return: Sine-wave with given freq.
     """
