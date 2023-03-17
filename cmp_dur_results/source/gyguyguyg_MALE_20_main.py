@@ -328,7 +328,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     # == Phase 0: Preparation ==
     global _
     key: list = list()
-    tw: float = 0.2  # white noise playing time
+    tw: float = conf.TIME / 1000.0  # white noise playing time
     t1: float = conf.TIME / 1000.0  # first sound playing time
     t2: float = conf.TIME / 1000.0  # sec sound playing time
     soa: float = random.choice([-soa, soa])

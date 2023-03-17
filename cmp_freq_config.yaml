@@ -1,8 +1,9 @@
-MAX_TRIALS: 50 # max no of trials FOR EXPERIMENT 300
-MIN_TRIALS: 10 # FOR EXPERIMENT 250
-MAX_REVS: 2 # No of reversals in adaptive alg. # FOR EXPERIMENT 12
+MAX_TRIALS: 160 # max no of trials EXPERIMENT: 300 pb-edit:50
+MIN_TRIALS: 200 # EXPERIMENT: 250 pb-edit:10
+MAX_REVS: 14 # No of reversals in adaptive alg. # FOR EXPERIMENT 12
 TRAINING: [ { 'soa': 50, 'reps': 5 }, { 'soa': 20, 'reps': 5 }, { 'soa': 10, 'reps': 5 } ] # in Hz
-LEARNING_SOAS: [ 50, 30, 15, 8, 8, 8 ]
+# LEARNING_SOAS: [ 50, 30, 15, 8, 8, 8 ]
+LEARNING_SOAS: [ 15, 15, 15, 10, 10, 20, 20 ]
 TRAIN_SOUND_TIME: 500 # Sound presentation time in training [in ms]
 FONT_COLOR: grey
 FONT_SIZE: 20
@@ -22,7 +23,7 @@ STANDARD_FREQ: 440 # low sine freq [in Hz]
 FIRST_SOUND_KEY: left # keyboard key associate with low freq response
 SECOND_SOUND_KEY: right # keyboard key associate with high freq response
 WHITE_NOISE_LOUDNESS: 0 # Loudness factor for a white noise
-USE_EEG: FALSE
+USE_EEG: TRUE
 # DANGER ZONE. Modify only when you have a strong reason.
 WSF: 32768 # WAVE Scaling factor, 16-bit PCM WAVE format operate with values in range [-32768, 32767] (int16)
 SAMPLING_RATE: 44100 # sampling rate, must be integer [in Hz]

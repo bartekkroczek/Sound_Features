@@ -1,0 +1,252 @@
+trigger_no,trigger_type,corr,key
+1,stim_1_start,False,right
+2,stim_1_end,False,right
+3,stim_2_start,False,right
+4,stim_2_end,False,right
+5,answered,False,right
+6,stim_1_start,False,noans
+7,stim_1_end,False,noans
+8,stim_2_start,False,noans
+9,stim_2_end,False,noans
+10,stim_1_start,False,noans
+11,stim_1_end,False,noans
+12,stim_2_start,False,noans
+13,stim_2_end,False,noans
+14,stim_1_start,False,noans
+15,stim_1_end,False,noans
+16,stim_2_start,False,noans
+17,stim_2_end,False,noans
+18,stim_1_start,False,noans
+19,stim_1_end,False,noans
+20,stim_2_start,False,noans
+21,stim_2_end,False,noans
+22,stim_1_start,False,noans
+23,stim_1_end,False,noans
+24,stim_2_start,False,noans
+25,stim_2_end,False,noans
+26,stim_1_start,False,noans
+27,stim_1_end,False,noans
+28,stim_2_start,False,noans
+29,stim_2_end,False,noans
+30,stim_1_start,False,noans
+31,stim_1_end,False,noans
+32,stim_2_start,False,noans
+33,stim_2_end,False,noans
+34,stim_1_start,False,noans
+35,stim_1_end,False,noans
+36,stim_2_start,False,noans
+37,stim_2_end,False,noans
+38,stim_1_start,False,noans
+39,stim_1_end,False,noans
+40,stim_2_start,False,noans
+41,stim_2_end,False,noans
+42,stim_1_start,False,noans
+43,stim_1_end,False,noans
+44,stim_2_start,False,noans
+45,stim_2_end,False,noans
+46,stim_1_start,False,noans
+47,stim_1_end,False,noans
+48,stim_2_start,False,noans
+49,stim_2_end,False,noans
+50,stim_1_start,False,noans
+51,stim_1_end,False,noans
+52,stim_2_start,False,noans
+53,stim_2_end,False,noans
+54,stim_1_start,False,noans
+55,stim_1_end,False,noans
+56,stim_2_start,False,noans
+57,stim_2_end,False,noans
+58,stim_1_start,False,noans
+59,stim_1_end,False,noans
+60,stim_2_start,False,noans
+1,stim_2_end,False,noans
+# 0:00:00.000011  | info     | TriggerHandler constructed with params: dummy_mode=True,trigger_time=0.004
+# 0:00:00.000020  | info     | Possible triggerTypes registered: ['stim_1_start', 'stim_1_end', 'stim_2_start', 'stim_2_end', 'answered']
+# 0:00:00.000022  | info     | Dummy mode: True
+# 0:00:00.000027  | info     | Trigger time: 0.004
+# 0:00:00.000029  | info     | Params registered: ['trigger_no', 'trigger_type', 'corr', 'key']
+# 0:00:00.000032  | info     | Trigger limit set to: 60
+# 0:00:04.417294  | info     | Connected to EEG (in connect_to_eeg())
+# 0:00:08.553021  | info     | Value: 1 sent to EEG.
+# 0:00:08.553043  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:00:08.557124  | info     | Clear message sent to EEG.
+# 0:00:09.053722  | info     | Value: 2 sent to EEG.
+# 0:00:09.053741  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:00:09.057845  | info     | Clear message sent to EEG.
+# 0:00:09.680840  | info     | Value: 3 sent to EEG.
+# 0:00:09.680854  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:00:09.685007  | info     | Clear message sent to EEG.
+# 0:00:09.859021  | info     | Value: 4 sent to EEG.
+# 0:00:09.859036  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:00:09.863373  | info     | Clear message sent to EEG.
+# 0:00:11.843012  | info     | Value: 5 sent to EEG.
+# 0:00:11.843024  | info     | send_trigger() run with params trigger_type=answered, info=None, with_delay=True
+# 0:00:11.847307  | info     | Clear message sent to EEG.
+# 0:00:15.612739  | info     | Value: 6 sent to EEG.
+# 0:00:15.612794  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:00:15.617014  | info     | Clear message sent to EEG.
+# 0:00:16.113564  | info     | Value: 7 sent to EEG.
+# 0:00:16.113615  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:00:16.117829  | info     | Clear message sent to EEG.
+# 0:00:16.731093  | info     | Value: 8 sent to EEG.
+# 0:00:16.731108  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:00:16.735278  | info     | Clear message sent to EEG.
+# 0:00:17.518913  | info     | Value: 9 sent to EEG.
+# 0:00:17.518920  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:00:17.523248  | info     | Clear message sent to EEG.
+# 0:00:24.980174  | info     | Value: 10 sent to EEG.
+# 0:00:24.980224  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:00:24.984537  | info     | Clear message sent to EEG.
+# 0:00:25.481268  | info     | Value: 11 sent to EEG.
+# 0:00:25.481319  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:00:25.485522  | info     | Clear message sent to EEG.
+# 0:00:26.097717  | info     | Value: 12 sent to EEG.
+# 0:00:26.097732  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:00:26.101922  | info     | Clear message sent to EEG.
+# 0:00:26.886494  | info     | Value: 13 sent to EEG.
+# 0:00:26.886501  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:00:26.890634  | info     | Clear message sent to EEG.
+# 0:00:34.516093  | info     | Value: 14 sent to EEG.
+# 0:00:34.516113  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:00:34.520228  | info     | Clear message sent to EEG.
+# 0:00:35.016923  | info     | Value: 15 sent to EEG.
+# 0:00:35.016972  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:00:35.021218  | info     | Clear message sent to EEG.
+# 0:00:35.630956  | info     | Value: 16 sent to EEG.
+# 0:00:35.630984  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:00:35.635156  | info     | Clear message sent to EEG.
+# 0:00:36.422205  | info     | Value: 17 sent to EEG.
+# 0:00:36.422211  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:00:36.426490  | info     | Clear message sent to EEG.
+# 0:00:43.983136  | info     | Value: 18 sent to EEG.
+# 0:00:43.983187  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:00:43.987358  | info     | Clear message sent to EEG.
+# 0:00:44.484140  | info     | Value: 19 sent to EEG.
+# 0:00:44.484191  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:00:44.488536  | info     | Clear message sent to EEG.
+# 0:00:45.097559  | info     | Value: 20 sent to EEG.
+# 0:00:45.097572  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:00:45.101695  | info     | Clear message sent to EEG.
+# 0:00:45.289520  | info     | Value: 21 sent to EEG.
+# 0:00:45.289525  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:00:45.293725  | info     | Clear message sent to EEG.
+# 0:00:52.992376  | info     | Value: 22 sent to EEG.
+# 0:00:52.992429  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:00:52.996738  | info     | Clear message sent to EEG.
+# 0:00:53.493560  | info     | Value: 23 sent to EEG.
+# 0:00:53.493612  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:00:53.497818  | info     | Clear message sent to EEG.
+# 0:00:54.114288  | info     | Value: 24 sent to EEG.
+# 0:00:54.114304  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:00:54.118470  | info     | Clear message sent to EEG.
+# 0:00:54.418791  | info     | Value: 25 sent to EEG.
+# 0:00:54.418797  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:00:54.422936  | info     | Clear message sent to EEG.
+# 0:01:02.270952  | info     | Value: 26 sent to EEG.
+# 0:01:02.271004  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:02.275173  | info     | Clear message sent to EEG.
+# 0:01:02.771861  | info     | Value: 27 sent to EEG.
+# 0:01:02.771911  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:02.776093  | info     | Clear message sent to EEG.
+# 0:01:03.397821  | info     | Value: 28 sent to EEG.
+# 0:01:03.397876  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:01:03.402088  | info     | Clear message sent to EEG.
+# 0:01:03.697234  | info     | Value: 29 sent to EEG.
+# 0:01:03.697241  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:03.701438  | info     | Clear message sent to EEG.
+# 0:01:11.464209  | info     | Value: 30 sent to EEG.
+# 0:01:11.464265  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:11.468476  | info     | Clear message sent to EEG.
+# 0:01:11.965087  | info     | Value: 31 sent to EEG.
+# 0:01:11.965139  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:11.969320  | info     | Clear message sent to EEG.
+# 0:01:12.581494  | info     | Value: 32 sent to EEG.
+# 0:01:12.581537  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:01:12.585722  | info     | Clear message sent to EEG.
+# 0:01:12.890307  | info     | Value: 33 sent to EEG.
+# 0:01:12.890314  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:12.894516  | info     | Clear message sent to EEG.
+# 0:01:20.467968  | info     | Value: 34 sent to EEG.
+# 0:01:20.468026  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:20.472330  | info     | Clear message sent to EEG.
+# 0:01:20.969209  | info     | Value: 35 sent to EEG.
+# 0:01:20.969259  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:20.973473  | info     | Clear message sent to EEG.
+# 0:01:21.597638  | info     | Value: 36 sent to EEG.
+# 0:01:21.597655  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:01:21.601827  | info     | Clear message sent to EEG.
+# 0:01:22.254531  | info     | Value: 37 sent to EEG.
+# 0:01:22.254538  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:22.258874  | info     | Clear message sent to EEG.
+# 0:01:29.917219  | info     | Value: 38 sent to EEG.
+# 0:01:29.917270  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:29.921442  | info     | Clear message sent to EEG.
+# 0:01:30.418173  | info     | Value: 39 sent to EEG.
+# 0:01:30.418225  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:30.422413  | info     | Clear message sent to EEG.
+# 0:01:31.048013  | info     | Value: 40 sent to EEG.
+# 0:01:31.048060  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:01:31.052420  | info     | Clear message sent to EEG.
+# 0:01:31.703386  | info     | Value: 41 sent to EEG.
+# 0:01:31.703393  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:31.707705  | info     | Clear message sent to EEG.
+# 0:01:39.184770  | info     | Value: 42 sent to EEG.
+# 0:01:39.184955  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:39.189102  | info     | Clear message sent to EEG.
+# 0:01:39.685815  | info     | Value: 43 sent to EEG.
+# 0:01:39.685865  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:39.690075  | info     | Clear message sent to EEG.
+# 0:01:40.314629  | info     | Value: 44 sent to EEG.
+# 0:01:40.314676  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:01:40.318844  | info     | Clear message sent to EEG.
+# 0:01:40.701056  | info     | Value: 45 sent to EEG.
+# 0:01:40.701063  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:40.705158  | info     | Clear message sent to EEG.
+# 0:01:48.540284  | info     | Value: 46 sent to EEG.
+# 0:01:48.540335  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:48.544556  | info     | Clear message sent to EEG.
+# 0:01:49.041300  | info     | Value: 47 sent to EEG.
+# 0:01:49.041351  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:49.045563  | info     | Clear message sent to EEG.
+# 0:01:49.664438  | info     | Value: 48 sent to EEG.
+# 0:01:49.664456  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:01:49.668609  | info     | Clear message sent to EEG.
+# 0:01:50.236664  | info     | Value: 49 sent to EEG.
+# 0:01:50.236671  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:50.240984  | info     | Clear message sent to EEG.
+# 0:01:57.993081  | info     | Value: 50 sent to EEG.
+# 0:01:57.993132  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:01:57.997311  | info     | Clear message sent to EEG.
+# 0:01:58.494065  | info     | Value: 51 sent to EEG.
+# 0:01:58.494115  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:01:58.498447  | info     | Clear message sent to EEG.
+# 0:01:59.114351  | info     | Value: 52 sent to EEG.
+# 0:01:59.114367  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:01:59.118499  | info     | Clear message sent to EEG.
+# 0:01:59.509546  | info     | Value: 53 sent to EEG.
+# 0:01:59.509553  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:01:59.513753  | info     | Clear message sent to EEG.
+# 0:02:06.993230  | info     | Value: 54 sent to EEG.
+# 0:02:06.993283  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:06.997529  | info     | Clear message sent to EEG.
+# 0:02:07.494256  | info     | Value: 55 sent to EEG.
+# 0:02:07.494307  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:07.498670  | info     | Clear message sent to EEG.
+# 0:02:08.114355  | info     | Value: 56 sent to EEG.
+# 0:02:08.114371  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:02:08.118478  | info     | Clear message sent to EEG.
+# 0:02:08.509649  | info     | Value: 57 sent to EEG.
+# 0:02:08.509655  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:08.513853  | info     | Clear message sent to EEG.
+# 0:02:16.263896  | info     | Value: 58 sent to EEG.
+# 0:02:16.263948  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:02:16.268282  | info     | Clear message sent to EEG.
+# 0:02:16.765036  | info     | Value: 59 sent to EEG.
+# 0:02:16.765087  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:02:16.769307  | info     | Clear message sent to EEG.
+# 0:02:17.381152  | info     | Value: 60 sent to EEG.
+# 0:02:17.381168  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:02:17.385350  | info     | Clear message sent to EEG.
+# 0:02:17.780403  | info     | Value: 1 sent to EEG.
+# 0:02:17.780410  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:02:17.784618  | info     | Clear message sent to EEG.

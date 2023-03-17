@@ -1,6 +1,6 @@
-MAX_TRIALS: 160 # max no of trials EXPERIMENT: 300 pb-edit:50
-MIN_TRIALS: 200 # EXPERIMENT: 250 pb-edit:10
-MAX_REVS: 14 # No of reversals in adaptive alg. # EXPERIMENT 12
+MAX_TRIALS: 150 # max no of trials EXPERIMENT: 300 pb-edit:50
+MIN_TRIALS: 120 # EXPERIMENT: 250 pb-edit:10
+MAX_REVS: 12 # No of reversals in adaptive alg. # EXPERIMENT 12
 TRAINING: [ { 'soa': 300, 'reps': 5 }, { 'soa': 180, 'reps': 5 }, { 'soa': 90, 'reps': 5 } ] # in ms
 TRAIN_SOUND_TIME: 500 # Sound presentation time in training [in ms]
 FONT_COLOR: grey
