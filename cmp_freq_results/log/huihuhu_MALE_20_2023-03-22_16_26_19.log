@@ -1,0 +1,42 @@
+6.9346 	INFO 	EEG DUMMY MODE! No triggers sent to EEG!
+8.5657 	INFO 	Screen res set as: 4366x1920
+8.5676 	INFO 	Loaded monitor calibration from ['2023_03_21 12:27']
+8.6099 	WARNING 	User requested fullscreen with size [4366 1920], but screen is actually [1920, 1080]. Using actual size
+9.8401 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1, -1, -1]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7ffa301d3610>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7ffa3f1ea4f0>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='pix', useFBO=False, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+9.8403 	EXP 	window1: mouseVisible = True
+9.8415 	EXP 	window1: mouseVisible = False
+9.8415 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+9.8416 	EXP 	window1: recordFrameIntervals = False
+10.0222 	EXP 	window1: recordFrameIntervals = True
+10.5392 	EXP 	Screen (0) actual frame rate measured at 60.00Hz
+10.5393 	EXP 	window1: recordFrameIntervals = False
+10.5394 	INFO 	Detected framerate: 60 frames per sec.
+10.5394 	INFO 	FRAME RATE: 60
+10.5394 	INFO 	SCREEN RES: odict_values([4366, 1920])
+10.6911 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -40.]), rgb=UNKNOWN, text='Który wyższy?', units='pix', win=Window(...), wrapWidth=500)
+10.7075 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([  0., -80.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+10.7245 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0., 15.]), rgb=UNKNOWN, text='+', units='pix', win=Window(...), wrapWidth=500)
+10.7835 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='arial', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='pix', win=Window(...), wrapWidth=1000)
+10.7891 	EXP 	unnamed TextStim: autoDraw = True
+12.1181 	DATA 	Keypress: space
+12.6289 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Hello World', units='pix', win=Window(...), wrapWidth=4366)
+15.1563 	EXP 	unnamed TextStim: height = 20.0
+15.1563 	EXP 	unnamed TextStim: height = 20.0
+15.1563 	EXP 	unnamed TextStim: height = 20.0
+15.1563 	EXP 	unnamed TextStim: text = 'Pierwszy dźwięk był wyższy.'
+16.9889 	EXP 	unnamed TextStim: height = 20.0
+16.9889 	EXP 	unnamed TextStim: height = 20.0
+16.9889 	EXP 	unnamed TextStim: height = 20.0
+16.9889 	EXP 	unnamed TextStim: text = 'Naciśnij spację, aby usłyszeć następną przykładową parę dźwięków.'
+19.2862 	DATA 	Keypress: space
+19.2943 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=20.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Hello World', units='pix', win=Window(...), wrapWidth=4366)
+21.8065 	EXP 	unnamed TextStim: height = 20.0
+21.8065 	EXP 	unnamed TextStim: height = 20.0
+21.8065 	EXP 	unnamed TextStim: height = 20.0
+21.8065 	EXP 	unnamed TextStim: text = 'Pierwszy dźwięk był niższy.'
+22.9580 	DATA 	Keypress: f7
+22.9582 	DATA 	Keypress: f7
+22.9582 	DATA 	Keypress: f7
+22.9981 	DATA 	Keypress: f7
+23.1577 	CRITICAL 	Experiment finished by user! f7 pressed.
+23.2163 	EXP 	window1: mouseVisible = True

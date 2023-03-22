@@ -22,8 +22,7 @@ FIRST_SOUND_KEY: left # keyboard key associate with low freq response
 SECOND_SOUND_KEY: right # keyboard key associate with high freq response
 LEARNING_SOAS: [ 300, 300 ] # How many iterations of a stimuli in the learning phase.
 WHITE_NOISE_LOUDNESS: 0 # Loudness factor for a white noise
-USE_EEG: TRUE
+USE_EEG: FALSE
 # DANGER ZONE. Modify only when you have a strong reason.
-FADEOUT_TIME: 50
 WSF: 32768 # WAVE Scaling factor, 16-bit PCM WAVE format operate with values in range [-32768, 32767] (int16)
 SAMPLING_RATE: 44100 # sampling rate, must be integer [in Hz]

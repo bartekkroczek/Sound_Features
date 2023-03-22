@@ -1,0 +1,3 @@
+PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat,Standard_first,Standard_higher
+huhiuhu_MALE_20,1,cmp_dur,train,left,1,300,-,-,-,2.007758140563965,True,True
+huhiuhu_MALE_20,1,cmp_dur,train,left,1,300,-,-,-,1.1731200218200684,True,True

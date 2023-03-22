@@ -23,5 +23,6 @@ SECOND_SOUND_KEY: right # keyboard key associate with high freq response
 WHITE_NOISE_LOUDNESS: 0 # Loudness factor for a white noise
 USE_EEG: TRUE
 # DANGER ZONE. Modify only when you have a strong reason.
+FADEOUT_TIME: 50
 WSF: 32768 # WAVE Scaling factor, 16-bit PCM WAVE format operate with values in range [-32768, 32767] (int16)
 SAMPLING_RATE: 44100 # sampling rate, must be integer [in Hz]

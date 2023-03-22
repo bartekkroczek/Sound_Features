@@ -335,7 +335,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     global _
     key: list = list()
     fadeout_time: int = conf.FADEOUT_TIME
-    tw: float = (300 - fadeout_time) / 1000.0 # white noise playing time
+    tw: float = 0.2 - fadeout_time # white noise playing time
     t1: float = (conf.TIME - fadeout_time) / 1000.0  # first sound playing time
     t2: float = (conf.TIME - fadeout_time) / 1000.0  # sec sound playing time
     soa: float = random.choice([-soa, soa])
@@ -401,7 +401,6 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     # == Phase 1: White noise
     fix_sound.set_volume(conf.VOLUME)  # set to default vol for exp
     fix_sound.play()
-    print(tw)
     core.wait(tw)
     fix_sound.fadeout(fadeout_time)
     core.wait(2 * conf.BREAK / 1000.0)

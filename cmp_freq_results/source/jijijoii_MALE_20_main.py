@@ -134,7 +134,7 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
     msg = _("First tone higher") if first_sound_freq > sec_sound_freq else _("First tone lower")
     first_sound = mixer.Sound(join('audio_stims', f'{first_sound_freq}.wav'))
     sec_sound = mixer.Sound(join('audio_stims', f'{sec_sound_freq}.wav'))
-    fadeout_time = conf.FADEOUT_TIME
+    fadeout_time = 50
     sound_time = (conf.TRAIN_SOUND_TIME - fadeout_time) / 1000.0
     # === Play separator ===
     check_exit()
@@ -334,11 +334,11 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     # == Phase 0: Preparation ==
     global _
     key: list = list()
-    fadeout_time: int = conf.FADEOUT_TIME
-    tw: float = (300 - fadeout_time) / 1000.0 # white noise playing time
-    t1: float = (conf.TIME - fadeout_time) / 1000.0  # first sound playing time
-    t2: float = (conf.TIME - fadeout_time) / 1000.0  # sec sound playing time
+    tw: float = 0.2  # white noise playing time
+    t1: float = conf.TIME / 1000.0  # first sound playing time
+    t2: float = conf.TIME / 1000.0  # sec sound playing time
     soa: float = random.choice([-soa, soa])
+    trig_time: float = TRIGGERS.get_trigger_time()
     timeout: bool = True
     corr: bool = False
     timer: core.CountdownTimer = core.CountdownTimer()
@@ -386,9 +386,9 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         standard_first = True  # first sound is always this same
         first_sound = mixer.Sound(join("audio_stims", f'{conf.STANDARD_FREQ}.wav'))
         second_sound = mixer.Sound(join("audio_stims", f'{conf.STANDARD_FREQ}.wav'))
-        t1 = (conf.TIME - fadeout_time) / 1000.0
-        t2 = (conf.TIME + soa - fadeout_time) / 1000.0
-        msg = f"Time1: {t1}, Time2:{t2}. Fadeout: {fadeout_time}"
+        t1 = conf.TIME / 1000.0
+        t2 = (conf.TIME + soa) / 1000.0
+        msg = f"Time1: {t1}, Time2:{t2}"
         logging.info(msg)
         print(msg, end='=>')
     else:
@@ -401,17 +401,15 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     # == Phase 1: White noise
     fix_sound.set_volume(conf.VOLUME)  # set to default vol for exp
     fix_sound.play()
-    print(tw)
-    core.wait(tw)
-    fix_sound.fadeout(fadeout_time)
-    core.wait(2 * conf.BREAK / 1000.0)
+    time.sleep(tw)
+    fix_sound.stop()
+    time.sleep(2 * conf.BREAK / 1000.0)
 
     # == Phase 2: Stimuli presentation
     first_sound.play()  # start sound
     TRIGGERS.send_trigger(TriggerTypes.STIM_1_START)
-    #TODO: Check if fadeout stopped execution and equals time properly (probably not)
     time.sleep(t1 - TRIGGERS.trigger_time)  # there's a delay during send_trig function, so must be subtracted here
-    first_sound.fadeout(fadeout_time)  # stop sound
+    first_sound.stop()  # stop sound
     TRIGGERS.send_trigger(TriggerTypes.STIM_1_END)
     time.sleep(conf.BREAK / 1000.0)
     event.clearEvents()
@@ -431,7 +429,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
             timeout = False
             win.flip()
             break
-    second_sound.fadeout(fadeout_time)
+    second_sound.stop()
     TRIGGERS.send_trigger(TriggerTypes.STIM_2_END)
 
     # Phase 3: No reaction while stimuli presented
