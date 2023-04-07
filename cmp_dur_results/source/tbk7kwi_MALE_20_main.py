@@ -497,8 +497,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         feedback_label.draw()
         win.flip()
         time.sleep(conf.FEEDB_TIME / 1000.0)
-    jitter_time = random.choice(range(300, 1300)) / 1000.
-    time.sleep(jitter_time)
+
     win.flip()
     check_exit()
     return rt, corr, key[0], standard_first, standard_higher

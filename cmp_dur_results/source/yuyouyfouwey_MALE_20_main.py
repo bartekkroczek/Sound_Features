@@ -447,7 +447,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     win.callOnFlip(sa.play_buffer, second_sound, 1, 2, sample_rate)
     win.callOnFlip(response_clock.reset)
     win.callOnFlip(TRIGGERS.send_trigger, TriggerTypes.STIM_2_START)
-    timer.reset(t=stim_time)  # reverse timer from TIME to 0.
+    timer.reset(t=t2)  # reverse timer from TIME to 0.
     win.flip()  # sound played, clock reset, trig sent
     check_exit()
     while timer.getTime() > 0:  # Handling responses when sounds still playing
@@ -497,8 +497,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         feedback_label.draw()
         win.flip()
         time.sleep(conf.FEEDB_TIME / 1000.0)
-    jitter_time = random.choice(range(300, 1300)) / 1000.
-    time.sleep(jitter_time)
+
     win.flip()
     check_exit()
     return rt, corr, key[0], standard_first, standard_higher

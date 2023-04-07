@@ -1,0 +1,10 @@
+PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat,Standard_first,Standard_higher
+fdfsdssfdfsd_MALE_20,1,cmp_dur,train,noans,0,300,-,-,-,-1.0,True,True
+fdfsdssfdfsd_MALE_20,1,cmp_dur,train,noans,0,300,-,-,-,-1.0,True,True
+fdfsdssfdfsd_MALE_20,1,cmp_dur,train,noans,0,300,-,-,-,-1.0,True,False
+fdfsdssfdfsd_MALE_20,1,cmp_dur,train,noans,0,300,-,-,-,-1.0,True,False
+fdfsdssfdfsd_MALE_20,1,cmp_dur,train,noans,0,300,-,-,-,-1.0,True,True
+fdfsdssfdfsd_MALE_20,2,cmp_dur,train,noans,0,180,-,-,-,-1.0,True,False
+fdfsdssfdfsd_MALE_20,2,cmp_dur,train,noans,0,180,-,-,-,-1.0,True,True
+fdfsdssfdfsd_MALE_20,2,cmp_dur,train,noans,0,180,-,-,-,-1.0,True,True
+fdfsdssfdfsd_MALE_20,2,cmp_dur,train,noans,0,180,-,-,-,-1.0,True,False

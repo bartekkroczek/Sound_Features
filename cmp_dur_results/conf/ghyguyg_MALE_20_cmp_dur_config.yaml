@@ -1,28 +1,29 @@
-MAX_TRIALS: 300 # max no of trials EXPERIMENT: 300 pb-edit:50
-MIN_TRIALS: 250 # EXPERIMENT: 250 pb-edit:10
-MAX_REVS: 12 # No of reversals in adaptive alg. # EXPERIMENT 12
-TRAINING: [ { 'soa': 40, 'reps': 5 }, { 'soa': 20, 'reps': 5 }, { 'soa': 5, 'reps': 5 } ] # in % of loudness
-BREAK: 600 # break time between trials [in ms]
-JITTER_RANGE: [ 400, 800 ]
+MAX_TRIALS: 160 # max no of trials EXPERIMENT: 300 pb-edit:50
+MIN_TRIALS: 200 # EXPERIMENT: 250 pb-edit:10
+MAX_REVS: 14 # No of reversals in adaptive alg. # EXPERIMENT 12
+TRAINING: [ { 'soa': 300, 'reps': 5 }, { 'soa': 180, 'reps': 5 }, { 'soa': 90, 'reps': 5 } ] # in ms
 TRAIN_SOUND_TIME: 500 # Sound presentation time in training [in ms]
-START_SOA: 20
-N_UP: 3
-N_DOWN: 1
-STEP_UP: 5
-STEP_DOWN: 5
-VOLUME: 50 # Sound volume, range [0, 100]
-STANDARD_FREQ: 440 # low sine freq [in Hz]
 FONT_COLOR: grey
 FONT_SIZE: 20
 LANG: pl_PL # en_US and pl_PL supported, feel free to translate for your language (with respect to GNU gettext convention)
+BREAK: 600 # break time between trials [in ms]
+JITTER_RANGE: [ 400, 800 ]
 TIME: 500 # Standard sound presentation time [in ms]
 FEEDB_TIME: 1000 # Feedback label presentation time [in ms]
 RTIME: 4000 # Maximal response time [in ms]
+START_SOA: 180
+N_UP: 3
+N_DOWN: 1
+STEP_UP: 30
+STEP_DOWN: 30
+VOLUME: .5 # Sound volume, range [0.0, 1.0]
+STANDARD_FREQ: 440 # low sine freq [in Hz]
 FIRST_SOUND_KEY: left # keyboard key associate with low freq response
 SECOND_SOUND_KEY: right # keyboard key associate with high freq response
+LEARNING_SOAS: [ 300, 300 ] # How many iterations of a stimuli in the learning phase.
 WHITE_NOISE_LOUDNESS: 0 # Loudness factor for a white noise
 USE_EEG: TRUE
 # DANGER ZONE. Modify only when you have a strong reason.
-FADEOUT_TIME: 80
+FADEOUT_TIME: 0
 WSF: 32768 # WAVE Scaling factor, 16-bit PCM WAVE format operate with values in range [-32768, 32767] (int16)
 SAMPLING_RATE: 44100 # sampling rate, must be integer [in Hz]

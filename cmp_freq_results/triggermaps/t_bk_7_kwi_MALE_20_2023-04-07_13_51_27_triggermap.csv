@@ -1,0 +1,7 @@
+trigger_no,trigger_type,corr,key
+# 0:00:00.000010  | info     | TriggerHandler constructed with params: dummy_mode=True,trigger_time=0.004
+# 0:00:00.000021  | info     | Possible triggerTypes registered: ['stim_1_start', 'stim_1_end', 'stim_2_start', 'stim_2_end', 'answered']
+# 0:00:00.000024  | info     | Dummy mode: True
+# 0:00:00.000027  | info     | Trigger time: 0.004
+# 0:00:00.000030  | info     | Params registered: ['trigger_no', 'trigger_type', 'corr', 'key']
+# 0:00:00.000035  | info     | Trigger limit set to: 60

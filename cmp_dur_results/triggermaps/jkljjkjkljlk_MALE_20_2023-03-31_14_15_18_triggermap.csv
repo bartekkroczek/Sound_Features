@@ -1,0 +1,24 @@
+trigger_no,trigger_type,corr,key
+1,stim_1_start,False,noans
+2,stim_1_end,False,noans
+3,stim_2_start,False,noans
+4,stim_2_end,False,noans
+# 0:00:00.000039  | info     | TriggerHandler constructed with params: dummy_mode=True,trigger_time=0.004
+# 0:00:00.000085  | info     | Possible triggerTypes registered: ['stim_1_start', 'stim_1_end', 'stim_2_start', 'stim_2_end', 'answered']
+# 0:00:00.000099  | info     | Dummy mode: True
+# 0:00:00.000115  | info     | Trigger time: 0.004
+# 0:00:00.000132  | info     | Params registered: ['trigger_no', 'trigger_type', 'corr', 'key']
+# 0:00:00.000148  | info     | Trigger limit set to: 60
+# 0:00:15.531900  | info     | Connected to EEG (in connect_to_eeg())
+# 0:00:21.492997  | info     | Value: 1 sent to EEG.
+# 0:00:21.493015  | info     | send_trigger() run with params trigger_type=stim_1_start, info=None, with_delay=True
+# 0:00:21.497327  | info     | Clear message sent to EEG.
+# 0:00:21.993983  | info     | Value: 2 sent to EEG.
+# 0:00:21.993995  | info     | send_trigger() run with params trigger_type=stim_1_end, info=None, with_delay=True
+# 0:00:21.998336  | info     | Clear message sent to EEG.
+# 0:00:22.622102  | info     | Value: 3 sent to EEG.
+# 0:00:22.622152  | info     | send_trigger() run with params trigger_type=stim_2_start, info=None, with_delay=True
+# 0:00:22.626516  | info     | Clear message sent to EEG.
+# 0:00:22.799295  | info     | Value: 4 sent to EEG.
+# 0:00:22.799301  | info     | send_trigger() run with params trigger_type=stim_2_end, info=None, with_delay=True
+# 0:00:22.803638  | info     | Clear message sent to EEG.

@@ -167,19 +167,18 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
     random.shuffle(freqs)
     first_sound_freq, sec_sound_freq = freqs
     msg = _("First tone higher") if first_sound_freq > sec_sound_freq else _("First tone lower")
-    sound_time = conf.TRAIN_SOUND_TIME / 1000.
+    sound_time = conf.TRAIN_SOUND_TIME
     first_sound = prepare_sound(freq=first_sound_freq, sound_time=sound_time)
     sec_sound = prepare_sound(freq=sec_sound_freq, sound_time=sound_time)
     
     # === Play separator ===
     check_exit()
-    play_obj = audio_separator.play()
-    play_obj.wait_done()
+    play_sound(audio=audio_separator)
     core.wait(2 * sound_time)
     check_exit()
     # === First Sound ===
     play_sound(audio=first_sound)
-    core.wait(sound_time)
+    core.wait(2 * sound_time)
     check_exit()
     # === Secound Sound ===
     play_sound(audio=sec_sound)
@@ -201,7 +200,6 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
     label.draw()
     win.flip()
     event.waitKeys(keyList=['space'])
-    core.wait(sound_time//2)
     win.flip()
 
 
@@ -381,15 +379,19 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     # == Phase 0: Preparation ==
     global _
     key: list = list()
-    stim_time: float = conf.TIME / 1000.0  # first sound playing time
+    fadeout_time: int = conf.FADEOUT_TIME
+    tw: float = (300 - fadeout_time) / 1000.0  # white noise playing time
+    t1: float = (conf.TIME - fadeout_time) / 1000.0  # first sound playing time
+    t2: float = (conf.TIME - fadeout_time) / 1000.0  # sec sound playing time
     soa: float = random.choice([-soa, soa])
     timeout: bool = True
-    sample_rate = conf.SAMPLING_RATE
     corr: bool = False
     timer: core.CountdownTimer = core.CountdownTimer()
     response_clock: core.Clock = core.Clock()
-    first_sound = prepare_sound(freq=conf.STANDARD_FREQ, sound_time=stim_time)
-    second_sound = prepare_sound(freq=conf.STANDARD_FREQ, sound_time=stim_time)
+    first_sound: mixer.Sound = mixer.Sound(
+        join("audio_stims", f"{conf.STANDARD_FREQ}.wav"))
+    second_sound: mixer.Sound = mixer.Sound(
+        join("audio_stims", f"{conf.STANDARD_FREQ}.wav"))
     TRIGGERS.set_curr_trial_start()
     corr_feedback_label = _('Corr ans')
     corr_feedback_label = visual.TextStim(win, text=corr_feedback_label, font='Arial', color=conf.FONT_COLOR,
@@ -402,52 +404,75 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
                                            height=conf.FONT_SIZE)
     standard_first = random.choice([True, False])
     standard_higher = soa < 0  # in freq/loudness/duration
-    if trial_type == TrialType.CMP_FREQ:
+    if trial_type == TrialType.CMP_VOL:
+        if standard_first:
+            first_volume, second_volume = conf.VOLUME, conf.VOLUME + soa
+        else:
+            first_volume, second_volume = conf.VOLUME + soa, conf.VOLUME
+        msg = f"first vol: {first_volume}, sec vol: {second_volume}"
+        first_volume, second_volume = first_volume / 100.0, second_volume / 100.0
+        logging.info(msg)
+        print(msg, end=' =>')
+        first_sound.set_volume(first_volume)
+        second_sound.set_volume(second_volume)
+    elif trial_type == TrialType.CMP_FREQ:
         standard_freq = conf.STANDARD_FREQ
         comparison_freq = standard_freq + soa
         msg = f'Stadard freq: {standard_freq}, Comparsion_freq: {comparison_freq}'
         logging.info(msg)
         print(msg, end='=>')
-        standard = prepare_sound(freq=standard_freq, sound_time=stim_time)
-        comparison = prepare_sound(freq=comparison_freq, sound_time=stim_time)
+        standard = mixer.Sound(join("audio_stims", f'{standard_freq}.wav'))
+        comparison = mixer.Sound(join("audio_stims", f'{comparison_freq}.wav'))
+        standard.set_volume(conf.VOLUME)
+        comparison.set_volume(conf.VOLUME)
         if standard_first:
             first_sound, second_sound = standard, comparison
         else:
             first_sound, second_sound = comparison, standard
     elif trial_type == TrialType.CMP_DUR:
         standard_first = True  # first sound is always this same
-        t1 = conf.TIME / 1000.0
-        t2 = (conf.TIME + soa) / 1000.0
-        first_sound = prepare_sound(freq=conf.STANDARD_FREQ, sound_time=t1)
-        second_sound = prepare_sound(freq=conf.STANDARD_FREQ, sound_time=t2)       
-        msg = f"Time1: {t1}, Time2:{t2}."
+        first_sound = mixer.Sound(
+            join("audio_stims", f'{conf.STANDARD_FREQ}.wav'))
+        second_sound = mixer.Sound(
+            join("audio_stims", f'{conf.STANDARD_FREQ}.wav'))
+        t1 = (conf.TIME - fadeout_time) / 1000.0
+        t2 = (conf.TIME + soa - fadeout_time) / 1000.0
+        msg = f"Time1: {t1}, Time2:{t2}. Fadeout: {fadeout_time}"
         logging.info(msg)
         print(msg, end='=>')
     else:
-        msg = f'Procedure works only with duration or frequency. Not with {trial_type}'
+        msg = f'Procedure works only with Volume, duration or frequency. Not with {trial_type}'
         logging.critical(msg)
         raise NotImplementedError(msg)
     logging.info(f'TrialType: {trial_type}')
     msg = f"Standard is f{'first' if standard_first else 'second'} and {'higher' if standard_higher else 'lower'}"
     logging.info(msg)
     # == Phase 1: White noise
-    play_obj = fix_sound.play()
-    play_obj.wait_done()
+    fix_sound.set_volume(conf.VOLUME)  # set to default vol for exp
+    fix_sound.play()
+    print(tw)
+    core.wait(tw)
+    fix_sound.fadeout(fadeout_time)
+    core.wait(fadeout_time / 1000.)
     core.wait(2 * conf.BREAK / 1000.0)
 
     # == Phase 2: Stimuli presentation
-    play_obj = sa.play_buffer(first_sound, 1, 2, sample_rate)
+    first_sound.play()  # start sound
     TRIGGERS.send_trigger(TriggerTypes.STIM_1_START)
-    play_obj.wait_done()
+    # TODO: Check if fadeout stopped execution and equals time properly (probably not)
+    # there's a delay during send_trig function, so must be subtracted here
+    time.sleep(t1 - TRIGGERS.trigger_time)
+    first_sound.fadeout(fadeout_time)  # stop sound
+    core.wait(fadeout_time / 1000.)
     TRIGGERS.send_trigger(TriggerTypes.STIM_1_END)
     time.sleep(conf.BREAK / 1000.0)
     event.clearEvents()
 
     # make trigger, start of a sound and response timer in sync through win.flip()
-    win.callOnFlip(sa.play_buffer, second_sound, 1, 2, sample_rate)
+    win.callOnFlip(second_sound.play)
     win.callOnFlip(response_clock.reset)
     win.callOnFlip(TRIGGERS.send_trigger, TriggerTypes.STIM_2_START)
-    timer.reset(t=stim_time)  # reverse timer from TIME to 0.
+    timer.reset(t=t2)  # reverse timer from TIME to 0.
     win.flip()  # sound played, clock reset, trig sent
     check_exit()
     while timer.getTime() > 0:  # Handling responses when sounds still playing
@@ -459,6 +484,8 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
             timeout = False
             win.flip()
             break
+    second_sound.fadeout(fadeout_time)
+    core.wait(fadeout_time / 1000.)
     TRIGGERS.send_trigger(TriggerTypes.STIM_2_END)
 
     # Phase 3: No reaction while stimuli presented
@@ -497,8 +524,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         feedback_label.draw()
         win.flip()
         time.sleep(conf.FEEDB_TIME / 1000.0)
-    jitter_time = random.choice(range(300, 1300)) / 1000.
-    time.sleep(jitter_time)
+
     win.flip()
     check_exit()
     return rt, corr, key[0], standard_first, standard_higher

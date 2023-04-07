@@ -13,9 +13,8 @@ from typing import List, Tuple, Dict
 
 import yaml
 from psychopy import visual, event, logging, gui, core
-import simpleaudio as sa
-import numpy as np
-
+from pygame import mixer, quit
+from scipy.io import wavfile
 
 from Adaptives.NUpNDownMinIters import NUpNDownMinIters
 from misc.audio import Dict2Obj
@@ -46,8 +45,7 @@ RESULTS = [['PART_ID', 'Trial', 'Proc_version', 'Exp', 'Key', 'Corr', 'SOA', 'Re
 def check_exit(key='f7'):
     stop = event.getKeys(keyList=[key])
     if stop:
-        abort_with_error(
-            'Experiment finished by user! {} pressed.'.format(key))
+        abort_with_error('Experiment finished by user! {} pressed.'.format(key))
 
 
 def abort_with_error(err):
@@ -74,19 +72,16 @@ def show_info(win: visual, msg: str, insert: Dict[str, str] = {}, font_name: str
     if insert:
         for key, value in insert.items():
             msg.replace(key, value)
-    msg = visual.TextStim(win, font=font_name, color=font_color,
-                          text=msg, height=font_size, wrapWidth=font_max_width)
+    msg = visual.TextStim(win, font=font_name, color=font_color, text=msg, height=font_size, wrapWidth=font_max_width)
     msg.draw()
     win.flip()
     key = event.waitKeys(keyList=['return', 'space', 'f7'])
     if key[0] == 'f7':
-        abort_with_error(
-            'Experiment finished by user! {} pressed.'.format(key))
+        abort_with_error('Experiment finished by user! {} pressed.'.format(key))
     win.flip()
 
 
-# decorator, func will ALWAYS be called when experiment will be closed, even with error.
-@atexit.register
+@atexit.register  # decorator, func will ALWAYS be called when experiment will be closed, even with error.
 def safe_quit() -> None:
     """
     Save beh results, logs, safety ends all frameworks.
@@ -96,10 +91,8 @@ def safe_quit() -> None:
     global RES_DIR
     if 'PART_ID' not in globals():  # Nothing initialised yet, so just turn stuff off.
         raise Exception('No PART_ID in  globals(). Nothing to close.')
-    fname = PART_ID + "_" + \
-        time.strftime("%Y-%m-%d_%H_%M_%S", time.gmtime()) + '_beh.csv'
-    tname = PART_ID + "_" + \
-        time.strftime("%Y-%m-%d_%H_%M_%S", time.gmtime()) + '_triggermap.csv'
+    fname = PART_ID + "_" + time.strftime("%Y-%m-%d_%H_%M_%S", time.gmtime()) + '_beh.csv'
+    tname = PART_ID + "_" + time.strftime("%Y-%m-%d_%H_%M_%S", time.gmtime()) + '_triggermap.csv'
     with open(join(RES_DIR, 'beh', fname), 'w') as beh_file:
         beh_writer = csv.writer(beh_file)
         beh_writer.writerows(RESULTS)
@@ -115,34 +108,7 @@ class TrialType(object):
     CMP_VOL = 'cmp_vol'
 
 
-def prepare_sound(freq, sound_time, sample_rate=44100, transition_time=0.05):
-    sample_rate = 44100
-    t = np.linspace(0, sound_time, int(sound_time * sample_rate), False)
-
-    # generate sine wave note
-    note = np.sin(freq * t * 2 * np.pi)
-
-    # add rise_up and fall_down to sound to avoid noises
-    fall_down = np.linspace(1, 0, int(transition_time * sample_rate))
-    rise_up = np.linspace(0, 1, int(transition_time * sample_rate))
-    transition = np.hstack(
-        (rise_up, ([1] * (len(note) - 2 * len(fall_down))), fall_down))
-    audio = note * transition
-
-    # normalize to 16-bit range
-    audio *= 32767 / np.max(np.abs(audio))
-    # convert to 16-bit data
-    return audio.astype(np.int16)
-
-
-def play_sound(audio, sample_rate=44100) -> None:
-    # start playback
-    play_obj = sa.play_buffer(audio, 1, 2, sample_rate)
-    # wait for playback to finish before exiting
-    play_obj.wait_done()
-
-
-def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: float, audio_separator,
+def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: float, audio_separator: mixer.Sound,
                             conf: Dict2Obj) -> None:
     """
    Simple func for playing sound with relevant label. Useful for learning.
@@ -160,31 +126,34 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
 
     if soa < 0:
         raise ValueError('Learning phase soa must be positive.')
-    label = visual.TextStim(win, color=conf.FONT_COLOR,
-                            height=conf.FONT_SIZE, wrapWidth=conf.SCREEN_RES['width'])
+    label = visual.TextStim(win, color=conf.FONT_COLOR, height=conf.FONT_SIZE, wrapWidth=conf.SCREEN_RES['width'])
     soa = random.choice([-soa, soa])
     freqs = [standard_freq, standard_freq + soa]
     random.shuffle(freqs)
     first_sound_freq, sec_sound_freq = freqs
     msg = _("First tone higher") if first_sound_freq > sec_sound_freq else _("First tone lower")
-    sound_time = conf.TRAIN_SOUND_TIME / 1000.
-    first_sound = prepare_sound(freq=first_sound_freq, sound_time=sound_time)
-    sec_sound = prepare_sound(freq=sec_sound_freq, sound_time=sound_time)
-    
+    first_sound = mixer.Sound(join('audio_stims', f'{first_sound_freq}.wav'))
+    sec_sound = mixer.Sound(join('audio_stims', f'{sec_sound_freq}.wav'))
+    fadeout_time = conf.FADEOUT_TIME
+    sound_time = (conf.TRAIN_SOUND_TIME - fadeout_time) / 1000.0
     # === Play separator ===
     check_exit()
-    play_obj = audio_separator.play()
-    play_obj.wait_done()
+    audio_separator.play()
+    win.flip()
+    core.wait(sound_time)
+    audio_separator.fadeout(fadeout_time)
+    core.wait(sound_time)
+    check_exit()
+    # === First Sound === 
+    first_sound.play()
+    core.wait(sound_time)
+    first_sound.fadeout(fadeout_time)
     core.wait(2 * sound_time)
-    check_exit()
-    # === First Sound ===
-    play_sound(audio=first_sound)
-    core.wait(sound_time)
-    check_exit()
     # === Secound Sound ===
-    play_sound(audio=sec_sound)
-    core.wait(sound_time)
+    sec_sound.play()
     check_exit()
+    core.wait(sound_time)
+    sec_sound.fadeout(fadeout_time)
     # === Labels ===
     check_exit()
     core.wait(sound_time / 2)
@@ -201,26 +170,21 @@ def present_learning_sample(win: visual, idx: int, soa: int, standard_freq: floa
     label.draw()
     win.flip()
     event.waitKeys(keyList=['space'])
-    core.wait(sound_time//2)
     win.flip()
 
 
 def main():
     global RES_DIR, PART_ID
     # %% === Dialog popup ===
-    info = {'PART_ID': '', 'Sex': ["MALE", "FEMALE"],
-            'AGE': '20', 'VERSION': ['cmp_dur', 'cmp_freq']}
-    dictDlg = gui.DlgFromDict(
-        dictionary=info, title="Study Y. Sound Procedures.")
+    info = {'PART_ID': '', 'Sex': ["MALE", "FEMALE"], 'AGE': '20', 'VERSION': ['cmp_dur', 'cmp_freq']}
+    dictDlg = gui.DlgFromDict(dictionary=info, title="Study Y. Sound Procedures.")
     if not dictDlg.OK:
         raise Exception('Dialog popup exception')
     ver = info['VERSION']
     RES_DIR = ver + '_results'
     PART_ID = f"{info['PART_ID']}_{info['Sex']}_{info['AGE']}"
-    fname = PART_ID + "_" + \
-        time.strftime("%Y-%m-%d_%H_%M_%S", time.gmtime()) + '.log'
-    logging.LogFile(join(RES_DIR, 'log', fname),
-                    level=logging.INFO)  # errors logging
+    fname = PART_ID + "_" + time.strftime("%Y-%m-%d_%H_%M_%S", time.gmtime()) + '.log'
+    logging.LogFile(join(RES_DIR, 'log', fname), level=logging.INFO)  # errors logging
     underscore_in_partid = "_" in info['PART_ID']
     if underscore_in_partid:
         msg = 'Underscore "_" is illegal as a participant name.'
@@ -228,8 +192,7 @@ def main():
         app = wx.App()
         wx.MessageBox(msg, 'Error',  wx.OK | wx.ICON_ERROR)
         raise AttributeError('Participant name cannot have underscore in it.')
-    curr_id_already_used = info['PART_ID'] in [
-        f.split('_')[0] for f in os.listdir(join(f'{ver}_results', 'beh'))]
+    curr_id_already_used = info['PART_ID'] in [f.split('_')[0] for f in os.listdir(join(f'{ver}_results', 'beh'))]
     if curr_id_already_used:
         msg = f"Current id:{info['PART_ID']} already used, check if you choose right proc ver({ver})."
         logging.critical(msg)
@@ -249,32 +212,30 @@ def main():
         wx.MessageBox(msg, 'Error',  wx.OK | wx.ICON_ERROR)
     # %% == I18N
     try:
-        localedir = os.path.join(os.path.abspath(
-            os.path.dirname(__file__)), 'locale')
-        lang = gettext.translation(
-            conf['LANG'], localedir, languages=[conf['LANG']])
+        localedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'locale')
+        lang = gettext.translation(conf['LANG'], localedir, languages=[conf['LANG']])
         _ = lang.gettext  # to suppress No '_' in domain error.
         lang.install()
     except OSError:
-        msg = "Language {} not supported, add translation or change lang in config.".format(
-            conf['LANG'])
+        msg = "Language {} not supported, add translation or change lang in config.".format(conf['LANG'])
         logging.critical(msg)
         raise OSError(msg)
     # %% == Procedure Init ==
+    mixer.pre_init(conf.SAMPLING_RATE, -16, 2, 512)
+    mixer.init(conf.SAMPLING_RATE, -16, 2, 512)
     conf.SCREEN_RES = SCREEN_RES = get_screen_res()
-    win = visual.Window(list(SCREEN_RES.values()), fullscr=True,
-                        monitor='testMonitor', units='pix', color='black')
+    win = visual.Window(list(SCREEN_RES.values()), fullscr=True, monitor='testMonitor', units='pix', color='black')
     event.Mouse(visible=False, newPos=None, win=win)  # Make mouse invisible
     FRAME_RATE = get_frame_rate(win)
     conf.FRAME_RATE = FRAME_RATE
     logging.info('FRAME RATE: {}'.format(FRAME_RATE))
     logging.info('SCREEN RES: {}'.format(SCREEN_RES.values()))
-    shutil.copy2(f'{ver}_config.yaml', join(
-        RES_DIR, 'conf', f'{PART_ID}_{ver}_config.yaml'))
+    shutil.copy2(f'{ver}_config.yaml', join(RES_DIR, 'conf', f'{PART_ID}_{ver}_config.yaml'))
     shutil.copy2('main.py', join(RES_DIR, 'source', PART_ID + '_main.py'))
 
     # %% == Sounds preparation
-    white_noise = sa.WaveObject.from_wave_file('white_noise.wav')
+    white_noise = mixer.Sound('white_noise.wav')
+    mixer.set_num_channels(2)
     # %% == Labels preparation ==
     answer_label = {'cmp_vol': _('Volume: Answer Label'), 'cmp_freq': _('Freq: Answer Label'),
                     'cmp_dur': _('Dur: Answer Label')}[ver]
@@ -295,8 +256,7 @@ def main():
         show_info(win=win, msg=_('Freq: hello, before learning'))
         core.wait(conf.TRAIN_SOUND_TIME / 1000.0)
         for idx, soa in enumerate(conf.LEARNING_SOAS, start=1):
-            present_learning_sample(
-                win, idx, soa, conf.STANDARD_FREQ, white_noise, conf=conf)
+            present_learning_sample(win, idx, soa, conf.STANDARD_FREQ, white_noise, conf=conf)
             check_exit()
         show_info(win=win, msg=_('Freq: hello, after learning'))
 
@@ -312,13 +272,10 @@ def main():
     win.flip()
     for idx, level in enumerate(training, 1):
         for soa in level:
-            rt, corr, key, sf, sh = run_trial(
-                win, ver, soa, conf, white_noise, answer_labels, feedback=True)
-            RESULTS.append([PART_ID, idx, ver, 'train', key,
-                           int(corr), soa, '-', '-', '-', rt, sf, sh])
+            rt, corr, key, sf, sh = run_trial(win, ver, soa, conf, white_noise, answer_labels, feedback=True)
+            RESULTS.append([PART_ID, idx, ver, 'train', key, int(corr), soa, '-', '-', '-', rt, sf, sh])
             core.wait(conf.BREAK / 1000.0)
-            core.wait(random.choice(
-                range(*conf.JITTER_RANGE)) / 1000.0)  # jitter
+            core.wait(random.choice(range(*conf.JITTER_RANGE)) / 1000.0)  # jitter
     for lab in answer_labels:
         lab.setAutoDraw(False)
     win.flip()
@@ -333,27 +290,23 @@ def main():
         lab.setAutoDraw(True)
     win.flip()
     for idx, soa in enumerate(experiment, idx):
-        rt, corr, key, sf, sh = run_trial(
-            win, ver, soa, conf, white_noise, answer_labels, feedback=False)
+        rt, corr, key, sf, sh = run_trial(win, ver, soa, conf, white_noise, answer_labels, feedback=False)
         experiment.set_corr(bool(corr))
         level, reversal, revs_count = map(int, experiment.get_jump_status())
 
-        # Only first occurrence of revs_count should be in conf, otherwise '-'.
-        if old_rev_count_val != revs_count:
+        if old_rev_count_val != revs_count:  # Only first occurrence of revs_count should be in conf, otherwise '-'.
             old_rev_count_val = revs_count
             rev_count_val = revs_count
         else:
             rev_count_val = '-'
 
-        RESULTS.append([PART_ID, idx, ver, 'exp', key, int(
-            corr), soa, reversal, level, rev_count_val, rt, sf, sh])
+        RESULTS.append([PART_ID, idx, ver, 'exp', key, int(corr), soa, reversal, level, rev_count_val, rt, sf, sh])
         if idx == conf.MAX_TRIALS:
             break
         core.wait(conf.BREAK / 1000.0)
         core.wait(random.choice(range(*conf.JITTER_RANGE)) / 1000.0)  # jitter
     # %% == Clear experiment
-    msg = {'cmp_vol': _('Volume: end'), 'cmp_freq': _(
-        'Freq: end'), 'cmp_dur': _('Dur: end')}[ver]
+    msg = {'cmp_vol': _('Volume: end'), 'cmp_freq': _('Freq: end'), 'cmp_dur': _('Dur: end')}[ver]
     for lab in answer_labels:
         lab.setAutoDraw(False)
     win.flip()
@@ -363,7 +316,7 @@ def main():
     quit()
 
 
-def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Obj, fix_sound,
+def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Obj, fix_sound: mixer.Sound,
               ans_lbs: List[visual.TextStim], feedback: bool) -> Tuple[float, any, str]:
     """
         Single trial presented for participant.
@@ -381,15 +334,17 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     # == Phase 0: Preparation ==
     global _
     key: list = list()
-    stim_time: float = conf.TIME / 1000.0  # first sound playing time
+    fadeout_time: int = conf.FADEOUT_TIME
+    tw: float = (300 - fadeout_time) / 1000.0 # white noise playing time
+    t1: float = (conf.TIME - fadeout_time) / 1000.0  # first sound playing time
+    t2: float = (conf.TIME - fadeout_time) / 1000.0  # sec sound playing time
     soa: float = random.choice([-soa, soa])
     timeout: bool = True
-    sample_rate = conf.SAMPLING_RATE
     corr: bool = False
     timer: core.CountdownTimer = core.CountdownTimer()
     response_clock: core.Clock = core.Clock()
-    first_sound = prepare_sound(freq=conf.STANDARD_FREQ, sound_time=stim_time)
-    second_sound = prepare_sound(freq=conf.STANDARD_FREQ, sound_time=stim_time)
+    first_sound: mixer.Sound = mixer.Sound(join("audio_stims", f"{conf.STANDARD_FREQ}.wav"))
+    second_sound: mixer.Sound = mixer.Sound(join("audio_stims", f"{conf.STANDARD_FREQ}.wav"))
     TRIGGERS.set_curr_trial_start()
     corr_feedback_label = _('Corr ans')
     corr_feedback_label = visual.TextStim(win, text=corr_feedback_label, font='Arial', color=conf.FONT_COLOR,
@@ -402,69 +357,86 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
                                            height=conf.FONT_SIZE)
     standard_first = random.choice([True, False])
     standard_higher = soa < 0  # in freq/loudness/duration
-    if trial_type == TrialType.CMP_FREQ:
+    if trial_type == TrialType.CMP_VOL:
+        if standard_first:
+            first_volume, second_volume = conf.VOLUME, conf.VOLUME + soa
+        else:
+            first_volume, second_volume = conf.VOLUME + soa, conf.VOLUME
+        msg = f"first vol: {first_volume}, sec vol: {second_volume}"
+        first_volume, second_volume = first_volume / 100.0, second_volume / 100.0
+        logging.info(msg)
+        print(msg, end=' =>')
+        first_sound.set_volume(first_volume)
+        second_sound.set_volume(second_volume)
+    elif trial_type == TrialType.CMP_FREQ:
         standard_freq = conf.STANDARD_FREQ
         comparison_freq = standard_freq + soa
         msg = f'Stadard freq: {standard_freq}, Comparsion_freq: {comparison_freq}'
         logging.info(msg)
         print(msg, end='=>')
-        standard = prepare_sound(freq=standard_freq, sound_time=stim_time)
-        comparison = prepare_sound(freq=comparison_freq, sound_time=stim_time)
+        standard = mixer.Sound(join("audio_stims", f'{standard_freq}.wav'))
+        comparison = mixer.Sound(join("audio_stims", f'{comparison_freq}.wav'))
+        standard.set_volume(conf.VOLUME)
+        comparison.set_volume(conf.VOLUME)
         if standard_first:
             first_sound, second_sound = standard, comparison
         else:
             first_sound, second_sound = comparison, standard
     elif trial_type == TrialType.CMP_DUR:
         standard_first = True  # first sound is always this same
-        t1 = conf.TIME / 1000.0
-        t2 = (conf.TIME + soa) / 1000.0
-        first_sound = prepare_sound(freq=conf.STANDARD_FREQ, sound_time=t1)
-        second_sound = prepare_sound(freq=conf.STANDARD_FREQ, sound_time=t2)       
-        msg = f"Time1: {t1}, Time2:{t2}."
+        first_sound = mixer.Sound(join("audio_stims", f'{conf.STANDARD_FREQ}.wav'))
+        second_sound = mixer.Sound(join("audio_stims", f'{conf.STANDARD_FREQ}.wav'))
+        t1 = (conf.TIME - fadeout_time) / 1000.0
+        t2 = (conf.TIME + soa - fadeout_time) / 1000.0
+        msg = f"Time1: {t1}, Time2:{t2}. Fadeout: {fadeout_time}"
         logging.info(msg)
         print(msg, end='=>')
     else:
-        msg = f'Procedure works only with duration or frequency. Not with {trial_type}'
+        msg = f'Procedure works only with Volume, duration or frequency. Not with {trial_type}'
         logging.critical(msg)
         raise NotImplementedError(msg)
     logging.info(f'TrialType: {trial_type}')
     msg = f"Standard is f{'first' if standard_first else 'second'} and {'higher' if standard_higher else 'lower'}"
     logging.info(msg)
     # == Phase 1: White noise
-    play_obj = fix_sound.play()
-    play_obj.wait_done()
+    fix_sound.set_volume(conf.VOLUME)  # set to default vol for exp
+    fix_sound.play()
+    print(tw)
+    core.wait(tw)
+    fix_sound.fadeout(fadeout_time)
     core.wait(2 * conf.BREAK / 1000.0)
 
     # == Phase 2: Stimuli presentation
-    play_obj = sa.play_buffer(first_sound, 1, 2, sample_rate)
+    first_sound.play()  # start sound
     TRIGGERS.send_trigger(TriggerTypes.STIM_1_START)
-    play_obj.wait_done()
+    #TODO: Check if fadeout stopped execution and equals time properly (probably not)
+    time.sleep(t1 - TRIGGERS.trigger_time)  # there's a delay during send_trig function, so must be subtracted here
+    first_sound.fadeout(fadeout_time)  # stop sound
     TRIGGERS.send_trigger(TriggerTypes.STIM_1_END)
     time.sleep(conf.BREAK / 1000.0)
     event.clearEvents()
 
     # make trigger, start of a sound and response timer in sync through win.flip()
-    win.callOnFlip(sa.play_buffer, second_sound, 1, 2, sample_rate)
+    win.callOnFlip(second_sound.play)
     win.callOnFlip(response_clock.reset)
     win.callOnFlip(TRIGGERS.send_trigger, TriggerTypes.STIM_2_START)
-    timer.reset(t=stim_time)  # reverse timer from TIME to 0.
+    timer.reset(t=t2)  # reverse timer from TIME to 0.
     win.flip()  # sound played, clock reset, trig sent
     check_exit()
     while timer.getTime() > 0:  # Handling responses when sounds still playing
-        key = event.getKeys(
-            keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])
+        key = event.getKeys(keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])
         if key:
             rt = response_clock.getTime()
             TRIGGERS.send_trigger(TriggerTypes.ANSWERED)
             timeout = False
             win.flip()
             break
+    second_sound.fadeout(fadeout_time)
     TRIGGERS.send_trigger(TriggerTypes.STIM_2_END)
 
     # Phase 3: No reaction while stimuli presented
     if not key:  # no reaction when sound was played, wait some more.
-        key = event.waitKeys(maxWait=conf.RTIME / 1000.0,
-                             keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])
+        key = event.waitKeys(maxWait=conf.RTIME / 1000.0, keyList=[conf.FIRST_SOUND_KEY, conf.SECOND_SOUND_KEY])
         if key:  # check if any reaction, if no - timeout
             rt = response_clock.getTime()
             timeout = False
@@ -497,8 +469,7 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
         feedback_label.draw()
         win.flip()
         time.sleep(conf.FEEDB_TIME / 1000.0)
-    jitter_time = random.choice(range(300, 1300)) / 1000.
-    time.sleep(jitter_time)
+
     win.flip()
     check_exit()
     return rt, corr, key[0], standard_first, standard_higher
