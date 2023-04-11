@@ -382,6 +382,8 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     global _
     key: list = list()
     stim_time: float = conf.TIME / 1000.0  # first sound playing time
+    t1: float = stim_time
+    t2: float = stim_time
     soa: float = random.choice([-soa, soa])
     timeout: bool = True
     sample_rate = conf.SAMPLING_RATE
@@ -405,11 +407,12 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     if trial_type == TrialType.CMP_FREQ:
         standard_freq = conf.STANDARD_FREQ
         comparison_freq = standard_freq + soa
+        t1, t2 = stim_time, stim_time
         msg = f'Stadard freq: {standard_freq}, Comparsion_freq: {comparison_freq}'
         logging.info(msg)
         print(msg, end='=>')
-        standard = prepare_sound(freq=standard_freq, sound_time=stim_time)
-        comparison = prepare_sound(freq=comparison_freq, sound_time=stim_time)
+        standard = prepare_sound(freq=standard_freq, sound_time=t1)
+        comparison = prepare_sound(freq=comparison_freq, sound_time=t2)
         if standard_first:
             first_sound, second_sound = standard, comparison
         else:
@@ -447,8 +450,8 @@ def run_trial(win: visual.Window, trial_type: TrialType, soa: int, conf: Dict2Ob
     win.callOnFlip(sa.play_buffer, second_sound, 1, 2, sample_rate)
     win.callOnFlip(response_clock.reset)
     win.callOnFlip(TRIGGERS.send_trigger, TriggerTypes.STIM_2_START)
-    timer.reset(t=stim_time)  # reverse timer from TIME to 0.
-    win.flip()  # sound played, clock reset, trig sent
+    win.callOnFlip(timer.reset, t2)
+    win.flip()  # sound played, clocks reset, trig sent
     check_exit()
     while timer.getTime() > 0:  # Handling responses when sounds still playing
         key = event.getKeys(
