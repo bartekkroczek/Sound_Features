@@ -1,5 +1,0 @@
-PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat,Standard_first,Standard_higher
-huihiuhuigh_MALE_20,1,cmp_freq,train,noans,0,50,-,-,-,-1.0,False,False
-huihiuhuigh_MALE_20,1,cmp_freq,train,noans,0,50,-,-,-,-1.0,True,True
-huihiuhuigh_MALE_20,1,cmp_freq,train,noans,0,50,-,-,-,-1.0,False,True
-huihiuhuigh_MALE_20,1,cmp_freq,train,noans,0,50,-,-,-,-1.0,True,True

@@ -1,8 +1,0 @@
-PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat,Standard_first,Standard_higher
-grgr_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,1.8801820278167725,False,False
-grgr_MALE_20,1,cmp_freq,train,left,0,50,-,-,-,2.001269817352295,True,False
-grgr_MALE_20,1,cmp_freq,train,noans,0,50,-,-,-,-1.0,False,True
-grgr_MALE_20,1,cmp_freq,train,noans,0,50,-,-,-,-1.0,True,False
-grgr_MALE_20,1,cmp_freq,train,noans,0,50,-,-,-,-1.0,True,True
-grgr_MALE_20,2,cmp_freq,train,noans,0,20,-,-,-,-1.0,True,True
-grgr_MALE_20,2,cmp_freq,train,noans,0,20,-,-,-,-1.0,False,False

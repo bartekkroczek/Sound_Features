@@ -1,6 +1,0 @@
-PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat,Standard_first,Standard_higher
-tergporeoi_MALE_20,1,cmp_freq,train,right,1,50,-,-,-,2.2229509353637695,False,True
-tergporeoi_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,0.810183048248291,False,False
-tergporeoi_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,0.9497189521789551,True,True
-tergporeoi_MALE_20,1,cmp_freq,train,left,1,50,-,-,-,0.8998720645904541,False,False
-tergporeoi_MALE_20,1,cmp_freq,train,right,1,50,-,-,-,1.2573890686035156,False,True

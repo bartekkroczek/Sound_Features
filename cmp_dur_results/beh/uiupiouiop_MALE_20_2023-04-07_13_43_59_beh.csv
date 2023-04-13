@@ -1,4 +1,0 @@
-PART_ID,Trial,Proc_version,Exp,Key,Corr,SOA,Reversal,Level,Rev_count,Lat,Standard_first,Standard_higher
-uiupiouiop_MALE_20,1,cmp_dur,train,left,0,300,-,-,-,2.54866099357605,True,False
-uiupiouiop_MALE_20,1,cmp_dur,train,right,0,300,-,-,-,1.7979471683502197,True,True
-uiupiouiop_MALE_20,1,cmp_dur,train,right,0,300,-,-,-,1.7287957668304443,True,True
